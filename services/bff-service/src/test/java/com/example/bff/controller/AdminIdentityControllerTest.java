@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;
@@ -21,6 +22,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
+@ActiveProfiles("test")
 class AdminIdentityControllerTest {
 
     @Autowired
@@ -42,7 +44,7 @@ class AdminIdentityControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(body)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.message").value("User roles successfully updated and all sessions terminated"));
+                .andExpect(jsonPath("$.message").value("User roles successfully updated"));
 
         verify(adminIdentityService).updateUserRoles("user-1", List.of("EVENT_ORGANIZER", "STAFF"));
     }

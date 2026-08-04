@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.inventory.application.UseCasesTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-08-04T07:05:23" hostname="DESKTOP-APGR6KO" time="1.06">
+<testsuite name="com.example.inventory.application.UseCasesTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-08-04T13:07:03" hostname="DESKTOP-APGR6KO" time="1.918">
   <properties/>
-  <testcase name="shouldExpireAllHeldReservations_pastExpiration()" classname="com.example.inventory.application.UseCasesTest" time="0.889"/>
-  <testcase name="shouldConfirmReservation_whenStatusIsHeld()" classname="com.example.inventory.application.UseCasesTest" time="0.04"/>
-  <testcase name="shouldReturnExistingReservation_whenRequestIdIsDuplicated()" classname="com.example.inventory.application.UseCasesTest" time="0.014"/>
-  <testcase name="shouldReserveTickets_whenInventoryIsAvailable()" classname="com.example.inventory.application.UseCasesTest" time="0.017"/>
-  <testcase name="shouldReleaseReservation_whenStatusIsHeld()" classname="com.example.inventory.application.UseCasesTest" time="0.03"/>
-  <testcase name="shouldRejectConfirmation_whenReservationIsExpired()" classname="com.example.inventory.application.UseCasesTest" time="0.025"/>
-  <testcase name="shouldRejectReservation_whenInventoryIsInsufficient()" classname="com.example.inventory.application.UseCasesTest" time="0.015"/>
+  <testcase name="shouldExpireAllHeldReservations_pastExpiration()" classname="com.example.inventory.application.UseCasesTest" time="1.647"/>
+  <testcase name="shouldConfirmReservation_whenStatusIsHeld()" classname="com.example.inventory.application.UseCasesTest" time="0.091"/>
+  <testcase name="shouldReturnExistingReservation_whenRequestIdIsDuplicated()" classname="com.example.inventory.application.UseCasesTest" time="0.038"/>
+  <testcase name="shouldReserveTickets_whenInventoryIsAvailable()" classname="com.example.inventory.application.UseCasesTest" time="0.033"/>
+  <testcase name="shouldReleaseReservation_whenStatusIsHeld()" classname="com.example.inventory.application.UseCasesTest" time="0.032"/>
+  <testcase name="shouldRejectConfirmation_whenReservationIsExpired()" classname="com.example.inventory.application.UseCasesTest" time="0.032"/>
+  <testcase name="shouldRejectReservation_whenInventoryIsInsufficient()" classname="com.example.inventory.application.UseCasesTest" time="0.017"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

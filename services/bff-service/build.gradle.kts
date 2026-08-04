@@ -34,10 +34,13 @@ dependencies {
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.security:spring-security-test")
-    testImplementation("org.testcontainers:junit-jupiter")
-    testImplementation("org.testcontainers:keycloak:1.32.1")
+    testImplementation("org.testcontainers:junit-jupiter:1.20.4")
+    testImplementation("com.github.dasniko:testcontainers-keycloak:3.3.1")
 }
 
 tasks.withType<Test> {
     useJUnitPlatform()
+    systemProperty("DOCKER_API_VERSION", "1.44")
+    systemProperty("api.version", "1.44")
+    environment("DOCKER_API_VERSION", "1.44")
 }

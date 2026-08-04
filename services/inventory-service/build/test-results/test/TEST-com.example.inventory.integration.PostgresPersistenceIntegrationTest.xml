@@ -1,228 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.inventory.integration.PostgresPersistenceIntegrationTest" tests="3" skipped="0" failures="3" errors="0" timestamp="2026-08-04T07:02:36" hostname="DESKTOP-APGR6KO" time="95.116">
+<testsuite name="com.example.inventory.integration.PostgresPersistenceIntegrationTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-08-04T13:06:59" hostname="DESKTOP-APGR6KO" time="2.004">
   <properties/>
-  <testcase name="shouldPerformAtomicReserve()" classname="com.example.inventory.integration.PostgresPersistenceIntegrationTest" time="32.498">
-    <failure message="org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection" type="org.springframework.jdbc.CannotGetJdbcConnectionException">org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection
-	at app//org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:84)
-	at app//org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:388)
-	at app//org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:444)
-	at app//com.example.inventory.integration.AbstractIntegrationTest.cleanDatabase(AbstractIntegrationTest.java:47)
-	at java.base@21.0.11/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base@21.0.11/java.lang.reflect.Method.invoke(Method.java:580)
-	at app//org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
-	at app//org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
-	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
-	at app//org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
-	at app//org.junit.jupiter.engine.extension.TimeoutExtension.interceptLifecycleMethod(TimeoutExtension.java:128)
-	at app//org.junit.jupiter.engine.extension.TimeoutExtension.interceptBeforeEachMethod(TimeoutExtension.java:78)
-	at app//org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
-	at app//org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
-	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
-	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
-	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
-	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
-	at app//org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
-	at app//org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
-	at app//org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeMethodInExtensionContext(ClassBasedTestDescriptor.java:521)
-	at app//org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$synthesizeBeforeEachMethodAdapter$23(ClassBasedTestDescriptor.java:506)
-	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeBeforeEachMethods$3(TestMethodTestDescriptor.java:175)
-	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeBeforeMethodsOrCallbacksUntilExceptionOccurs$6(TestMethodTestDescriptor.java:203)
-	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeBeforeMethodsOrCallbacksUntilExceptionOccurs(TestMethodTestDescriptor.java:203)
-	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeBeforeEachMethods(TestMethodTestDescriptor.java:172)
-	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:135)
-	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
-	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at app//org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at java.base@21.0.11/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
-	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at app//org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at java.base@21.0.11/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
-	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at app//org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
-	at app//org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
-	at app//org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
-	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
-	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
-	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
-	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
-	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
-	at app//org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
-	at app//org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
-	at app//org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:124)
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:99)
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:94)
-	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:63)
-	at java.base@21.0.11/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base@21.0.11/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
-	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:92)
-	at jdk.proxy1/jdk.proxy1.$Proxy4.stop(Unknown Source)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:200)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:132)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:103)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:63)
-	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
-	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:121)
-	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:71)
-	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
-	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
-Caused by: java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 30001ms.
-	at app//com.zaxxer.hikari.pool.HikariPool.createTimeoutException(HikariPool.java:696)
-	at app//com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:181)
-	at app//com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:146)
-	at app//com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:128)
-	at app//org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:160)
-	at app//org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:118)
-	at app//org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:81)
-	... 87 more
-Caused by: org.postgresql.util.PSQLException: Connection to localhost:32770 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
-	at app//org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:342)
-	at app//org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
-	at app//org.postgresql.jdbc.PgConnection.&lt;init&gt;(PgConnection.java:263)
-	at app//org.postgresql.Driver.makeConnection(Driver.java:443)
-	at app//org.postgresql.Driver.connect(Driver.java:297)
-	at app//com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
-	at app//com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
-	at app//com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
-	at app//com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
-	at app//com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:733)
-	at app//com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:712)
-	at java.base@21.0.11/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base@21.0.11/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base@21.0.11/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base@21.0.11/java.lang.Thread.run(Thread.java:1583)
-Caused by: java.net.ConnectException: Connection refused
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:694)
-	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
-	at java.base/java.net.Socket.connect(Socket.java:751)
-	at org.postgresql.core.PGStream.createSocket(PGStream.java:243)
-	at org.postgresql.core.PGStream.&lt;init&gt;(PGStream.java:98)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:132)
-	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:258)
-	... 14 more
-</failure>
-  </testcase>
-  <testcase name="shouldSaveAndLoadInventory()" classname="com.example.inventory.integration.PostgresPersistenceIntegrationTest" time="30.038">
-    <failure message="org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection" type="org.springframework.jdbc.CannotGetJdbcConnectionException">org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection
-	at app//org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:84)
-	at app//org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:388)
-	at app//org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:444)
-	at app//com.example.inventory.integration.AbstractIntegrationTest.cleanDatabase(AbstractIntegrationTest.java:47)
-	at java.base@21.0.11/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base@21.0.11/java.lang.reflect.Method.invoke(Method.java:580)
-	at app//org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
-	at app//org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
-	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
-	at app//org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
-	at app//org.junit.jupiter.engine.extension.TimeoutExtension.interceptLifecycleMethod(TimeoutExtension.java:128)
-	at app//org.junit.jupiter.engine.extension.TimeoutExtension.interceptBeforeEachMethod(TimeoutExtension.java:78)
-	at app//org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
-	at app//org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
-	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
-	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
-	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
-	at app//org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
-	at app//org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
-	at app//org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
-	at app//org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeMethodInExtensionContext(ClassBasedTestDescriptor.java:521)
-	at app//org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$synthesizeBeforeEachMethodAdapter$23(ClassBasedTestDescriptor.java:506)
-	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeBeforeEachMethods$3(TestMethodTestDescriptor.java:175)
-	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeBeforeMethodsOrCallbacksUntilExceptionOccurs$6(TestMethodTestDescriptor.java:203)
-	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeBeforeMethodsOrCallbacksUntilExceptionOccurs(TestMethodTestDescriptor.java:203)
-	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeBeforeEachMethods(TestMethodTestDescriptor.java:172)
-	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:135)
-	at app//org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
-	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at app//org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at java.base@21.0.11/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
-	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at app//org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at java.base@21.0.11/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
-	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at app//org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at app//org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at app//org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at app//org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
-	at app//org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
-	at app//org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
-	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
-	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
-	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
-	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
-	at app//org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
-	at app//org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
-	at app//org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
-	at app//org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:124)
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:99)
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:94)
-	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:63)
-	at java.base@21.0.11/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base@21.0.11/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
-	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:92)
-	at jdk.proxy1/jdk.proxy1.$Proxy4.stop(Unknown Source)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:200)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:132)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:103)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:63)
-	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
-	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:121)
-	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:71)
-	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
-	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
-Caused by: java.sql.SQLTransientConnectionException: HikariPool-1 - Connection is not available, request timed out after 30000ms.
-	at app//com.zaxxer.hikari.pool.HikariPool.createTimeoutException(HikariPool.java:696)
-	at app//com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:181)
-	at app//com.zaxxer.hikari.pool.HikariPool.getConnection(HikariPool.java:146)
-	at app//com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:128)
-	at app//org.sp
+  <testcase name="shouldPerformAtomicReserve()" classname="com.example.inventory.integration.PostgresPersistenceIntegrationTest" time="1.81"/>
+  <testcase name="shouldSaveAndLoadInventory()" classname="com.example.inventory.integration.PostgresPersistenceIntegrationTest" time="0.066"/>
+  <testcase name="shouldSaveAndFindReservationByRequestId()" classname="com.example.inventory.integration.PostgresPersistenceIntegrationTest" time="0.11"/>
+  <system-out><![CDATA[20:06:35.369 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.inventory.integration.PostgresPersistenceIntegrationTest]: PostgresPersistenceIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+20:06:35.654 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.inventory.InventoryApplication for test class com.example.inventory.integration.PostgresPersistenceIntegrationTest
+20:06:35.957 [Test worker] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
+20:06:35.963 [Test worker] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+20:06:36.000 [Test worker] INFO org.testcontainers.DockerClientFactory -- Testcontainers version: 1.20.4
+20:06:37.475 [Test worker] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Found Docker environment with Environment variables, system properties and defaults. Resolved dockerHost=unix:///var/run/docker.sock
+20:06:37.477 [Test worker] INFO org.testcontainers.DockerClientFactory -- Docker host IP address is localhost
+20:06:37.518 [Test worker] INFO org.testcontainers.DockerClientFactory -- Connected to docker: 
+  Server Version: 29.3.0
+  API Version: 1.54
+  Operating System: Ubuntu 24.04.4 LTS
+  Total Memory: 7823 MB
+20:06:37.531 [Test worker] INFO org.testcontainers.DockerClientFactory -- Checking the system...
+20:06:37.532 [Test worker] INFO org.testcontainers.DockerClientFactory -- ✔︎ Docker server version should be at least 1.6.0
+20:06:38.383 [Test worker] INFO tc.postgres:15-alpine -- Creating container for image: postgres:15-alpine
+20:06:38.391 [Test worker] INFO org.testcontainers.utility.RegistryAuthLocator -- Failure when attempting to lookup auth config. Please ignore if you don't have images in an authenticated registry. Details: (dockerImageName: postgres:15-alpine, configFile: /home/lucky/.docker/config.json, configEnv: DOCKER_AUTH_CONFIG). Falling back to docker-java default behaviour. Exception message: Status 404: No config supplied. Checked in order: /home/lucky/.docker/config.json (file not found), DOCKER_AUTH_CONFIG (not set)
+20:06:38.405 [Test worker] INFO tc.testcontainers/ryuk:0.11.0 -- Creating container for image: testcontainers/ryuk:0.11.0
+20:06:38.687 [Test worker] INFO tc.testcontainers/ryuk:0.11.0 -- Container testcontainers/ryuk:0.11.0 is starting: a1c293afd758262f1ad5b4a5bddeb24d241daa3ac194a0978a837c4a819ca449
+20:06:39.336 [Test worker] INFO tc.testcontainers/ryuk:0.11.0 -- Container testcontainers/ryuk:0.11.0 started in PT0.930754003S
+20:06:39.484 [Test worker] INFO tc.postgres:15-alpine -- Container postgres:15-alpine is starting: ecf5d55d653480e4e5a76e083d68862cf673660e78c8ff2c525c3a9424ce0e36
+20:06:42.442 [Test worker] INFO tc.postgres:15-alpine -- Container postgres:15-alpine started in PT4.058863421S
+20:06:42.443 [Test worker] INFO tc.postgres:15-alpine -- Container is started (JDBC URL: jdbc:postgresql://localhost:32791/inventory_test?loggerLevel=OFF)
+20:06:42.444 [Test worker] INFO tc.redis:7.0-alpine -- Creating container for image: redis:7.0-alpine
+20:06:42.617 [Test worker] INFO tc.redis:7.0-alpine -- Container redis:7.0-alpine is starting: 7ac049da6a30f5c0694d2a45d8d53ed4cc381a844cada868b164faf9de1c5a6b
+20:06:43.084 [Test worker] INFO tc.redis:7.0-alpine -- Container redis:7.0-alpine started in PT0.640473823S
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.3)
+
+2026-08-04T20:06:43.745+07:00  INFO 78979 --- [inventory-service] [    Test worker] e.i.i.PostgresPersistenceIntegrationTest : Starting PostgresPersistenceIntegrationTest using Java 21.0.11 with PID 78979 (started by lucky in /home/lucky/Project/event_ticket/services/inventory-service)
+2026-08-04T20:06:43.746+07:00  INFO 78979 --- [inventory-service] [    Test worker] e.i.i.PostgresPersistenceIntegrationTest : The following 1 profile is active: "test"
+2026-08-04T20:06:45.937+07:00  INFO 78979 --- [inventory-service] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-04T20:06:45.943+07:00  INFO 78979 --- [inventory-service] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-04T20:06:46.226+07:00  INFO 78979 --- [inventory-service] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 261 ms. Found 3 JPA repository interfaces.
+2026-08-04T20:06:46.268+07:00  INFO 78979 --- [inventory-service] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-04T20:06:46.271+07:00  INFO 78979 --- [inventory-service] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-08-04T20:06:46.312+07:00  INFO 78979 --- [inventory-service] [    Test worker] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.inventory.adapter.out.persistence.InventoryJpaRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-04T20:06:46.313+07:00  INFO 78979 --- [inventory-service] [    Test worker] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.inventory.adapter.out.persistence.ProcessedRequestJpaRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-04T20:06:46.318+07:00  INFO 78979 --- [inventory-service] [    Test worker] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.inventory.adapter.out.persistence.ReservationJpaRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-04T20:06:46.319+07:00  INFO 78979 --- [inventory-service] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 23 ms. Found 0 Redis repository interfaces.
+2026-08-04T20:06:48.575+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2026-08-04T20:06:48.612+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-04T20:06:48.616+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2026-08-04T20:06:48.741+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-08-04T20:06:48.744+07:00  INFO 78979 --- [inventory-service] [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4961 ms
+2026-08-04T20:06:49.445+07:00  INFO 78979 --- [inventory-service] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-08-04T20:06:49.809+07:00  INFO 78979 --- [inventory-service] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7ead0b51
+2026-08-04T20:06:49.812+07:00  INFO 78979 --- [inventory-service] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-08-04T20:06:49.985+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 9.22.3 by Redgate
+2026-08-04T20:06:49.986+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.f.c.internal.license.VersionPrinter    : See release notes here: https://rd.gt/416ObMi
+2026-08-04T20:06:49.986+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.f.c.internal.license.VersionPrinter    : 
+2026-08-04T20:06:50.016+07:00  INFO 78979 --- [inventory-service] [    Test worker] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:32791/inventory_test (PostgreSQL 15.18)
+2026-08-04T20:06:50.115+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table "public"."flyway_schema_history" does not exist yet
+2026-08-04T20:06:50.123+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.f.core.internal.command.DbValidate     : Successfully validated 4 migrations (execution time 00:00.051s)
+2026-08-04T20:06:50.160+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "public"."flyway_schema_history" ...
+2026-08-04T20:06:50.223+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+2026-08-04T20:06:50.237+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "001 - create inventory table"
+2026-08-04T20:06:50.290+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "002 - create reservation table"
+2026-08-04T20:06:50.336+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "003 - create processed requests table"
+2026-08-04T20:06:50.368+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "004 - seed inventory data"
+2026-08-04T20:06:50.399+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.f.core.internal.command.DbMigrate      : Successfully applied 4 migrations to schema "public", now at version v004 (execution time 00:00.076s)
+2026-08-04T20:06:50.642+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-08-04T20:06:50.859+07:00  INFO 78979 --- [inventory-service] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-08-04T20:06:50.938+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-08-04T20:06:51.460+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-04T20:06:51.539+07:00  WARN 78979 --- [inventory-service] [    Test worker] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-08-04T20:06:53.107+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-04T20:06:53.169+07:00  INFO 78979 --- [inventory-service] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-04T20:06:54.236+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-08-04T20:06:57.194+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoint(s) beneath base path '/actuator'
+2026-08-04T20:06:57.526+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@555b43ba, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3ce3b176, org.springframework.security.web.context.SecurityContextHolderFilter@124856d3, org.springframework.security.web.header.HeaderWriterFilter@35cb8b64, org.springframework.web.filter.CorsFilter@59e83ff0, org.springframework.security.web.authentication.logout.LogoutFilter@8d95ac8, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@6bf6b454, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@13e8149a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@68437190, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@74f70a7b, org.springframework.security.web.session.SessionManagementFilter@c32b8b0, org.springframework.security.web.access.ExceptionTranslationFilter@176ba277, org.springframework.security.web.access.intercept.AuthorizationFilter@154b5e43]
+2026-08-04T20:06:58.829+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 43089 (http) with context path ''
+2026-08-04T20:06:58.868+07:00  INFO 78979 --- [inventory-service] [    Test worker] e.i.i.PostgresPersistenceIntegrationTest : Started PostgresPersistenceIntegrationTest in 15.731 seconds (process running for 26.027)
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.status=? and rje1_0.expires_at<?
+Hibernate: select ije1_0.id,ije1_0.available_quantity,ije1_0.created_at,ije1_0.reserved_quantity,ije1_0.show_id,ije1_0.sold_quantity,ije1_0.ticket_type_id,ije1_0.total_quantity,ije1_0.updated_at,ije1_0.version from inventories ije1_0 where ije1_0.id=?
+Hibernate: insert into inventories (available_quantity,created_at,reserved_quantity,show_id,sold_quantity,ticket_type_id,total_quantity,updated_at,version,id) values (?,?,?,?,?,?,?,?,?,?)
+Hibernate: UPDATE inventories
+SET available_quantity = available_quantity - ?,
+    reserved_quantity = reserved_quantity + ?,
+    version = version + 1,
+    updated_at = NOW()
+WHERE show_id = ?
+  AND ticket_type_id = ?
+  AND available_quantity >= ?
+
+Hibernate: UPDATE inventories
+SET available_quantity = available_quantity - ?,
+    reserved_quantity = reserved_quantity + ?,
+    version = version + 1,
+    updated_at = NOW()
+WHERE show_id = ?
+  AND ticket_type_id = ?
+  AND available_quantity >= ?
+
+Hibernate: select ije1_0.id,ije1_0.available_quantity,ije1_0.created_at,ije1_0.reserved_quantity,ije1_0.show_id,ije1_0.sold_quantity,ije1_0.ticket_type_id,ije1_0.total_quantity,ije1_0.updated_at,ije1_0.version from inventories ije1_0 where ije1_0.show_id=? and ije1_0.ticket_type_id=?
+Hibernate: select ije1_0.id,ije1_0.available_quantity,ije1_0.created_at,ije1_0.reserved_quantity,ije1_0.show_id,ije1_0.sold_quantity,ije1_0.ticket_type_id,ije1_0.total_quantity,ije1_0.updated_at,ije1_0.version from inventories ije1_0 where ije1_0.id=?
+Hibernate: insert into inventories (available_quantity,created_at,reserved_quantity,show_id,sold_quantity,ticket_type_id,total_quantity,updated_at,version,id) values (?,?,?,?,?,?,?,?,?,?)
+Hibernate: select ije1_0.id,ije1_0.available_quantity,ije1_0.created_at,ije1_0.reserved_quantity,ije1_0.show_id,ije1_0.sold_quantity,ije1_0.ticket_type_id,ije1_0.total_quantity,ije1_0.updated_at,ije1_0.version from inventories ije1_0 where ije1_0.show_id=? and ije1_0.ticket_type_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.id=?
+Hibernate: select prje1_0.request_id from processed_requests prje1_0 where prje1_0.request_id=? fetch first ? rows only
+Hibernate: select prje1_0.request_id,prje1_0.processed_at,prje1_0.reservation_id,prje1_0.result_status from processed_requests prje1_0 where prje1_0.request_id=?
+Hibernate: insert into reservations (confirmed_at,created_at,expires_at,quantity,released_at,request_id,show_id,status,ticket_type_id,user_id,version,id) values (?,?,?,?,?,?,?,?,?,?,?,?)
+Hibernate: insert into processed_requests (processed_at,reservation_id,result_status,request_id) values (?,?,?,?)
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+]]></system-out>
+  <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (/home/lucky/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.14.12/be4984cb6fd1ef1d11f218a648889dfda44b8a15/byte-buddy-agent-1.14.12.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
+</testsuite>

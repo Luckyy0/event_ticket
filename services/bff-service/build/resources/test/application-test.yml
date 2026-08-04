@@ -1,0 +1,20 @@
+spring:
+  session:
+    store-type: none
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: bff-client
+            client-secret: secret
+            authorization-grant-type: authorization_code
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            scope: openid, profile, email
+        provider:
+          keycloak:
+            authorization-uri: http://localhost:8443/realms/event-ticketing/protocol/openid-connect/auth
+            token-uri: http://localhost:8443/realms/event-ticketing/protocol/openid-connect/token
+            jwk-set-uri: http://localhost:8443/realms/event-ticketing/protocol/openid-connect/certs
+            user-info-uri: http://localhost:8443/realms/event-ticketing/protocol/openid-connect/userinfo
+            user-name-attribute: preferred_username

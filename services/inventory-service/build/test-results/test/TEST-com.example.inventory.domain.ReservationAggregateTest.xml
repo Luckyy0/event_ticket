@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.inventory.domain.ReservationAggregateTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-08-04T07:05:24" hostname="DESKTOP-APGR6KO" time="0.045">
+<testsuite name="com.example.inventory.domain.ReservationAggregateTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-08-04T13:07:05" hostname="DESKTOP-APGR6KO" time="0.054">
   <properties/>
-  <testcase name="shouldTransitionToCancelled_whenStatusIsHeld()" classname="com.example.inventory.domain.ReservationAggregateTest" time="0.003"/>
-  <testcase name="shouldCreateReservation_withStatusHeld()" classname="com.example.inventory.domain.ReservationAggregateTest" time="0.005"/>
-  <testcase name="shouldTransitionToConfirmed_whenStatusIsHeld()" classname="com.example.inventory.domain.ReservationAggregateTest" time="0.003"/>
-  <testcase name="shouldRejectTransitionToConfirmed_whenStatusIsAlreadyConfirmed()" classname="com.example.inventory.domain.ReservationAggregateTest" time="0.003"/>
-  <testcase name="shouldTransitionToExpired_whenStatusIsHeld()" classname="com.example.inventory.domain.ReservationAggregateTest" time="0.004"/>
-  <testcase name="shouldRejectTransitionToConfirmed_whenStatusIsReleased()" classname="com.example.inventory.domain.ReservationAggregateTest" time="0.004"/>
+  <testcase name="shouldTransitionToCancelled_whenStatusIsHeld()" classname="com.example.inventory.domain.ReservationAggregateTest" time="0.002"/>
+  <testcase name="shouldCreateReservation_withStatusHeld()" classname="com.example.inventory.domain.ReservationAggregateTest" time="0.004"/>
+  <testcase name="shouldTransitionToConfirmed_whenStatusIsHeld()" classname="com.example.inventory.domain.ReservationAggregateTest" time="0.002"/>
+  <testcase name="shouldRejectTransitionToConfirmed_whenStatusIsAlreadyConfirmed()" classname="com.example.inventory.domain.ReservationAggregateTest" time="0.002"/>
+  <testcase name="shouldTransitionToExpired_whenStatusIsHeld()" classname="com.example.inventory.domain.ReservationAggregateTest" time="0.001"/>
+  <testcase name="shouldRejectTransitionToConfirmed_whenStatusIsReleased()" classname="com.example.inventory.domain.ReservationAggregateTest" time="0.002"/>
   <testcase name="shouldRejectConfirmation_whenReservationIsExpired()" classname="com.example.inventory.domain.ReservationAggregateTest" time="0.003"/>
-  <testcase name="shouldTransitionToReleased_whenStatusIsHeld()" classname="com.example.inventory.domain.ReservationAggregateTest" time="0.003"/>
+  <testcase name="shouldTransitionToReleased_whenStatusIsHeld()" classname="com.example.inventory.domain.ReservationAggregateTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

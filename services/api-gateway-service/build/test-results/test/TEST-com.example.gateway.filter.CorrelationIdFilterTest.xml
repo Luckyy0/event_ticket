@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.gateway.filter.CorrelationIdFilterTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-08-04T07:13:48" hostname="DESKTOP-APGR6KO" time="0.834">
+<testsuite name="com.example.gateway.filter.CorrelationIdFilterTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-08-04T13:21:10" hostname="DESKTOP-APGR6KO" time="0.346">
   <properties/>
-  <testcase name="shouldPreserveCorrelationId_whenAlreadyPresent()" classname="com.example.gateway.filter.CorrelationIdFilterTest" time="0.817"/>
-  <testcase name="shouldGenerateCorrelationId_whenNotProvided()" classname="com.example.gateway.filter.CorrelationIdFilterTest" time="0.013"/>
+  <testcase name="shouldPreserveCorrelationId_whenAlreadyPresent()" classname="com.example.gateway.filter.CorrelationIdFilterTest" time="0.295"/>
+  <testcase name="shouldGenerateCorrelationId_whenNotProvided()" classname="com.example.gateway.filter.CorrelationIdFilterTest" time="0.047"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

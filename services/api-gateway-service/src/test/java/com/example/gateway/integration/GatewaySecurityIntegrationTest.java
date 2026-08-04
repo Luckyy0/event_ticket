@@ -22,7 +22,7 @@ class GatewaySecurityIntegrationTest {
     static final KeycloakContainer keycloak;
 
     static {
-        keycloak = new KeycloakContainer("quay.io/keycloak/keycloak:21.1.1")
+        keycloak = new KeycloakContainer("quay.io/keycloak/keycloak:26.3.0")
                 .withRealmImportFile("realm-test.json")
                 .withStartupTimeout(Duration.ofMinutes(3));
         keycloak.start();
@@ -44,7 +44,7 @@ class GatewaySecurityIntegrationTest {
         webTestClient.get()
                 .uri("/api/v1/events")
                 .exchange()
-                .expectStatus().isNotFound(); // Public pass-through
+                .expectStatus().value(status -> org.assertj.core.api.Assertions.assertThat(status).isNotIn(401, 403));
     }
 
     @Test

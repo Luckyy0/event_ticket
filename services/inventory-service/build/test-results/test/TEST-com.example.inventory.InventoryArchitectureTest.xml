@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.inventory.InventoryArchitectureTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-08-04T13:07:12" hostname="DESKTOP-APGR6KO" time="4.26">
+  <properties/>
+  <testcase name="domain_should_not_depend_on_spring" classname="com.example.inventory.InventoryArchitectureTest" time="4.236"/>
+  <testcase name="domain_should_not_depend_on_jpa" classname="com.example.inventory.InventoryArchitectureTest" time="0.005"/>
+  <testcase name="domain_should_not_depend_on_redis" classname="com.example.inventory.InventoryArchitectureTest" time="0.002"/>
+  <testcase name="application_should_not_depend_on_adapters" classname="com.example.inventory.InventoryArchitectureTest" time="0.016"/>
+  <system-out><![CDATA[2026-08-04T20:07:12.538+07:00  INFO 78979 --- [inventory-service] [    Test worker] com.tngtech.archunit.core.PluginLoader   : Detected Java version 21.0.11
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

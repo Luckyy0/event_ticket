@@ -1,4 +1,7 @@
 spring:
+  data:
+    mongodb:
+      auto-index-creation: false
   security:
     oauth2:
       resourceserver:

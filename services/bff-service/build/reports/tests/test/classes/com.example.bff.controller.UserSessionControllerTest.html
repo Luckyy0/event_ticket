@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - UserSessionControllerTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>UserSessionControllerTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.example.bff.controller.html">com.example.bff.controller</a> &gt; UserSessionControllerTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">5</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.153s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">getCurrentUser_whenAuthenticated_returnsProfileWithLocaleAndBirthYear()</td>
+<td class="success">0.023s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getCurrentUser_whenGoogleOAuth2User_returnsProfile()</td>
+<td class="success">0.050s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getCurrentUser_whenLocaleMissing_defaultsToVietnamese()</td>
+<td class="success">0.037s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getCurrentUser_whenUnauthenticated_returns401Unauthorized()</td>
+<td class="success">0.014s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">logoutAllDevices_whenAuthenticated_callsLogoutAndClearsSession()</td>
+<td class="success">0.029s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2026-08-04T21:35:06.505+07:00  INFO 120455 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.bff.controller.UserSessionControllerTest]: UserSessionControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-08-04T21:35:06.514+07:00  INFO 120455 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.bff.BffApplication for test class com.example.bff.controller.UserSessionControllerTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.3)
+
+2026-08-04T21:35:06.689+07:00  INFO 120455 --- [    Test worker] c.e.b.c.UserSessionControllerTest        : Starting UserSessionControllerTest using Java 21.0.11 with PID 120455 (started by lucky in /home/lucky/Project/event_ticket/services/bff-service)
+2026-08-04T21:35:06.689+07:00  INFO 120455 --- [    Test worker] c.e.b.c.UserSessionControllerTest        : The following 1 profile is active: &quot;test&quot;
+2026-08-04T21:35:07.531+07:00  INFO 120455 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-04T21:35:07.531+07:00  INFO 120455 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-08-04T21:35:07.547+07:00  INFO 120455 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 0 Redis repository interfaces.
+2026-08-04T21:35:07.645+07:00  INFO 120455 --- [    Test worker] o.s.cloud.context.scope.GenericScope     : BeanFactory id=51bc6a19-6fc7-39b4-9d58-99f9a6e84054
+2026-08-04T21:35:08.195+07:00  INFO 120455 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2026-08-04T21:35:08.266+07:00  INFO 120455 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@391720c3, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6559f04e, org.springframework.security.web.context.SecurityContextHolderFilter@465b16bb, org.springframework.security.web.header.HeaderWriterFilter@17bda3, org.springframework.web.filter.CorsFilter@17e71422, org.springframework.security.web.csrf.CsrfFilter@213451a4, org.springframework.security.web.authentication.logout.LogoutFilter@43e869ea, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@fafbc63, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@f083345, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@45e1d6a5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@60df0131, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@59bb8f80, org.springframework.security.web.access.ExceptionTranslationFilter@403ca4ec, org.springframework.security.web.access.intercept.AuthorizationFilter@10b9956a]
+2026-08-04T21:35:08.625+07:00  INFO 120455 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-08-04T21:35:08.626+07:00  INFO 120455 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-08-04T21:35:08.630+07:00  INFO 120455 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2026-08-04T21:35:08.772+07:00  INFO 120455 --- [    Test worker] c.e.b.c.UserSessionControllerTest        : Started UserSessionControllerTest in 2.246 seconds (process running for 43.096)
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.12</a> at Aug 4, 2026, 9:36:04 PM</p>
+</div>
+</div>
+</body>
+</html>

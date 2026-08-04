@@ -15,13 +15,16 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@Testcontainers
 @DataMongoTest
 @ActiveProfiles("test")
 class MongockMigrationIntegrationTest {
 
-    @Container
-    static MongoDBContainer mongo = new MongoDBContainer("mongo:7.0");
+    static final MongoDBContainer mongo;
+
+    static {
+        mongo = new MongoDBContainer("mongo:7.0");
+        mongo.start();
+    }
 
     @DynamicPropertySource
     static void configure(DynamicPropertyRegistry registry) {

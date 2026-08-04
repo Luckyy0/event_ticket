@@ -129,6 +129,18 @@ services:
       - ticketing_net
 
   # -----------------------------------------
+  # Mailpit (Local SMTP Server & Web UI for Email Verification)
+  # -----------------------------------------
+  mailpit:
+    image: axllent/mailpit:latest
+    container_name: ticketing_mailpit
+    ports:
+      - "1025:1025" # SMTP
+      - "8025:8025" # Web UI
+    networks:
+      - ticketing_net
+
+  # -----------------------------------------
   # Keycloak (IAM)
   # -----------------------------------------
   keycloak:
@@ -141,6 +153,8 @@ services:
       KC_DB_PASSWORD: password
       KEYCLOAK_ADMIN: admin
       KEYCLOAK_ADMIN_PASSWORD: admin
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-your-google-client-id-hint.apps.googleusercontent.com}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET:-your-google-client-secret-hint}
     command: start-dev --import-realm
     ports:
       - "8443:8080"

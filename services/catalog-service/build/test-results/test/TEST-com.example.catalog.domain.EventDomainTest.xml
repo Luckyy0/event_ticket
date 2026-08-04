@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.catalog.domain.EventDomainTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-08-04T07:16:58" hostname="DESKTOP-APGR6KO" time="0.378">
+<testsuite name="com.example.catalog.domain.EventDomainTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-08-04T13:12:52" hostname="DESKTOP-APGR6KO" time="0.042">
   <properties/>
-  <testcase name="shouldRejectEvent_whenOrganizerIdIsNull()" classname="com.example.catalog.domain.EventDomainTest" time="0.243"/>
-  <testcase name="shouldRejectEvent_whenVenueIsNull()" classname="com.example.catalog.domain.EventDomainTest" time="0.013"/>
-  <testcase name="shouldPublishEvent_whenEventIsDraft()" classname="com.example.catalog.domain.EventDomainTest" time="0.016"/>
-  <testcase name="shouldRejectPublish_whenEventIsAlreadyCancelled()" classname="com.example.catalog.domain.EventDomainTest" time="0.013"/>
-  <testcase name="shouldRejectEvent_whenNameExceedsMaxLength()" classname="com.example.catalog.domain.EventDomainTest" time="0.002"/>
-  <testcase name="shouldCreateEvent_whenAllFieldsAreValid()" classname="com.example.catalog.domain.EventDomainTest" time="0.027"/>
+  <testcase name="shouldRejectEvent_whenOrganizerIdIsNull()" classname="com.example.catalog.domain.EventDomainTest" time="0.006"/>
+  <testcase name="shouldRejectEvent_whenVenueIsNull()" classname="com.example.catalog.domain.EventDomainTest" time="0.007"/>
+  <testcase name="shouldPublishEvent_whenEventIsDraft()" classname="com.example.catalog.domain.EventDomainTest" time="0.001"/>
+  <testcase name="shouldRejectPublish_whenEventIsAlreadyCancelled()" classname="com.example.catalog.domain.EventDomainTest" time="0.004"/>
+  <testcase name="shouldRejectEvent_whenNameExceedsMaxLength()" classname="com.example.catalog.domain.EventDomainTest" time="0.005"/>
+  <testcase name="shouldCreateEvent_whenAllFieldsAreValid()" classname="com.example.catalog.domain.EventDomainTest" time="0.002"/>
   <testcase name="shouldCancelEvent_whenEventIsPublished()" classname="com.example.catalog.domain.EventDomainTest" time="0.002"/>
-  <testcase name="shouldRejectEvent_whenNameIsEmpty()" classname="com.example.catalog.domain.EventDomainTest" time="0.008"/>
+  <testcase name="shouldRejectEvent_whenNameIsEmpty()" classname="com.example.catalog.domain.EventDomainTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

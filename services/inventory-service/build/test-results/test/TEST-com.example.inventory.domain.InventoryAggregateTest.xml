@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.inventory.domain.InventoryAggregateTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-08-04T07:05:24" hostname="DESKTOP-APGR6KO" time="0.049">
+<testsuite name="com.example.inventory.domain.InventoryAggregateTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-08-04T13:07:05" hostname="DESKTOP-APGR6KO" time="0.039">
   <properties/>
-  <testcase name="shouldRejectRelease_whenReservedQuantityInsufficient()" classname="com.example.inventory.domain.InventoryAggregateTest" time="0.004"/>
-  <testcase name="shouldRejectReservation_whenInsufficientAvailable()" classname="com.example.inventory.domain.InventoryAggregateTest" time="0.003"/>
-  <testcase name="shouldRejectConfirmation_whenReservedQuantityInsufficient()" classname="com.example.inventory.domain.InventoryAggregateTest" time="0.003"/>
-  <testcase name="shouldRejectReservation_whenQuantityIsZeroOrNegative()" classname="com.example.inventory.domain.InventoryAggregateTest" time="0.005"/>
+  <testcase name="shouldRejectRelease_whenReservedQuantityInsufficient()" classname="com.example.inventory.domain.InventoryAggregateTest" time="0.006"/>
+  <testcase name="shouldRejectReservation_whenInsufficientAvailable()" classname="com.example.inventory.domain.InventoryAggregateTest" time="0.006"/>
+  <testcase name="shouldRejectConfirmation_whenReservedQuantityInsufficient()" classname="com.example.inventory.domain.InventoryAggregateTest" time="0.004"/>
+  <testcase name="shouldRejectReservation_whenQuantityIsZeroOrNegative()" classname="com.example.inventory.domain.InventoryAggregateTest" time="0.003"/>
   <testcase name="shouldReserveTickets_whenEnoughAvailable()" classname="com.example.inventory.domain.InventoryAggregateTest" time="0.002"/>
-  <testcase name="shouldReleaseReservation_whenReservedQuantitySufficient()" classname="com.example.inventory.domain.InventoryAggregateTest" time="0.004"/>
+  <testcase name="shouldReleaseReservation_whenReservedQuantitySufficient()" classname="com.example.inventory.domain.InventoryAggregateTest" time="0.001"/>
   <testcase name="shouldConfirmReservation_whenReservedQuantitySufficient()" classname="com.example.inventory.domain.InventoryAggregateTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

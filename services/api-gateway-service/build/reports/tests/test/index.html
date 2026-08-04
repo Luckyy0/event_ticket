@@ -26,7 +26,7 @@
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">6</div>
+<div class="counter">0</div>
 <p>failures</p>
 </div>
 </td>
@@ -38,7 +38,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">5.369s</div>
+<div class="counter">9.004s</div>
 <p>duration</p>
 </div>
 </td>
@@ -47,8 +47,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox failures" id="successRate">
-<div class="percent">71%</div>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
 <p>successful</p>
 </div>
 </td>
@@ -58,45 +58,13 @@
 <div id="tabs">
 <ul class="tabLinks">
 <li>
-<a href="#tab0">Failed tests</a>
+<a href="#tab0">Packages</a>
 </li>
 <li>
-<a href="#tab1">Packages</a>
-</li>
-<li>
-<a href="#tab2">Classes</a>
+<a href="#tab1">Classes</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
-<h2>Failed tests</h2>
-<ul class="linkList">
-<li>
-<a href="classes/com.example.gateway.integration.GatewaySecurityIntegrationTest.html">GatewaySecurityIntegrationTest</a>.
-<a href="classes/com.example.gateway.integration.GatewaySecurityIntegrationTest.html#shouldAllowPublicAccess_withoutToken()">shouldAllowPublicAccess_withoutToken()</a>
-</li>
-<li>
-<a href="classes/com.example.gateway.integration.GatewaySecurityIntegrationTest.html">GatewaySecurityIntegrationTest</a>.
-<a href="classes/com.example.gateway.integration.GatewaySecurityIntegrationTest.html#shouldDenyAccessToProtectedEndpoint_withoutToken()">shouldDenyAccessToProtectedEndpoint_withoutToken()</a>
-</li>
-<li>
-<a href="classes/com.example.gateway.integration.GatewaySecurityIntegrationTest.html">GatewaySecurityIntegrationTest</a>.
-<a href="classes/com.example.gateway.integration.GatewaySecurityIntegrationTest.html#shouldPropagateCorrelationId_inResponseHeader()">shouldPropagateCorrelationId_inResponseHeader()</a>
-</li>
-<li>
-<a href="classes/com.example.gateway.security.JwtValidationTest.html">JwtValidationTest</a>.
-<a href="classes/com.example.gateway.security.JwtValidationTest.html#shouldAllowAccess_whenTokenIsValid()">shouldAllowAccess_whenTokenIsValid()</a>
-</li>
-<li>
-<a href="classes/com.example.gateway.security.JwtValidationTest.html">JwtValidationTest</a>.
-<a href="classes/com.example.gateway.security.JwtValidationTest.html#shouldAllowPublicAccess_toCatalogGetEndpoint_withoutToken()">shouldAllowPublicAccess_toCatalogGetEndpoint_withoutToken()</a>
-</li>
-<li>
-<a href="classes/com.example.gateway.security.JwtValidationTest.html">JwtValidationTest</a>.
-<a href="classes/com.example.gateway.security.JwtValidationTest.html#shouldAllowPublicAccess_toPaymentWebhook_withoutToken()">shouldAllowPublicAccess_toPaymentWebhook_withoutToken()</a>
-</li>
-</ul>
-</div>
-<div id="tab1" class="tab">
 <h2>Packages</h2>
 <table>
 <thead>
@@ -117,18 +85,18 @@
 <td>3</td>
 <td>0</td>
 <td>0</td>
-<td>0.842s</td>
+<td>0.393s</td>
 <td class="success">100%</td>
 </tr>
 <tr>
-<td class="failures">
+<td class="success">
 <a href="packages/com.example.gateway.integration.html">com.example.gateway.integration</a>
 </td>
 <td>3</td>
-<td>3</td>
 <td>0</td>
-<td>0.025s</td>
-<td class="failures">0%</td>
+<td>0</td>
+<td>7.278s</td>
+<td class="success">100%</td>
 </tr>
 <tr>
 <td class="success">
@@ -137,7 +105,7 @@
 <td>2</td>
 <td>0</td>
 <td>0</td>
-<td>0.057s</td>
+<td>0.128s</td>
 <td class="success">100%</td>
 </tr>
 <tr>
@@ -147,7 +115,7 @@
 <td>4</td>
 <td>0</td>
 <td>0</td>
-<td>0.069s</td>
+<td>0.210s</td>
 <td class="success">100%</td>
 </tr>
 <tr>
@@ -157,23 +125,23 @@
 <td>1</td>
 <td>0</td>
 <td>0</td>
-<td>2.155s</td>
+<td>0.033s</td>
 <td class="success">100%</td>
 </tr>
 <tr>
-<td class="failures">
+<td class="success">
 <a href="packages/com.example.gateway.security.html">com.example.gateway.security</a>
 </td>
 <td>8</td>
-<td>3</td>
 <td>0</td>
-<td>2.221s</td>
-<td class="failures">62%</td>
+<td>0</td>
+<td>0.962s</td>
+<td class="success">100%</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="tab2" class="tab">
+<div id="tab1" class="tab">
 <h2>Classes</h2>
 <table>
 <thead>
@@ -194,7 +162,7 @@
 <td>2</td>
 <td>0</td>
 <td>0</td>
-<td>0.830s</td>
+<td>0.342s</td>
 <td class="success">100%</td>
 </tr>
 <tr>
@@ -204,18 +172,18 @@
 <td>1</td>
 <td>0</td>
 <td>0</td>
-<td>0.012s</td>
+<td>0.051s</td>
 <td class="success">100%</td>
 </tr>
 <tr>
-<td class="failures">
+<td class="success">
 <a href="classes/com.example.gateway.integration.GatewaySecurityIntegrationTest.html">com.example.gateway.integration.GatewaySecurityIntegrationTest</a>
 </td>
 <td>3</td>
-<td>3</td>
 <td>0</td>
-<td>0.025s</td>
-<td class="failures">0%</td>
+<td>0</td>
+<td>7.278s</td>
+<td class="success">100%</td>
 </tr>
 <tr>
 <td class="success">
@@ -224,7 +192,7 @@
 <td>2</td>
 <td>0</td>
 <td>0</td>
-<td>0.057s</td>
+<td>0.128s</td>
 <td class="success">100%</td>
 </tr>
 <tr>
@@ -234,7 +202,7 @@
 <td>4</td>
 <td>0</td>
 <td>0</td>
-<td>0.069s</td>
+<td>0.210s</td>
 <td class="success">100%</td>
 </tr>
 <tr>
@@ -244,18 +212,18 @@
 <td>1</td>
 <td>0</td>
 <td>0</td>
-<td>2.155s</td>
+<td>0.033s</td>
 <td class="success">100%</td>
 </tr>
 <tr>
-<td class="failures">
+<td class="success">
 <a href="classes/com.example.gateway.security.JwtValidationTest.html">com.example.gateway.security.JwtValidationTest</a>
 </td>
 <td>8</td>
-<td>3</td>
 <td>0</td>
-<td>2.221s</td>
-<td class="failures">62%</td>
+<td>0</td>
+<td>0.962s</td>
+<td class="success">100%</td>
 </tr>
 </tbody>
 </table>
@@ -268,7 +236,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.12</a> at Aug 4, 2026, 2:17:33 PM</p>
+<a href="http://www.gradle.org">Gradle 8.12</a> at Aug 4, 2026, 8:21:19 PM</p>
 </div>
 </div>
 </body>

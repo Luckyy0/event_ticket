@@ -5,6 +5,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.AuthenticationException;
@@ -23,9 +24,14 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.security.web.csrf.CsrfTokenRequestAttributeHandler;
+import org.springframework.session.web.http.CookieSerializer;
+import org.springframework.session.web.http.DefaultCookieSerializer;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import java.io.IOException;
 import java.util.Collection;
@@ -37,7 +43,7 @@ import java.util.stream.Collectors;
 
 @Configuration
 @EnableWebSecurity
-@org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity
+@EnableMethodSecurity
 public class SecurityConfig {
 
     @Value("${FRONTEND_URL:http://localhost:3000}")
@@ -54,7 +60,7 @@ public class SecurityConfig {
         http
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .authorizeHttpRequests(authorize -> authorize
-                .requestMatchers("/api/auth/login", "/api/auth/callback").permitAll()
+                .requestMatchers("/api/auth/login/**", "/api/auth/callback").permitAll()
                 .anyRequest().authenticated()
             )
             .exceptionHandling(exceptions -> exceptions
@@ -71,10 +77,11 @@ public class SecurityConfig {
                 .successHandler(successHandler())
             )
             .logout(logout -> logout
+                .logoutUrl("/api/auth/logout")
                 .logoutSuccessHandler(oidcLogoutSuccessHandler())
                 .invalidateHttpSession(true)
                 .clearAuthentication(true)
-                .deleteCookies("JSESSIONID")
+                .deleteCookies("JSESSIONID", "SESSION")
             )
             .csrf(csrf -> {
                 CookieCsrfTokenRepository csrfRepository = CookieCsrfTokenRepository.withHttpOnlyFalse();
@@ -91,8 +98,8 @@ public class SecurityConfig {
     }
 
     @Bean
-    public org.springframework.session.web.http.CookieSerializer cookieSerializer() {
-        org.springframework.session.web.http.DefaultCookieSerializer serializer = new org.springframework.session.web.http.DefaultCookieSerializer();
+    public CookieSerializer cookieSerializer() {
+        DefaultCookieSerializer serializer = new DefaultCookieSerializer();
         serializer.setCookieName("SESSION"); 
         serializer.setUseHttpOnlyCookie(true); // Protects against XSS
         serializer.setSameSite("Lax"); // Protects against CSRF
@@ -116,9 +123,19 @@ public class SecurityConfig {
         DefaultOAuth2AuthorizationRequestResolver defaultResolver =
                 new DefaultOAuth2AuthorizationRequestResolver(clientRegistrationRepository, "/oauth2/authorization");
         
-        // You can customize the authorization request here (e.g., adding prompt=login or enforcing PKCE manually if needed)
         defaultResolver.setAuthorizationRequestCustomizer(customizer -> {
-            // customizer.additionalParameters(params -> params.put("prompt", "login"));
+            RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
+            if (requestAttributes instanceof ServletRequestAttributes servletRequestAttributes) {
+                HttpServletRequest request = servletRequestAttributes.getRequest();
+                String idpHint = request.getParameter("kc_idp_hint");
+                if (idpHint != null && !idpHint.isBlank()) {
+                    customizer.additionalParameters(params -> params.put("kc_idp_hint", idpHint));
+                }
+                String prompt = request.getParameter("prompt");
+                if (prompt != null && !prompt.isBlank()) {
+                    customizer.additionalParameters(params -> params.put("prompt", prompt));
+                }
+            }
         });
         
         return defaultResolver;
@@ -148,6 +165,13 @@ public class SecurityConfig {
                 }
                 mappedAuthorities.add(authority);
             });
+
+            // Default role for external OAuth2 providers (e.g. Google) without explicit Keycloak roles
+            boolean hasAnyRole = mappedAuthorities.stream()
+                    .anyMatch(a -> a.getAuthority().startsWith("ROLE_"));
+            if (!hasAnyRole) {
+                mappedAuthorities.add(new SimpleGrantedAuthority("ROLE_CUSTOMER"));
+            }
 
             return mappedAuthorities;
         };

@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.330s</div>
+<div class="counter">1.986s</div>
 <p>duration</p>
 </div>
 </td>
@@ -66,6 +66,9 @@
 <li>
 <a href="#tab1">Standard output</a>
 </li>
+<li>
+<a href="#tab2">Standard error</a>
+</li>
 </ul>
 <div id="tab0" class="tab">
 <h2>Tests</h2>
@@ -79,17 +82,17 @@
 </thead>
 <tr>
 <td class="success">shouldPerformAtomicReserve()</td>
-<td class="success">0.198s</td>
+<td class="success">1.810s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">shouldSaveAndFindReservationByRequestId()</td>
-<td class="success">0.058s</td>
+<td class="success">0.110s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">shouldSaveAndLoadInventory()</td>
-<td class="success">0.074s</td>
+<td class="success">0.066s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -97,8 +100,85 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>2026-08-04T14:04:56.081+07:00  INFO 45341 --- [inventory-service] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.inventory.integration.PostgresPersistenceIntegrationTest]: PostgresPersistenceIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2026-08-04T14:04:56.089+07:00  INFO 45341 --- [inventory-service] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.inventory.InventoryApplication for test class com.example.inventory.integration.PostgresPersistenceIntegrationTest
+<pre>20:06:35.369 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.inventory.integration.PostgresPersistenceIntegrationTest]: PostgresPersistenceIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+20:06:35.654 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.inventory.InventoryApplication for test class com.example.inventory.integration.PostgresPersistenceIntegrationTest
+20:06:35.957 [Test worker] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
+20:06:35.963 [Test worker] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+20:06:36.000 [Test worker] INFO org.testcontainers.DockerClientFactory -- Testcontainers version: 1.20.4
+20:06:37.475 [Test worker] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Found Docker environment with Environment variables, system properties and defaults. Resolved dockerHost=unix:///var/run/docker.sock
+20:06:37.477 [Test worker] INFO org.testcontainers.DockerClientFactory -- Docker host IP address is localhost
+20:06:37.518 [Test worker] INFO org.testcontainers.DockerClientFactory -- Connected to docker: 
+  Server Version: 29.3.0
+  API Version: 1.54
+  Operating System: Ubuntu 24.04.4 LTS
+  Total Memory: 7823 MB
+20:06:37.531 [Test worker] INFO org.testcontainers.DockerClientFactory -- Checking the system...
+20:06:37.532 [Test worker] INFO org.testcontainers.DockerClientFactory -- ✔︎ Docker server version should be at least 1.6.0
+20:06:38.383 [Test worker] INFO tc.postgres:15-alpine -- Creating container for image: postgres:15-alpine
+20:06:38.391 [Test worker] INFO org.testcontainers.utility.RegistryAuthLocator -- Failure when attempting to lookup auth config. Please ignore if you don't have images in an authenticated registry. Details: (dockerImageName: postgres:15-alpine, configFile: /home/lucky/.docker/config.json, configEnv: DOCKER_AUTH_CONFIG). Falling back to docker-java default behaviour. Exception message: Status 404: No config supplied. Checked in order: /home/lucky/.docker/config.json (file not found), DOCKER_AUTH_CONFIG (not set)
+20:06:38.405 [Test worker] INFO tc.testcontainers/ryuk:0.11.0 -- Creating container for image: testcontainers/ryuk:0.11.0
+20:06:38.687 [Test worker] INFO tc.testcontainers/ryuk:0.11.0 -- Container testcontainers/ryuk:0.11.0 is starting: a1c293afd758262f1ad5b4a5bddeb24d241daa3ac194a0978a837c4a819ca449
+20:06:39.336 [Test worker] INFO tc.testcontainers/ryuk:0.11.0 -- Container testcontainers/ryuk:0.11.0 started in PT0.930754003S
+20:06:39.484 [Test worker] INFO tc.postgres:15-alpine -- Container postgres:15-alpine is starting: ecf5d55d653480e4e5a76e083d68862cf673660e78c8ff2c525c3a9424ce0e36
+20:06:42.442 [Test worker] INFO tc.postgres:15-alpine -- Container postgres:15-alpine started in PT4.058863421S
+20:06:42.443 [Test worker] INFO tc.postgres:15-alpine -- Container is started (JDBC URL: jdbc:postgresql://localhost:32791/inventory_test?loggerLevel=OFF)
+20:06:42.444 [Test worker] INFO tc.redis:7.0-alpine -- Creating container for image: redis:7.0-alpine
+20:06:42.617 [Test worker] INFO tc.redis:7.0-alpine -- Container redis:7.0-alpine is starting: 7ac049da6a30f5c0694d2a45d8d53ed4cc381a844cada868b164faf9de1c5a6b
+20:06:43.084 [Test worker] INFO tc.redis:7.0-alpine -- Container redis:7.0-alpine started in PT0.640473823S
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.3)
+
+2026-08-04T20:06:43.745+07:00  INFO 78979 --- [inventory-service] [    Test worker] e.i.i.PostgresPersistenceIntegrationTest : Starting PostgresPersistenceIntegrationTest using Java 21.0.11 with PID 78979 (started by lucky in /home/lucky/Project/event_ticket/services/inventory-service)
+2026-08-04T20:06:43.746+07:00  INFO 78979 --- [inventory-service] [    Test worker] e.i.i.PostgresPersistenceIntegrationTest : The following 1 profile is active: &quot;test&quot;
+2026-08-04T20:06:45.937+07:00  INFO 78979 --- [inventory-service] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-04T20:06:45.943+07:00  INFO 78979 --- [inventory-service] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-04T20:06:46.226+07:00  INFO 78979 --- [inventory-service] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 261 ms. Found 3 JPA repository interfaces.
+2026-08-04T20:06:46.268+07:00  INFO 78979 --- [inventory-service] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-04T20:06:46.271+07:00  INFO 78979 --- [inventory-service] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-08-04T20:06:46.312+07:00  INFO 78979 --- [inventory-service] [    Test worker] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.inventory.adapter.out.persistence.InventoryJpaRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-04T20:06:46.313+07:00  INFO 78979 --- [inventory-service] [    Test worker] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.inventory.adapter.out.persistence.ProcessedRequestJpaRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-04T20:06:46.318+07:00  INFO 78979 --- [inventory-service] [    Test worker] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.inventory.adapter.out.persistence.ReservationJpaRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-04T20:06:46.319+07:00  INFO 78979 --- [inventory-service] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 23 ms. Found 0 Redis repository interfaces.
+2026-08-04T20:06:48.575+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2026-08-04T20:06:48.612+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-04T20:06:48.616+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2026-08-04T20:06:48.741+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-08-04T20:06:48.744+07:00  INFO 78979 --- [inventory-service] [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4961 ms
+2026-08-04T20:06:49.445+07:00  INFO 78979 --- [inventory-service] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-08-04T20:06:49.809+07:00  INFO 78979 --- [inventory-service] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@7ead0b51
+2026-08-04T20:06:49.812+07:00  INFO 78979 --- [inventory-service] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-08-04T20:06:49.985+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 9.22.3 by Redgate
+2026-08-04T20:06:49.986+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.f.c.internal.license.VersionPrinter    : See release notes here: https://rd.gt/416ObMi
+2026-08-04T20:06:49.986+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.f.c.internal.license.VersionPrinter    : 
+2026-08-04T20:06:50.016+07:00  INFO 78979 --- [inventory-service] [    Test worker] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:32791/inventory_test (PostgreSQL 15.18)
+2026-08-04T20:06:50.115+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table &quot;public&quot;.&quot;flyway_schema_history&quot; does not exist yet
+2026-08-04T20:06:50.123+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.f.core.internal.command.DbValidate     : Successfully validated 4 migrations (execution time 00:00.051s)
+2026-08-04T20:06:50.160+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table &quot;public&quot;.&quot;flyway_schema_history&quot; ...
+2026-08-04T20:06:50.223+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.f.core.internal.command.DbMigrate      : Current version of schema &quot;public&quot;: &lt;&lt; Empty Schema &gt;&gt;
+2026-08-04T20:06:50.237+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema &quot;public&quot; to version &quot;001 - create inventory table&quot;
+2026-08-04T20:06:50.290+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema &quot;public&quot; to version &quot;002 - create reservation table&quot;
+2026-08-04T20:06:50.336+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema &quot;public&quot; to version &quot;003 - create processed requests table&quot;
+2026-08-04T20:06:50.368+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema &quot;public&quot; to version &quot;004 - seed inventory data&quot;
+2026-08-04T20:06:50.399+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.f.core.internal.command.DbMigrate      : Successfully applied 4 migrations to schema &quot;public&quot;, now at version v004 (execution time 00:00.076s)
+2026-08-04T20:06:50.642+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-08-04T20:06:50.859+07:00  INFO 78979 --- [inventory-service] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-08-04T20:06:50.938+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-08-04T20:06:51.460+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-04T20:06:51.539+07:00  WARN 78979 --- [inventory-service] [    Test worker] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-08-04T20:06:53.107+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-04T20:06:53.169+07:00  INFO 78979 --- [inventory-service] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-04T20:06:54.236+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-08-04T20:06:57.194+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoint(s) beneath base path '/actuator'
+2026-08-04T20:06:57.526+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@555b43ba, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3ce3b176, org.springframework.security.web.context.SecurityContextHolderFilter@124856d3, org.springframework.security.web.header.HeaderWriterFilter@35cb8b64, org.springframework.web.filter.CorsFilter@59e83ff0, org.springframework.security.web.authentication.logout.LogoutFilter@8d95ac8, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@6bf6b454, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@13e8149a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@68437190, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@74f70a7b, org.springframework.security.web.session.SessionManagementFilter@c32b8b0, org.springframework.security.web.access.ExceptionTranslationFilter@176ba277, org.springframework.security.web.access.intercept.AuthorizationFilter@154b5e43]
+2026-08-04T20:06:58.829+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 43089 (http) with context path ''
+2026-08-04T20:06:58.868+07:00  INFO 78979 --- [inventory-service] [    Test worker] e.i.i.PostgresPersistenceIntegrationTest : Started PostgresPersistenceIntegrationTest in 15.731 seconds (process running for 26.027)
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.status=? and rje1_0.expires_at&lt;?
 Hibernate: select ije1_0.id,ije1_0.available_quantity,ije1_0.created_at,ije1_0.reserved_quantity,ije1_0.show_id,ije1_0.sold_quantity,ije1_0.ticket_type_id,ije1_0.total_quantity,ije1_0.updated_at,ije1_0.version from inventories ije1_0 where ije1_0.id=?
 Hibernate: insert into inventories (available_quantity,created_at,reserved_quantity,show_id,sold_quantity,ticket_type_id,total_quantity,updated_at,version,id) values (?,?,?,?,?,?,?,?,?,?)
 Hibernate: UPDATE inventories
@@ -132,6 +212,16 @@ Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires
 </pre>
 </span>
 </div>
+<div id="tab2" class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>WARNING: A Java agent has been loaded dynamically (/home/lucky/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.14.12/be4984cb6fd1ef1d11f218a648889dfda44b8a15/byte-buddy-agent-1.14.12.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+</pre>
+</span>
+</div>
 </div>
 <div id="footer">
 <p>
@@ -140,7 +230,7 @@ Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.12</a> at Aug 4, 2026, 2:05:03 PM</p>
+<a href="http://www.gradle.org">Gradle 8.12</a> at Aug 4, 2026, 8:07:17 PM</p>
 </div>
 </div>
 </body>

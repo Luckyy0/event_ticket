@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.inventory.web.InventoryControllerWebTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-08-04T13:07:11" hostname="DESKTOP-APGR6KO" time="0.918">
+  <properties/>
+  <testcase name="shouldAllowPublicRead_onGetInventoriesByShow()" classname="com.example.inventory.web.InventoryControllerWebTest" time="0.477"/>
+  <testcase name="shouldReserveTicket_whenAuthenticated()" classname="com.example.inventory.web.InventoryControllerWebTest" time="0.411"/>
+  <testcase name="shouldAllowPublicRead_onGetInventory()" classname="com.example.inventory.web.InventoryControllerWebTest" time="0.02"/>
+  <system-out><![CDATA[2026-08-04T20:07:09.147+07:00  INFO 78979 --- [inventory-service] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.inventory.web.InventoryControllerWebTest]: InventoryControllerWebTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-08-04T20:07:09.231+07:00  INFO 78979 --- [inventory-service] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.inventory.InventoryApplication for test class com.example.inventory.web.InventoryControllerWebTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.3)
+
+2026-08-04T20:07:09.356+07:00  INFO 78979 --- [inventory-service] [    Test worker] c.e.i.web.InventoryControllerWebTest     : Starting InventoryControllerWebTest using Java 21.0.11 with PID 78979 (started by lucky in /home/lucky/Project/event_ticket/services/inventory-service)
+2026-08-04T20:07:09.357+07:00  INFO 78979 --- [inventory-service] [    Test worker] c.e.i.web.InventoryControllerWebTest     : No active profile set, falling back to 1 default profile: "default"
+2026-08-04T20:07:11.220+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7eb66a64, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@e21149e, org.springframework.security.web.context.SecurityContextHolderFilter@62f141c2, org.springframework.security.web.header.HeaderWriterFilter@103c707c, org.springframework.web.filter.CorsFilter@29ab4fa0, org.springframework.security.web.authentication.logout.LogoutFilter@396e897d, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@33de2803, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1e7c2765, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6db01b46, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6bf7e4a6, org.springframework.security.web.session.SessionManagementFilter@2d4236ff, org.springframework.security.web.access.ExceptionTranslationFilter@c2e0be2, org.springframework.security.web.access.intercept.AuthorizationFilter@2b518f9d]
+2026-08-04T20:07:11.517+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-08-04T20:07:11.518+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-08-04T20:07:11.523+07:00  INFO 78979 --- [inventory-service] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 4 ms
+2026-08-04T20:07:11.570+07:00  INFO 78979 --- [inventory-service] [    Test worker] c.e.i.web.InventoryControllerWebTest     : Started InventoryControllerWebTest in 2.314 seconds (process running for 38.728)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

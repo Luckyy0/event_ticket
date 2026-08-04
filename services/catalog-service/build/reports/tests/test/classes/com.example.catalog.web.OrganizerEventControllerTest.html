@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.505s</div>
+<div class="counter">0.378s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,12 +79,12 @@
 </thead>
 <tr>
 <td class="success">shouldCreateEvent_whenUserIsOrganizer()</td>
-<td class="success">0.449s</td>
+<td class="success">0.327s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">shouldPublishEvent_whenUserIsOrganizer()</td>
-<td class="success">0.024s</td>
+<td class="success">0.018s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
@@ -94,7 +94,7 @@
 </tr>
 <tr>
 <td class="success">shouldReturn403_whenCustomerTriesToCreateEvent()</td>
-<td class="success">0.016s</td>
+<td class="success">0.017s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -102,8 +102,8 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>2026-08-04T14:17:57.569+07:00  INFO 55961 --- [catalog-service] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.catalog.web.OrganizerEventControllerTest]: OrganizerEventControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2026-08-04T14:17:57.636+07:00  INFO 55961 --- [catalog-service] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.catalog.CatalogApplication for test class com.example.catalog.web.OrganizerEventControllerTest
+<pre>2026-08-04T20:12:57.481+07:00  INFO 81258 --- [catalog-service] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.catalog.web.OrganizerEventControllerTest]: OrganizerEventControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-08-04T20:12:57.508+07:00  INFO 81258 --- [catalog-service] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.catalog.CatalogApplication for test class com.example.catalog.web.OrganizerEventControllerTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -113,13 +113,13 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.3)
 
-2026-08-04T14:17:57.815+07:00  INFO 55961 --- [catalog-service] [    Test worker] c.e.c.web.OrganizerEventControllerTest   : Starting OrganizerEventControllerTest using Java 21.0.11 with PID 55961 (started by lucky in /home/lucky/Project/event_ticket/services/catalog-service)
-2026-08-04T14:17:57.816+07:00  INFO 55961 --- [catalog-service] [    Test worker] c.e.c.web.OrganizerEventControllerTest   : The following 1 profile is active: &quot;test&quot;
-2026-08-04T14:17:59.617+07:00  INFO 55961 --- [catalog-service] [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@47bcd95a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3fae1ec9, org.springframework.security.web.context.SecurityContextHolderFilter@2d2697a8, org.springframework.security.web.header.HeaderWriterFilter@5a0c0680, org.springframework.web.filter.CorsFilter@331fe6d4, org.springframework.security.web.authentication.logout.LogoutFilter@67629872, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@346e76ad, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@17f5b53a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2df79942, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@74832504, org.springframework.security.web.session.SessionManagementFilter@18d963be, org.springframework.security.web.access.ExceptionTranslationFilter@6e1a8e78, org.springframework.security.web.access.intercept.AuthorizationFilter@4c2812aa]
-2026-08-04T14:17:59.946+07:00  INFO 55961 --- [catalog-service] [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2026-08-04T14:17:59.948+07:00  INFO 55961 --- [catalog-service] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2026-08-04T14:17:59.951+07:00  INFO 55961 --- [catalog-service] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
-2026-08-04T14:17:59.987+07:00  INFO 55961 --- [catalog-service] [    Test worker] c.e.c.web.OrganizerEventControllerTest   : Started OrganizerEventControllerTest in 2.329 seconds (process running for 59.58)
+2026-08-04T20:12:57.590+07:00  INFO 81258 --- [catalog-service] [    Test worker] c.e.c.web.OrganizerEventControllerTest   : Starting OrganizerEventControllerTest using Java 21.0.11 with PID 81258 (started by lucky in /home/lucky/Project/event_ticket/services/catalog-service)
+2026-08-04T20:12:57.590+07:00  INFO 81258 --- [catalog-service] [    Test worker] c.e.c.web.OrganizerEventControllerTest   : The following 1 profile is active: &quot;test&quot;
+2026-08-04T20:12:58.685+07:00  INFO 81258 --- [catalog-service] [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7a7fdc1a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@28f5a003, org.springframework.security.web.context.SecurityContextHolderFilter@1a920154, org.springframework.security.web.header.HeaderWriterFilter@1c0f32ad, org.springframework.web.filter.CorsFilter@3220ffb, org.springframework.security.web.authentication.logout.LogoutFilter@7aa44fa2, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@227e4ea8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@e870ac9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6b78cbee, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@53791a39, org.springframework.security.web.session.SessionManagementFilter@5a4833ab, org.springframework.security.web.access.ExceptionTranslationFilter@6dcf39c6, org.springframework.security.web.access.intercept.AuthorizationFilter@61c946a0]
+2026-08-04T20:12:58.911+07:00  INFO 81258 --- [catalog-service] [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-08-04T20:12:58.912+07:00  INFO 81258 --- [catalog-service] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-08-04T20:12:58.919+07:00  INFO 81258 --- [catalog-service] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 7 ms
+2026-08-04T20:12:58.943+07:00  INFO 81258 --- [catalog-service] [    Test worker] c.e.c.web.OrganizerEventControllerTest   : Started OrganizerEventControllerTest in 1.426 seconds (process running for 33.047)
 </pre>
 </span>
 </div>
@@ -131,7 +131,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.12</a> at Aug 4, 2026, 2:18:00 PM</p>
+<a href="http://www.gradle.org">Gradle 8.12</a> at Aug 4, 2026, 8:12:59 PM</p>
 </div>
 </div>
 </body>

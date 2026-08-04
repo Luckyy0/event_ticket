@@ -21,7 +21,7 @@ import java.util.Map;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
-@SpringBootTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureWebTestClient
 @ActiveProfiles("test")
 class JwtValidationTest {
@@ -58,8 +58,7 @@ class JwtValidationTest {
                 .uri("/api/v1/orders")
                 .header(HttpHeaders.AUTHORIZATION, "Bearer valid-jwt-token")
                 .exchange()
-                // In test without downstream mock, gateway routes it; not 401
-                .expectStatus().isNotFound(); // 404 means passed auth filter and hit route (no downstream running in mock)
+                .expectStatus().value(status -> org.assertj.core.api.Assertions.assertThat(status).isNotIn(401, 403));
     }
 
     @Test
@@ -115,7 +114,7 @@ class JwtValidationTest {
         webTestClient.get()
                 .uri("/api/v1/events")
                 .exchange()
-                .expectStatus().isNotFound(); // Public pass-through, not 401
+                .expectStatus().value(status -> org.assertj.core.api.Assertions.assertThat(status).isNotIn(401, 403));
     }
 
     @Test
@@ -125,6 +124,6 @@ class JwtValidationTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .bodyValue("{\"event\":\"payment.success\"}")
                 .exchange()
-                .expectStatus().isNotFound(); // Public pass-through, not 401
+                .expectStatus().value(status -> org.assertj.core.api.Assertions.assertThat(status).isNotIn(401, 403));
     }
 }

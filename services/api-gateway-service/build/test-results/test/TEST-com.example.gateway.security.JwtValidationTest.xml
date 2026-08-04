@@ -1,286 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.gateway.security.JwtValidationTest" tests="8" skipped="0" failures="3" errors="0" timestamp="2026-08-04T07:17:27" hostname="DESKTOP-APGR6KO" time="2.284">
+<testsuite name="com.example.gateway.security.JwtValidationTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-08-04T13:21:09" hostname="DESKTOP-APGR6KO" time="1.043">
   <properties/>
-  <testcase name="shouldReturn401_whenNoTokenProvided_toProtectedRoute()" classname="com.example.gateway.security.JwtValidationTest" time="0.748"/>
-  <testcase name="shouldAllowPublicAccess_toPaymentWebhook_withoutToken()" classname="com.example.gateway.security.JwtValidationTest" time="0.934">
-    <failure message="java.lang.AssertionError: Status expected:&lt;404 NOT_FOUND&gt; but was:&lt;500 INTERNAL_SERVER_ERROR&gt;" type="java.lang.AssertionError">java.lang.AssertionError: Status expected:&lt;404 NOT_FOUND&gt; but was:&lt;500 INTERNAL_SERVER_ERROR&gt;
-	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
-	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
-	at org.springframework.test.web.reactive.server.StatusAssertions.lambda$assertStatusAndReturn$4(StatusAssertions.java:236)
-	at org.springframework.test.web.reactive.server.ExchangeResult.assertWithDiagnostics(ExchangeResult.java:222)
-	at org.springframework.test.web.reactive.server.StatusAssertions.assertStatusAndReturn(StatusAssertions.java:236)
-	at org.springframework.test.web.reactive.server.StatusAssertions.isNotFound(StatusAssertions.java:153)
-	at com.example.gateway.security.JwtValidationTest.shouldAllowPublicAccess_toPaymentWebhook_withoutToken(JwtValidationTest.java:128)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
-	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
-	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
-	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
-	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
-	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
-	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
-	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
-	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
-	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
-	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
-	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:124)
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:99)
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:94)
-	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:63)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
-	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:92)
-	at jdk.proxy1/jdk.proxy1.$Proxy4.stop(Unknown Source)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:200)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:132)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:103)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:63)
-	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
-	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:121)
-	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:71)
-	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
-	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
-</failure>
-  </testcase>
-  <testcase name="shouldAllowPublicAccess_toCatalogGetEndpoint_withoutToken()" classname="com.example.gateway.security.JwtValidationTest" time="0.191">
-    <failure message="java.lang.AssertionError: Status expected:&lt;404 NOT_FOUND&gt; but was:&lt;500 INTERNAL_SERVER_ERROR&gt;" type="java.lang.AssertionError">java.lang.AssertionError: Status expected:&lt;404 NOT_FOUND&gt; but was:&lt;500 INTERNAL_SERVER_ERROR&gt;
-	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
-	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
-	at org.springframework.test.web.reactive.server.StatusAssertions.lambda$assertStatusAndReturn$4(StatusAssertions.java:236)
-	at org.springframework.test.web.reactive.server.ExchangeResult.assertWithDiagnostics(ExchangeResult.java:222)
-	at org.springframework.test.web.reactive.server.StatusAssertions.assertStatusAndReturn(StatusAssertions.java:236)
-	at org.springframework.test.web.reactive.server.StatusAssertions.isNotFound(StatusAssertions.java:153)
-	at com.example.gateway.security.JwtValidationTest.shouldAllowPublicAccess_toCatalogGetEndpoint_withoutToken(JwtValidationTest.java:118)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
-	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
-	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
-	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
-	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
-	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
-	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
-	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
-	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
-	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
-	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
-	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:124)
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:99)
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:94)
-	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:63)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
-	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:92)
-	at jdk.proxy1/jdk.proxy1.$Proxy4.stop(Unknown Source)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:200)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:132)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:103)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:63)
-	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
-	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:121)
-	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:71)
-	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
-	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
-</failure>
-  </testcase>
-  <testcase name="shouldReturn401_whenTokenIsMalformed()" classname="com.example.gateway.security.JwtValidationTest" time="0.14"/>
-  <testcase name="shouldAllowAccess_whenTokenIsValid()" classname="com.example.gateway.security.JwtValidationTest" time="0.065">
-    <failure message="java.lang.AssertionError: Status expected:&lt;404 NOT_FOUND&gt; but was:&lt;500 INTERNAL_SERVER_ERROR&gt;" type="java.lang.AssertionError">java.lang.AssertionError: Status expected:&lt;404 NOT_FOUND&gt; but was:&lt;500 INTERNAL_SERVER_ERROR&gt;
-	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:59)
-	at org.springframework.test.util.AssertionErrors.assertEquals(AssertionErrors.java:122)
-	at org.springframework.test.web.reactive.server.StatusAssertions.lambda$assertStatusAndReturn$4(StatusAssertions.java:236)
-	at org.springframework.test.web.reactive.server.ExchangeResult.assertWithDiagnostics(ExchangeResult.java:222)
-	at org.springframework.test.web.reactive.server.StatusAssertions.assertStatusAndReturn(StatusAssertions.java:236)
-	at org.springframework.test.web.reactive.server.StatusAssertions.isNotFound(StatusAssertions.java:153)
-	at com.example.gateway.security.JwtValidationTest.shouldAllowAccess_whenTokenIsValid(JwtValidationTest.java:62)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
-	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
-	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
-	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
-	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
-	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
-	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
-	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
-	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
-	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
-	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
-	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:124)
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:99)
-	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:94)
-	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:63)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
-	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
-	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
-	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:92)
-	at jdk.proxy1/jdk.proxy1.$Proxy4.stop(Unknown Source)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:200)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:132)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:103)
-	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:63)
-	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
-	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:121)
-	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:71)
-	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
-	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
-</failure>
-  </testcase>
-  <testcase name="shouldReturn401_whenTokenHasInvalidSignature()" classname="com.example.gateway.security.JwtValidationTest" time="0.051"/>
-  <testcase name="shouldReturn401_whenTokenIsExpired()" classname="com.example.gateway.security.JwtValidationTest" time="0.055"/>
-  <testcase name="shouldReturn401_whenIssuerDoesNotMatch()" classname="com.example.gateway.security.JwtValidationTest" time="0.037"/>
-  <system-out><![CDATA[2026-08-04T14:17:19.219+07:00  INFO 53763 --- [api-gateway-service] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.gateway.security.JwtValidationTest]: JwtValidationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2026-08-04T14:17:19.258+07:00  INFO 53763 --- [api-gateway-service] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.gateway.GatewayApplication for test class com.example.gateway.security.JwtValidationTest
+  <testcase name="shouldReturn401_whenNoTokenProvided_toProtectedRoute()" classname="com.example.gateway.security.JwtValidationTest" time="0.082"/>
+  <testcase name="shouldAllowPublicAccess_toPaymentWebhook_withoutToken()" classname="com.example.gateway.security.JwtValidationTest" time="0.159"/>
+  <testcase name="shouldAllowPublicAccess_toCatalogGetEndpoint_withoutToken()" classname="com.example.gateway.security.JwtValidationTest" time="0.161"/>
+  <testcase name="shouldReturn401_whenTokenIsMalformed()" classname="com.example.gateway.security.JwtValidationTest" time="0.203"/>
+  <testcase name="shouldAllowAccess_whenTokenIsValid()" classname="com.example.gateway.security.JwtValidationTest" time="0.209"/>
+  <testcase name="shouldReturn401_whenTokenHasInvalidSignature()" classname="com.example.gateway.security.JwtValidationTest" time="0.08"/>
+  <testcase name="shouldReturn401_whenTokenIsExpired()" classname="com.example.gateway.security.JwtValidationTest" time="0.033"/>
+  <testcase name="shouldReturn401_whenIssuerDoesNotMatch()" classname="com.example.gateway.security.JwtValidationTest" time="0.035"/>
+  <system-out><![CDATA[2026-08-04T20:20:57.520+07:00  INFO 87376 --- [api-gateway-service] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.gateway.security.JwtValidationTest]: JwtValidationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-08-04T20:20:57.591+07:00  INFO 87376 --- [api-gateway-service] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.gateway.GatewayApplication for test class com.example.gateway.security.JwtValidationTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -290,30 +20,31 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.3)
 
-2026-08-04T14:17:19.602+07:00  INFO 53763 --- [api-gateway-service] [    Test worker] c.e.gateway.security.JwtValidationTest   : Starting JwtValidationTest using Java 21.0.11 with PID 53763 (started by lucky in /home/lucky/Project/event_ticket/services/api-gateway-service)
-2026-08-04T14:17:19.603+07:00  INFO 53763 --- [api-gateway-service] [    Test worker] c.e.gateway.security.JwtValidationTest   : The following 1 profile is active: "test"
-2026-08-04T14:17:22.624+07:00  INFO 53763 --- [api-gateway-service] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-08-04T14:17:22.649+07:00  INFO 53763 --- [api-gateway-service] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2026-08-04T14:17:22.659+07:00  INFO 53763 --- [api-gateway-service] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
-2026-08-04T14:17:22.977+07:00  INFO 53763 --- [api-gateway-service] [    Test worker] o.s.cloud.context.scope.GenericScope     : BeanFactory id=31011cbb-769e-398b-b6fb-61c2f2b375c5
-2026-08-04T14:17:26.451+07:00  INFO 53763 --- [api-gateway-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [After]
-2026-08-04T14:17:26.452+07:00  INFO 53763 --- [api-gateway-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Before]
-2026-08-04T14:17:26.453+07:00  INFO 53763 --- [api-gateway-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Between]
-2026-08-04T14:17:26.453+07:00  INFO 53763 --- [api-gateway-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Cookie]
-2026-08-04T14:17:26.453+07:00  INFO 53763 --- [api-gateway-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Header]
-2026-08-04T14:17:26.454+07:00  INFO 53763 --- [api-gateway-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Host]
-2026-08-04T14:17:26.454+07:00  INFO 53763 --- [api-gateway-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Method]
-2026-08-04T14:17:26.454+07:00  INFO 53763 --- [api-gateway-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Path]
-2026-08-04T14:17:26.454+07:00  INFO 53763 --- [api-gateway-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Query]
-2026-08-04T14:17:26.455+07:00  INFO 53763 --- [api-gateway-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [ReadBody]
-2026-08-04T14:17:26.455+07:00  INFO 53763 --- [api-gateway-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [RemoteAddr]
-2026-08-04T14:17:26.456+07:00  INFO 53763 --- [api-gateway-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [XForwardedRemoteAddr]
-2026-08-04T14:17:26.456+07:00  INFO 53763 --- [api-gateway-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Weight]
-2026-08-04T14:17:26.456+07:00  INFO 53763 --- [api-gateway-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [CloudFoundryRouteService]
-2026-08-04T14:17:26.997+07:00  INFO 53763 --- [api-gateway-service] [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoint(s) beneath base path '/actuator'
-2026-08-04T14:17:27.823+07:00  INFO 53763 --- [api-gateway-service] [    Test worker] c.e.gateway.security.JwtValidationTest   : Started JwtValidationTest in 8.537 seconds (process running for 206.579)
-2026-08-04T14:17:28.742+07:00  INFO 53763 --- [api-gateway-service] [     parallel-4] c.e.gateway.filter.RequestLoggingFilter  : [GATEWAY-REQ] CorrelationId: b22a3cee-9f55-4342-8b76-71cd49427c08 | Method: POST | Path: /api/v1/payments/webhook | RemoteIP: unknown
-2026-08-04T14:17:29.254+07:00 ERROR 53763 --- [api-gateway-service] [or-http-epoll-2] a.w.r.e.AbstractErrorWebExceptionHandler : [1915a6a4]  500 Server Error for HTTP POST "/api/v1/payments/webhook"
+2026-08-04T20:20:58.320+07:00  INFO 87376 --- [api-gateway-service] [    Test worker] c.e.gateway.security.JwtValidationTest   : Starting JwtValidationTest using Java 21.0.11 with PID 87376 (started by lucky in /home/lucky/Project/event_ticket/services/api-gateway-service)
+2026-08-04T20:20:58.321+07:00  INFO 87376 --- [api-gateway-service] [    Test worker] c.e.gateway.security.JwtValidationTest   : The following 1 profile is active: "test"
+2026-08-04T20:21:01.163+07:00  INFO 87376 --- [api-gateway-service] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-04T20:21:01.170+07:00  INFO 87376 --- [api-gateway-service] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-08-04T20:21:01.196+07:00  INFO 87376 --- [api-gateway-service] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24 ms. Found 0 Redis repository interfaces.
+2026-08-04T20:21:01.439+07:00  INFO 87376 --- [api-gateway-service] [    Test worker] o.s.cloud.context.scope.GenericScope     : BeanFactory id=6f9b1191-c203-30de-960f-a0194ca92d8a
+2026-08-04T20:21:08.089+07:00  INFO 87376 --- [api-gateway-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [After]
+2026-08-04T20:21:08.091+07:00  INFO 87376 --- [api-gateway-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Before]
+2026-08-04T20:21:08.092+07:00  INFO 87376 --- [api-gateway-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Between]
+2026-08-04T20:21:08.092+07:00  INFO 87376 --- [api-gateway-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Cookie]
+2026-08-04T20:21:08.093+07:00  INFO 87376 --- [api-gateway-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Header]
+2026-08-04T20:21:08.094+07:00  INFO 87376 --- [api-gateway-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Host]
+2026-08-04T20:21:08.094+07:00  INFO 87376 --- [api-gateway-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Method]
+2026-08-04T20:21:08.095+07:00  INFO 87376 --- [api-gateway-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Path]
+2026-08-04T20:21:08.096+07:00  INFO 87376 --- [api-gateway-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Query]
+2026-08-04T20:21:08.096+07:00  INFO 87376 --- [api-gateway-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [ReadBody]
+2026-08-04T20:21:08.097+07:00  INFO 87376 --- [api-gateway-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [RemoteAddr]
+2026-08-04T20:21:08.099+07:00  INFO 87376 --- [api-gateway-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [XForwardedRemoteAddr]
+2026-08-04T20:21:08.099+07:00  INFO 87376 --- [api-gateway-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [Weight]
+2026-08-04T20:21:08.100+07:00  INFO 87376 --- [api-gateway-service] [    Test worker] o.s.c.g.r.RouteDefinitionRouteLocator    : Loaded RoutePredicateFactory [CloudFoundryRouteService]
+2026-08-04T20:21:08.658+07:00  INFO 87376 --- [api-gateway-service] [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoint(s) beneath base path '/actuator'
+2026-08-04T20:21:09.475+07:00  INFO 87376 --- [api-gateway-service] [    Test worker] o.s.b.web.embedded.netty.NettyWebServer  : Netty started on port 45189
+2026-08-04T20:21:09.831+07:00  INFO 87376 --- [api-gateway-service] [    Test worker] c.e.gateway.security.JwtValidationTest   : Started JwtValidationTest in 12.203 seconds (process running for 85.357)
+2026-08-04T20:21:10.019+07:00  INFO 87376 --- [api-gateway-service] [     parallel-4] c.e.gateway.filter.RequestLoggingFilter  : [GATEWAY-REQ] CorrelationId: d67fed5c-1fd0-4a07-b6b2-05cfd5ad1983 | Method: POST | Path: /api/v1/payments/webhook | RemoteIP: unknown
+2026-08-04T20:21:10.042+07:00 ERROR 87376 --- [api-gateway-service] [or-http-epoll-6] a.w.r.e.AbstractErrorWebExceptionHandler : [22c154c5]  500 Server Error for HTTP POST "/api/v1/payments/webhook"
 
 io.netty.channel.AbstractChannel$AnnotatedConnectException: finishConnect(..) failed: Connection refused: localhost/127.0.0.1:8085
 	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
@@ -347,32 +78,8 @@ Caused by: java.net.ConnectException: finishConnect(..) failed: Connection refus
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.107.Final.jar:4.1.107.Final]
 	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
 
-2026-08-04T14:17:29.515+07:00 ERROR 53763 --- [api-gateway-service] [    Test worker] o.s.t.w.reactive.server.ExchangeResult   : Request details for assertion failure:
-
-> POST /api/v1/payments/webhook
-> WebTestClient-Request-Id: [2]
-> Content-Type: [application/json]
-> Content-Length: [27]
-
-{"event":"payment.success"}
-
-< 500 INTERNAL_SERVER_ERROR Internal Server Error
-< Vary: [Origin, Access-Control-Request-Method, Access-Control-Request-Headers]
-< X-Correlation-Id: [b22a3cee-9f55-4342-8b76-71cd49427c08]
-< Content-Type: [application/json]
-< Content-Length: [147]
-< Cache-Control: [no-cache, no-store, max-age=0, must-revalidate]
-< Pragma: [no-cache]
-< Expires: [0]
-< X-Content-Type-Options: [nosniff]
-< X-Frame-Options: [DENY]
-< X-XSS-Protection: [0]
-< Referrer-Policy: [no-referrer]
-
-{"timestamp":"2026-08-04T07:17:29.248+00:00","path":"/api/v1/payments/webhook","status":500,"error":"Internal Server Error","requestId":"1915a6a4"}
-
-2026-08-04T14:17:29.636+07:00  INFO 53763 --- [api-gateway-service] [     parallel-7] c.e.gateway.filter.RequestLoggingFilter  : [GATEWAY-REQ] CorrelationId: de0b58e9-49b0-4a98-a69c-59c4e55c5b53 | Method: GET | Path: /api/v1/events | RemoteIP: unknown
-2026-08-04T14:17:29.677+07:00 ERROR 53763 --- [api-gateway-service] [or-http-epoll-3] a.w.r.e.AbstractErrorWebExceptionHandler : [783343b0]  500 Server Error for HTTP GET "/api/v1/events"
+2026-08-04T20:21:10.230+07:00  INFO 87376 --- [api-gateway-service] [     parallel-7] c.e.gateway.filter.RequestLoggingFilter  : [GATEWAY-REQ] CorrelationId: d5f87787-7c3f-4596-9b3c-6ac573b50b14 | Method: GET | Path: /api/v1/events | RemoteIP: unknown
+2026-08-04T20:21:10.253+07:00 ERROR 87376 --- [api-gateway-service] [or-http-epoll-7] a.w.r.e.AbstractErrorWebExceptionHandler : [66b48c9b]  500 Server Error for HTTP GET "/api/v1/events"
 
 io.netty.channel.AbstractChannel$AnnotatedConnectException: finishConnect(..) failed: Connection refused: localhost/127.0.0.1:8082
 	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
@@ -406,30 +113,8 @@ Caused by: java.net.ConnectException: finishConnect(..) failed: Connection refus
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.107.Final.jar:4.1.107.Final]
 	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
 
-2026-08-04T14:17:29.718+07:00 ERROR 53763 --- [api-gateway-service] [    Test worker] o.s.t.w.reactive.server.ExchangeResult   : Request details for assertion failure:
-
-> GET /api/v1/events
-> WebTestClient-Request-Id: [3]
-
-No content
-
-< 500 INTERNAL_SERVER_ERROR Internal Server Error
-< Vary: [Origin, Access-Control-Request-Method, Access-Control-Request-Headers]
-< X-Correlation-Id: [de0b58e9-49b0-4a98-a69c-59c4e55c5b53]
-< Content-Type: [application/json]
-< Content-Length: [137]
-< Cache-Control: [no-cache, no-store, max-age=0, must-revalidate]
-< Pragma: [no-cache]
-< Expires: [0]
-< X-Content-Type-Options: [nosniff]
-< X-Frame-Options: [DENY]
-< X-XSS-Protection: [0]
-< Referrer-Policy: [no-referrer]
-
-{"timestamp":"2026-08-04T07:17:29.676+00:00","path":"/api/v1/events","status":500,"error":"Internal Server Error","requestId":"783343b0"}
-
-2026-08-04T14:17:29.936+07:00  INFO 53763 --- [api-gateway-service] [     parallel-3] c.e.gateway.filter.RequestLoggingFilter  : [GATEWAY-REQ] CorrelationId: ad563141-04c4-44f7-a7da-170444a02da9 | Method: GET | Path: /api/v1/orders | RemoteIP: unknown
-2026-08-04T14:17:29.951+07:00 ERROR 53763 --- [api-gateway-service] [or-http-epoll-4] a.w.r.e.AbstractErrorWebExceptionHandler : [1aef607b]  500 Server Error for HTTP GET "/api/v1/orders"
+2026-08-04T20:21:10.624+07:00  INFO 87376 --- [api-gateway-service] [     parallel-3] c.e.gateway.filter.RequestLoggingFilter  : [GATEWAY-REQ] CorrelationId: a8c900b3-93b2-4e60-93de-d75d477a0a95 | Method: GET | Path: /api/v1/orders | RemoteIP: unknown
+2026-08-04T20:21:10.667+07:00 ERROR 87376 --- [api-gateway-service] [or-http-epoll-8] a.w.r.e.AbstractErrorWebExceptionHandler : [4599b9d3]  500 Server Error for HTTP GET "/api/v1/orders"
 
 io.netty.channel.AbstractChannel$AnnotatedConnectException: finishConnect(..) failed: Connection refused: localhost/127.0.0.1:8084
 	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
@@ -462,29 +147,6 @@ Caused by: java.net.ConnectException: finishConnect(..) failed: Connection refus
 	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.107.Final.jar:4.1.107.Final]
 	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.107.Final.jar:4.1.107.Final]
 	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
-
-2026-08-04T14:17:29.963+07:00 ERROR 53763 --- [api-gateway-service] [    Test worker] o.s.t.w.reactive.server.ExchangeResult   : Request details for assertion failure:
-
-> GET /api/v1/orders
-> WebTestClient-Request-Id: [5]
-> Authorization: [Bearer valid-jwt-token]
-
-No content
-
-< 500 INTERNAL_SERVER_ERROR Internal Server Error
-< Vary: [Origin, Access-Control-Request-Method, Access-Control-Request-Headers]
-< X-Correlation-Id: [ad563141-04c4-44f7-a7da-170444a02da9]
-< Content-Type: [application/json]
-< Content-Length: [137]
-< Cache-Control: [no-cache, no-store, max-age=0, must-revalidate]
-< Pragma: [no-cache]
-< Expires: [0]
-< X-Content-Type-Options: [nosniff]
-< X-Frame-Options: [DENY]
-< X-XSS-Protection: [0]
-< Referrer-Policy: [no-referrer]
-
-{"timestamp":"2026-08-04T07:17:29.951+00:00","path":"/api/v1/orders","status":500,"error":"Internal Server Error","requestId":"1aef607b"}
 
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
