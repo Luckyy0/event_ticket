@@ -1,0 +1,36 @@
+# Define organizational unit for users
+dn: ou=users,dc=example,dc=org
+objectClass: organizationalUnit
+ou: users
+
+# Enterprise User 1
+dn: uid=ldap_john,ou=users,dc=example,dc=org
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: ldap_john
+sn: Doe
+givenName: John
+cn: John Doe
+displayName: John Doe (Enterprise)
+mail: john.doe@enterprise.example.org
+userPassword: enterprisePassword123
+uidNumber: 10001
+gidNumber: 10001
+homeDirectory: /home/ldap_john
+
+# Enterprise User 2 (Manager)
+dn: uid=ldap_mary,ou=users,dc=example,dc=org
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: ldap_mary
+sn: Smith
+givenName: Mary
+cn: Mary Smith
+displayName: Mary Smith (Enterprise Manager)
+mail: mary.smith@enterprise.example.org
+userPassword: enterprisePassword123
+uidNumber: 10002
+gidNumber: 10002
+homeDirectory: /home/ldap_mary

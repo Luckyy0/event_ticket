@@ -1,0 +1,169 @@
+{
+  "realm": "event-ticketing",
+  "enabled": true,
+  "registrationAllowed": true,
+  "resetPasswordAllowed": true,
+  "rememberMe": true,
+  "verifyEmail": false,
+  "loginWithEmailAllowed": true,
+  "duplicateEmailsAllowed": false,
+  "accessTokenLifespan": 300,
+  "ssoSessionIdleTimeout": 1800,
+  "ssoSessionMaxLifespan": 36000,
+  "revokeRefreshToken": true,
+  "refreshTokenMaxReuse": 0,
+  "internationalizationEnabled": true,
+  "supportedLocales": [
+    "vi",
+    "en"
+  ],
+  "defaultLocale": "vi",
+  "defaultRoles": [
+    "CUSTOMER"
+  ],
+  "roles": {
+    "realm": [
+      {
+        "name": "CUSTOMER",
+        "description": "Standard self-registered or default customer"
+      },
+      {
+        "name": "EVENT_ORGANIZER",
+        "description": "Event creator and organizer"
+      },
+      {
+        "name": "STAFF",
+        "description": "Check-in staff"
+      },
+      {
+        "name": "ADMIN",
+        "description": "System administrator"
+      },
+      {
+        "name": "SUPPORT",
+        "description": "Support staff"
+      }
+    ]
+  },
+  "clientScopes": [
+    {
+      "name": "event:read",
+      "protocol": "openid-connect"
+    },
+    {
+      "name": "event:write",
+      "protocol": "openid-connect"
+    },
+    {
+      "name": "inventory:read",
+      "protocol": "openid-connect"
+    },
+    {
+      "name": "inventory:manage",
+      "protocol": "openid-connect"
+    },
+    {
+      "name": "order:read",
+      "protocol": "openid-connect"
+    },
+    {
+      "name": "order:create",
+      "protocol": "openid-connect"
+    },
+    {
+      "name": "order:cancel",
+      "protocol": "openid-connect"
+    },
+    {
+      "name": "payment:create",
+      "protocol": "openid-connect"
+    },
+    {
+      "name": "payment:refund",
+      "protocol": "openid-connect"
+    },
+    {
+      "name": "ticket:read",
+      "protocol": "openid-connect"
+    },
+    {
+      "name": "ticket:checkin",
+      "protocol": "openid-connect"
+    }
+  ],
+  "clients": [
+    {
+      "clientId": "bff-client",
+      "enabled": true,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "secret",
+      "redirectUris": [
+        "http://localhost:8080/api/auth/callback"
+      ],
+      "webOrigins": [
+        "http://localhost:3000"
+      ],
+      "postLogoutRedirectUris": [
+        "http://localhost:8080"
+      ],
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": true,
+      "serviceAccountsEnabled": true,
+      "publicClient": false,
+      "frontchannelLogout": false,
+      "protocol": "openid-connect"
+    },
+    {
+      "clientId": "api-client",
+      "enabled": true,
+      "bearerOnly": true,
+      "standardFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "publicClient": false,
+      "protocol": "openid-connect"
+    }
+  ],
+  "users": [
+    {
+      "username": "customer1",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Customer",
+      "lastName": "One",
+      "email": "customer1@example.com",
+      "attributes": {
+        "locale": ["vi"],
+        "birth_year": ["1995"]
+      },
+      "credentials": [
+        {
+          "type": "password",
+          "value": "test1234",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "CUSTOMER"
+      ]
+    },
+    {
+      "username": "admin1",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Admin",
+      "lastName": "One",
+      "email": "admin1@example.com",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "test1234",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "ADMIN"
+      ]
+    }
+  ]
+}

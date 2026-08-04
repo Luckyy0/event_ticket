@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.inventory.domain.ValueObjectsTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2026-08-04T07:05:24" hostname="DESKTOP-APGR6KO" time="0.071">
+  <properties/>
+  <testcase name="shouldRejectValueObject_withNullUuid()" classname="com.example.inventory.domain.ValueObjectsTest" time="0.002"/>
+  <testcase name="shouldCreateValueObject_withValidUuid()" classname="com.example.inventory.domain.ValueObjectsTest" time="0.015"/>
+  <testcase name="shouldRejectInventoryQuantity_whenTotalDoesNotMatchSum()" classname="com.example.inventory.domain.ValueObjectsTest" time="0.004"/>
+  <testcase name="shouldBeExpired_whenDurationHasElapsed()" classname="com.example.inventory.domain.ValueObjectsTest" time="0.003"/>
+  <testcase name="shouldRejectInventoryQuantity_whenReservedIsNegative()" classname="com.example.inventory.domain.ValueObjectsTest" time="0.003"/>
+  <testcase name="shouldRejectInventoryQuantity_whenAvailableIsNegative()" classname="com.example.inventory.domain.ValueObjectsTest" time="0.003"/>
+  <testcase name="shouldCreateInventoryQuantity_whenAllValuesAreValid()" classname="com.example.inventory.domain.ValueObjectsTest" time="0.003"/>
+  <testcase name="shouldMoveFromReservedToSold_whenConfirming()" classname="com.example.inventory.domain.ValueObjectsTest" time="0.004"/>
+  <testcase name="shouldRejectInventoryQuantity_whenSoldIsNegative()" classname="com.example.inventory.domain.ValueObjectsTest" time="0.001"/>
+  <testcase name="shouldReturnToAvailable_whenReleasing()" classname="com.example.inventory.domain.ValueObjectsTest" time="0.002"/>
+  <testcase name="shouldNotBeExpired_whenCreatedJustNow()" classname="com.example.inventory.domain.ValueObjectsTest" time="0.004"/>
+  <testcase name="shouldCreateInitialInventoryQuantity_fromTotal()" classname="com.example.inventory.domain.ValueObjectsTest" time="0.003"/>
+  <testcase name="shouldDeductAvailable_whenReserving()" classname="com.example.inventory.domain.ValueObjectsTest" time="0.001"/>
+  <testcase name="shouldRejectDeduction_whenAvailableIsInsufficient()" classname="com.example.inventory.domain.ValueObjectsTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

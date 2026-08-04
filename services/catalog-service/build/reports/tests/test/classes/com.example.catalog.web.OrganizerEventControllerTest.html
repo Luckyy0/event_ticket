@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - OrganizerEventControllerTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>OrganizerEventControllerTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.example.catalog.web.html">com.example.catalog.web</a> &gt; OrganizerEventControllerTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">4</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.505s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">shouldCreateEvent_whenUserIsOrganizer()</td>
+<td class="success">0.449s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">shouldPublishEvent_whenUserIsOrganizer()</td>
+<td class="success">0.024s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">shouldReturn401_whenUnauthorizedUserTriesToCreateEvent()</td>
+<td class="success">0.016s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">shouldReturn403_whenCustomerTriesToCreateEvent()</td>
+<td class="success">0.016s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2026-08-04T14:17:57.569+07:00  INFO 55961 --- [catalog-service] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.catalog.web.OrganizerEventControllerTest]: OrganizerEventControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-08-04T14:17:57.636+07:00  INFO 55961 --- [catalog-service] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.catalog.CatalogApplication for test class com.example.catalog.web.OrganizerEventControllerTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.3)
+
+2026-08-04T14:17:57.815+07:00  INFO 55961 --- [catalog-service] [    Test worker] c.e.c.web.OrganizerEventControllerTest   : Starting OrganizerEventControllerTest using Java 21.0.11 with PID 55961 (started by lucky in /home/lucky/Project/event_ticket/services/catalog-service)
+2026-08-04T14:17:57.816+07:00  INFO 55961 --- [catalog-service] [    Test worker] c.e.c.web.OrganizerEventControllerTest   : The following 1 profile is active: &quot;test&quot;
+2026-08-04T14:17:59.617+07:00  INFO 55961 --- [catalog-service] [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@47bcd95a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3fae1ec9, org.springframework.security.web.context.SecurityContextHolderFilter@2d2697a8, org.springframework.security.web.header.HeaderWriterFilter@5a0c0680, org.springframework.web.filter.CorsFilter@331fe6d4, org.springframework.security.web.authentication.logout.LogoutFilter@67629872, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@346e76ad, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@17f5b53a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2df79942, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@74832504, org.springframework.security.web.session.SessionManagementFilter@18d963be, org.springframework.security.web.access.ExceptionTranslationFilter@6e1a8e78, org.springframework.security.web.access.intercept.AuthorizationFilter@4c2812aa]
+2026-08-04T14:17:59.946+07:00  INFO 55961 --- [catalog-service] [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-08-04T14:17:59.948+07:00  INFO 55961 --- [catalog-service] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-08-04T14:17:59.951+07:00  INFO 55961 --- [catalog-service] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-08-04T14:17:59.987+07:00  INFO 55961 --- [catalog-service] [    Test worker] c.e.c.web.OrganizerEventControllerTest   : Started OrganizerEventControllerTest in 2.329 seconds (process running for 59.58)
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.12</a> at Aug 4, 2026, 2:18:00 PM</p>
+</div>
+</div>
+</body>
+</html>

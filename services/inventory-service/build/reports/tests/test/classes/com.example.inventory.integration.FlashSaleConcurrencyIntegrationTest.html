@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - FlashSaleConcurrencyIntegrationTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>FlashSaleConcurrencyIntegrationTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.example.inventory.integration.html">com.example.inventory.integration</a> &gt; FlashSaleConcurrencyIntegrationTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">6.094s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">shouldHandle50ConcurrentReservations_for10AvailableTickets_withoutOverselling()</td>
+<td class="success">6.094s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>14:04:10.476 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.inventory.integration.FlashSaleConcurrencyIntegrationTest]: FlashSaleConcurrencyIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+14:04:10.738 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.inventory.InventoryApplication for test class com.example.inventory.integration.FlashSaleConcurrencyIntegrationTest
+14:04:11.023 [Test worker] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
+14:04:11.030 [Test worker] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+14:04:11.046 [Test worker] INFO org.testcontainers.DockerClientFactory -- Testcontainers version: 1.20.4
+14:04:11.821 [Test worker] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Found Docker environment with Environment variables, system properties and defaults. Resolved dockerHost=unix:///var/run/docker.sock
+14:04:11.828 [Test worker] INFO org.testcontainers.DockerClientFactory -- Docker host IP address is localhost
+14:04:11.878 [Test worker] INFO org.testcontainers.DockerClientFactory -- Connected to docker: 
+  Server Version: 29.3.0
+  API Version: 1.54
+  Operating System: Ubuntu 24.04.4 LTS
+  Total Memory: 7823 MB
+14:04:11.897 [Test worker] INFO org.testcontainers.DockerClientFactory -- Checking the system...
+14:04:11.898 [Test worker] INFO org.testcontainers.DockerClientFactory -- ✔︎ Docker server version should be at least 1.6.0
+14:04:13.155 [Test worker] INFO tc.postgres:15-alpine -- Creating container for image: postgres:15-alpine
+14:04:13.173 [Test worker] INFO org.testcontainers.utility.RegistryAuthLocator -- Failure when attempting to lookup auth config. Please ignore if you don't have images in an authenticated registry. Details: (dockerImageName: postgres:15-alpine, configFile: /home/lucky/.docker/config.json, configEnv: DOCKER_AUTH_CONFIG). Falling back to docker-java default behaviour. Exception message: Status 404: No config supplied. Checked in order: /home/lucky/.docker/config.json (file not found), DOCKER_AUTH_CONFIG (not set)
+14:04:13.218 [Test worker] INFO tc.testcontainers/ryuk:0.11.0 -- Creating container for image: testcontainers/ryuk:0.11.0
+14:04:13.619 [Test worker] INFO tc.testcontainers/ryuk:0.11.0 -- Container testcontainers/ryuk:0.11.0 is starting: f6762f09c3f043c0ea4f914da9335e323912a5b1b278f3a956f9851469cd3516
+14:04:17.055 [Test worker] INFO tc.testcontainers/ryuk:0.11.0 -- Container testcontainers/ryuk:0.11.0 started in PT3.836724682S
+14:04:17.453 [Test worker] INFO tc.postgres:15-alpine -- Container postgres:15-alpine is starting: 5efd509315e4f75cdb6c50af15765238b1d1d855f1cb89fb6154ab55cb6f44d3
+14:04:21.278 [Test worker] INFO tc.postgres:15-alpine -- Container postgres:15-alpine started in PT8.123020467S
+14:04:21.279 [Test worker] INFO tc.postgres:15-alpine -- Container is started (JDBC URL: jdbc:postgresql://localhost:32776/inventory_test?loggerLevel=OFF)
+14:04:21.295 [Test worker] INFO tc.redis:7.0-alpine -- Pulling docker image: redis:7.0-alpine. Please be patient; this may take some time but only needs to be done once.
+14:04:24.383 [docker-java-stream-916437827] INFO tc.redis:7.0-alpine -- Starting to pull image
+14:04:24.406 [docker-java-stream-916437827] INFO tc.redis:7.0-alpine -- Pulling image layers:  0 pending,  0 downloaded,  0 extracted, (0 bytes/0 bytes)
+14:04:25.419 [docker-java-stream-916437827] INFO tc.redis:7.0-alpine -- Pulling image layers:  6 pending,  1 downloaded,  0 extracted, (0 bytes/? MB)
+14:04:26.021 [docker-java-stream-916437827] INFO tc.redis:7.0-alpine -- Pulling image layers:  5 pending,  2 downloaded,  0 extracted, (1 bytes/? MB)
+14:04:26.045 [docker-java-stream-916437827] INFO tc.redis:7.0-alpine -- Pulling image layers:  5 pending,  2 downloaded,  1 extracted, (1 bytes/? MB)
+14:04:26.121 [docker-java-stream-916437827] INFO tc.redis:7.0-alpine -- Pulling image layers:  4 pending,  3 downloaded,  1 extracted, (1 bytes/? MB)
+14:04:26.219 [docker-java-stream-916437827] INFO tc.redis:7.0-alpine -- Pulling image layers:  3 pending,  4 downloaded,  1 extracted, (1 MB/? MB)
+14:04:26.246 [docker-java-stream-916437827] INFO tc.redis:7.0-alpine -- Pulling image layers:  3 pending,  4 downloaded,  2 extracted, (1 MB/? MB)
+14:04:26.620 [docker-java-stream-916437827] INFO tc.redis:7.0-alpine -- Pulling image layers:  3 pending,  5 downloaded,  2 extracted, (1 MB/? MB)
+14:04:26.820 [docker-java-stream-916437827] INFO tc.redis:7.0-alpine -- Pulling image layers:  2 pending,  6 downloaded,  2 extracted, (1 MB/? MB)
+14:04:26.834 [docker-java-stream-916437827] INFO tc.redis:7.0-alpine -- Pulling image layers:  2 pending,  7 downloaded,  2 extracted, (1 MB/? MB)
+14:04:26.887 [docker-java-stream-916437827] INFO tc.redis:7.0-alpine -- Pulling image layers:  2 pending,  7 downloaded,  3 extracted, (1 MB/? MB)
+14:04:29.118 [docker-java-stream-916437827] INFO tc.redis:7.0-alpine -- Pulling image layers:  1 pending,  8 downloaded,  3 extracted, (8 MB/? MB)
+14:04:29.382 [docker-java-stream-916437827] INFO tc.redis:7.0-alpine -- Pulling image layers:  1 pending,  8 downloaded,  4 extracted, (8 MB/? MB)
+14:04:29.434 [docker-java-stream-916437827] INFO tc.redis:7.0-alpine -- Pulling image layers:  1 pending,  8 downloaded,  5 extracted, (8 MB/? MB)
+14:04:29.444 [docker-java-stream-916437827] INFO tc.redis:7.0-alpine -- Pulling image layers:  1 pending,  8 downloaded,  6 extracted, (8 MB/? MB)
+14:04:29.555 [docker-java-stream-916437827] INFO tc.redis:7.0-alpine -- Pulling image layers:  1 pending,  8 downloaded,  7 extracted, (8 MB/? MB)
+14:04:29.563 [docker-java-stream-916437827] INFO tc.redis:7.0-alpine -- Pull complete. 9 layers, pulled in 5s (downloaded 8 MB at 1 MB/s)
+14:04:29.563 [Test worker] INFO tc.redis:7.0-alpine -- Image redis:7.0-alpine pull took PT8.267477822S
+14:04:29.783 [Test worker] INFO tc.redis:7.0-alpine -- Creating container for image: redis:7.0-alpine
+14:04:30.096 [Test worker] INFO tc.redis:7.0-alpine -- Container redis:7.0-alpine is starting: f151110dc40a72f1a57e426b0975e472cfb94b7301df0a38f8d489551a1624e7
+14:04:30.984 [Test worker] INFO tc.redis:7.0-alpine -- Container redis:7.0-alpine started in PT1.200595042S
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.3)
+
+2026-08-04T14:04:31.794+07:00  INFO 45341 --- [inventory-service] [    Test worker] .i.i.FlashSaleConcurrencyIntegrationTest : Starting FlashSaleConcurrencyIntegrationTest using Java 21.0.11 with PID 45341 (started by lucky in /home/lucky/Project/event_ticket/services/inventory-service)
+2026-08-04T14:04:31.797+07:00  INFO 45341 --- [inventory-service] [    Test worker] .i.i.FlashSaleConcurrencyIntegrationTest : The following 1 profile is active: &quot;test&quot;
+2026-08-04T14:04:34.330+07:00  INFO 45341 --- [inventory-service] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-04T14:04:34.335+07:00  INFO 45341 --- [inventory-service] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-08-04T14:04:34.667+07:00  INFO 45341 --- [inventory-service] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 314 ms. Found 3 JPA repository interfaces.
+2026-08-04T14:04:34.693+07:00  INFO 45341 --- [inventory-service] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-04T14:04:34.695+07:00  INFO 45341 --- [inventory-service] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-08-04T14:04:34.719+07:00  INFO 45341 --- [inventory-service] [    Test worker] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.inventory.adapter.out.persistence.InventoryJpaRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-04T14:04:34.720+07:00  INFO 45341 --- [inventory-service] [    Test worker] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.inventory.adapter.out.persistence.ProcessedRequestJpaRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-04T14:04:34.720+07:00  INFO 45341 --- [inventory-service] [    Test worker] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.inventory.adapter.out.persistence.ReservationJpaRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-08-04T14:04:34.721+07:00  INFO 45341 --- [inventory-service] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 Redis repository interfaces.
+2026-08-04T14:04:36.591+07:00  INFO 45341 --- [inventory-service] [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2026-08-04T14:04:36.631+07:00  INFO 45341 --- [inventory-service] [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-04T14:04:36.633+07:00  INFO 45341 --- [inventory-service] [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2026-08-04T14:04:36.910+07:00  INFO 45341 --- [inventory-service] [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-08-04T14:04:36.915+07:00  INFO 45341 --- [inventory-service] [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5066 ms
+2026-08-04T14:04:38.109+07:00  INFO 45341 --- [inventory-service] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-08-04T14:04:38.637+07:00  INFO 45341 --- [inventory-service] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@33c5e52f
+2026-08-04T14:04:38.641+07:00  INFO 45341 --- [inventory-service] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-08-04T14:04:38.885+07:00  INFO 45341 --- [inventory-service] [    Test worker] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 9.22.3 by Redgate
+2026-08-04T14:04:38.885+07:00  INFO 45341 --- [inventory-service] [    Test worker] o.f.c.internal.license.VersionPrinter    : See release notes here: https://rd.gt/416ObMi
+2026-08-04T14:04:38.886+07:00  INFO 45341 --- [inventory-service] [    Test worker] o.f.c.internal.license.VersionPrinter    : 
+2026-08-04T14:04:38.934+07:00  INFO 45341 --- [inventory-service] [    Test worker] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:32776/inventory_test (PostgreSQL 15.18)
+2026-08-04T14:04:39.034+07:00  INFO 45341 --- [inventory-service] [    Test worker] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table &quot;public&quot;.&quot;flyway_schema_history&quot; does not exist yet
+2026-08-04T14:04:39.045+07:00  INFO 45341 --- [inventory-service] [    Test worker] o.f.core.internal.command.DbValidate     : Successfully validated 4 migrations (execution time 00:00.054s)
+2026-08-04T14:04:39.098+07:00  INFO 45341 --- [inventory-service] [    Test worker] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table &quot;public&quot;.&quot;flyway_schema_history&quot; ...
+2026-08-04T14:04:39.195+07:00  INFO 45341 --- [inventory-service] [    Test worker] o.f.core.internal.command.DbMigrate      : Current version of schema &quot;public&quot;: &lt;&lt; Empty Schema &gt;&gt;
+2026-08-04T14:04:39.215+07:00  INFO 45341 --- [inventory-service] [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema &quot;public&quot; to version &quot;001 - create inventory table&quot;
+2026-08-04T14:04:39.283+07:00  INFO 45341 --- [inventory-service] [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema &quot;public&quot; to version &quot;002 - create reservation table&quot;
+2026-08-04T14:04:39.342+07:00  INFO 45341 --- [inventory-service] [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema &quot;public&quot; to version &quot;003 - create processed requests table&quot;
+2026-08-04T14:04:39.382+07:00  INFO 45341 --- [inventory-service] [    Test worker] o.f.core.internal.command.DbMigrate      : Migrating schema &quot;public&quot; to version &quot;004 - seed inventory data&quot;
+2026-08-04T14:04:39.408+07:00  INFO 45341 --- [inventory-service] [    Test worker] o.f.core.internal.command.DbMigrate      : Successfully applied 4 migrations to schema &quot;public&quot;, now at version v004 (execution time 00:00.094s)
+2026-08-04T14:04:39.705+07:00  INFO 45341 --- [inventory-service] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-08-04T14:04:39.876+07:00  INFO 45341 --- [inventory-service] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-08-04T14:04:40.015+07:00  INFO 45341 --- [inventory-service] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-08-04T14:04:40.404+07:00  INFO 45341 --- [inventory-service] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-08-04T14:04:40.605+07:00  WARN 45341 --- [inventory-service] [    Test worker] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-08-04T14:04:42.237+07:00  INFO 45341 --- [inventory-service] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-08-04T14:04:42.310+07:00  INFO 45341 --- [inventory-service] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-08-04T14:04:43.604+07:00  INFO 45341 --- [inventory-service] [    Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-08-04T14:04:47.348+07:00  INFO 45341 --- [inventory-service] [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoint(s) beneath base path '/actuator'
+2026-08-04T14:04:47.770+07:00  INFO 45341 --- [inventory-service] [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6799243b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4aa4a3e5, org.springframework.security.web.context.SecurityContextHolderFilter@52a1a375, org.springframework.security.web.header.HeaderWriterFilter@1d7c2e47, org.springframework.web.filter.CorsFilter@2203fa4c, org.springframework.security.web.authentication.logout.LogoutFilter@7aa91a69, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@5a0b3704, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3b4675d3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3c36f10b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@a674645, org.springframework.security.web.session.SessionManagementFilter@6580f76c, org.springframework.security.web.access.ExceptionTranslationFilter@87420c0, org.springframework.security.web.access.intercept.AuthorizationFilter@41496617]
+2026-08-04T14:04:52.195+07:00  INFO 45341 --- [inventory-service] [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 37513 (http) with context path ''
+2026-08-04T14:04:52.240+07:00  INFO 45341 --- [inventory-service] [    Test worker] .i.i.FlashSaleConcurrencyIntegrationTest : Started FlashSaleConcurrencyIntegrationTest in 21.187 seconds (process running for 43.585)
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.status=? and rje1_0.expires_at&lt;?
+Hibernate: select ije1_0.id,ije1_0.available_quantity,ije1_0.created_at,ije1_0.reserved_quantity,ije1_0.show_id,ije1_0.sold_quantity,ije1_0.ticket_type_id,ije1_0.total_quantity,ije1_0.updated_at,ije1_0.version from inventories ije1_0 where ije1_0.id=?
+Hibernate: insert into inventories (available_quantity,created_at,reserved_quantity,show_id,sold_quantity,ticket_type_id,total_quantity,updated_at,version,id) values (?,?,?,?,?,?,?,?,?,?)
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select ije1_0.id,ije1_0.available_quantity,ije1_0.created_at,ije1_0.reserved_quantity,ije1_0.show_id,ije1_0.sold_quantity,ije1_0.ticket_type_id,ije1_0.total_quantity,ije1_0.updated_at,ije1_0.version from inventories ije1_0 where ije1_0.show_id=? and ije1_0.ticket_type_id=? for no key update
+Hibernate: select ije1_0.id,ije1_0.available_quantity,ije1_0.created_at,ije1_0.reserved_quantity,ije1_0.show_id,ije1_0.sold_quantity,ije1_0.ticket_type_id,ije1_0.total_quantity,ije1_0.updated_at,ije1_0.version from inventories ije1_0 where ije1_0.id=?
+Hibernate: update inventories set available_quantity=?,created_at=?,reserved_quantity=?,show_id=?,sold_quantity=?,ticket_type_id=?,total_quantity=?,updated_at=?,version=? where id=? and version=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.id=?
+Hibernate: select prje1_0.request_id from processed_requests prje1_0 where prje1_0.request_id=? fetch first ? rows only
+Hibernate: select prje1_0.request_id,prje1_0.processed_at,prje1_0.reservation_id,prje1_0.result_status from processed_requests prje1_0 where prje1_0.request_id=?
+Hibernate: insert into reservations (confirmed_at,created_at,expires_at,quantity,released_at,request_id,show_id,status,ticket_type_id,user_id,version,id) values (?,?,?,?,?,?,?,?,?,?,?,?)
+Hibernate: insert into processed_requests (processed_at,reservation_id,result_status,request_id) values (?,?,?,?)
+2026-08-04T14:04:54.592+07:00  INFO 45341 --- [inventory-service] [ool-3-thread-50] c.e.i.a.o.outbox.InMemoryOutboxAdapter   : Publishing domain event to outbox: InventoryReservedEvent[reservationId=8f0227be-ad52-4dcb-b2cd-c3fa54ae9cd2, ticketTypeId=c3276598-d11b-459f-a8ca-02f655b94021, showId=9e8bc06d-8dcb-4298-a6b1-440732ad4ae5, userId=dd585585-35a3-4977-9278-9bda3726f3b4, quantity=1, expiresAt=2026-08-04T07:19:54.487558919Z, occurredAt=2026-08-04T07:04:54.487558919Z]
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select ije1_0.id,ije1_0.available_quantity,ije1_0.created_at,ije1_0.reserved_quantity,ije1_0.show_id,ije1_0.sold_quantity,ije1_0.ticket_type_id,ije1_0.total_quantity,ije1_0.updated_at,ije1_0.version from inventories ije1_0 where ije1_0.show_id=? and ije1_0.ticket_type_id=? for no key update
+Hibernate: select ije1_0.id,ije1_0.available_quantity,ije1_0.created_at,ije1_0.reserved_quantity,ije1_0.show_id,ije1_0.sold_quantity,ije1_0.ticket_type_id,ije1_0.total_quantity,ije1_0.updated_at,ije1_0.version from inventories ije1_0 where ije1_0.id=?
+Hibernate: update inventories set available_quantity=?,created_at=?,reserved_quantity=?,show_id=?,sold_quantity=?,ticket_type_id=?,total_quantity=?,updated_at=?,version=? where id=? and version=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.id=?
+Hibernate: select prje1_0.request_id from processed_requests prje1_0 where prje1_0.request_id=? fetch first ? rows only
+Hibernate: select prje1_0.request_id,prje1_0.processed_at,prje1_0.reservation_id,prje1_0.result_status from processed_requests prje1_0 where prje1_0.request_id=?
+Hibernate: insert into reservations (confirmed_at,created_at,expires_at,quantity,released_at,request_id,show_id,status,ticket_type_id,user_id,version,id) values (?,?,?,?,?,?,?,?,?,?,?,?)
+Hibernate: insert into processed_requests (processed_at,reservation_id,result_status,request_id) values (?,?,?,?)
+2026-08-04T14:04:54.942+07:00  INFO 45341 --- [inventory-service] [ool-3-thread-35] c.e.i.a.o.outbox.InMemoryOutboxAdapter   : Publishing domain event to outbox: InventoryReservedEvent[reservationId=eeedb746-50ca-46a8-973c-01d7a9831df0, ticketTypeId=c3276598-d11b-459f-a8ca-02f655b94021, showId=9e8bc06d-8dcb-4298-a6b1-440732ad4ae5, userId=207bb77c-1608-4efb-85f9-dbcab883d5dd, quantity=1, expiresAt=2026-08-04T07:19:54.895576772Z, occurredAt=2026-08-04T07:04:54.895576772Z]
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select ije1_0.id,ije1_0.available_quantity,ije1_0.created_at,ije1_0.reserved_quantity,ije1_0.show_id,ije1_0.sold_quantity,ije1_0.ticket_type_id,ije1_0.total_quantity,ije1_0.updated_at,ije1_0.version from inventories ije1_0 where ije1_0.show_id=? and ije1_0.ticket_type_id=? for no key update
+Hibernate: select ije1_0.id,ije1_0.available_quantity,ije1_0.created_at,ije1_0.reserved_quantity,ije1_0.show_id,ije1_0.sold_quantity,ije1_0.ticket_type_id,ije1_0.total_quantity,ije1_0.updated_at,ije1_0.version from inventories ije1_0 where ije1_0.id=?
+Hibernate: update inventories set available_quantity=?,created_at=?,reserved_quantity=?,show_id=?,sold_quantity=?,ticket_type_id=?,total_quantity=?,updated_at=?,version=? where id=? and version=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.id=?
+Hibernate: select prje1_0.request_id from processed_requests prje1_0 where prje1_0.request_id=? fetch first ? rows only
+Hibernate: select prje1_0.request_id,prje1_0.processed_at,prje1_0.reservation_id,prje1_0.result_status from processed_requests prje1_0 where prje1_0.request_id=?
+Hibernate: insert into reservations (confirmed_at,created_at,expires_at,quantity,released_at,request_id,show_id,status,ticket_type_id,user_id,version,id) values (?,?,?,?,?,?,?,?,?,?,?,?)
+Hibernate: insert into processed_requests (processed_at,reservation_id,result_status,request_id) values (?,?,?,?)
+2026-08-04T14:04:55.059+07:00  INFO 45341 --- [inventory-service] [pool-3-thread-5] c.e.i.a.o.outbox.InMemoryOutboxAdapter   : Publishing domain event to outbox: InventoryReservedEvent[reservationId=895b1859-623f-4ea7-b6e7-0fba649cdb73, ticketTypeId=c3276598-d11b-459f-a8ca-02f655b94021, showId=9e8bc06d-8dcb-4298-a6b1-440732ad4ae5, userId=71f8f749-854d-4285-af27-f6c0cb02c508, quantity=1, expiresAt=2026-08-04T07:19:54.994845151Z, occurredAt=2026-08-04T07:04:54.994845151Z]
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select ije1_0.id,ije1_0.available_quantity,ije1_0.created_at,ije1_0.reserved_quantity,ije1_0.show_id,ije1_0.sold_quantity,ije1_0.ticket_type_id,ije1_0.total_quantity,ije1_0.updated_at,ije1_0.version from inventories ije1_0 where ije1_0.show_id=? and ije1_0.ticket_type_id=? for no key update
+Hibernate: select ije1_0.id,ije1_0.available_quantity,ije1_0.created_at,ije1_0.reserved_quantity,ije1_0.show_id,ije1_0.sold_quantity,ije1_0.ticket_type_id,ije1_0.total_quantity,ije1_0.updated_at,ije1_0.version from inventories ije1_0 where ije1_0.id=?
+Hibernate: update inventories set available_quantity=?,created_at=?,reserved_quantity=?,show_id=?,sold_quantity=?,ticket_type_id=?,total_quantity=?,updated_at=?,version=? where id=? and version=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.id=?
+Hibernate: select prje1_0.request_id from processed_requests prje1_0 where prje1_0.request_id=? fetch first ? rows only
+Hibernate: select prje1_0.request_id,prje1_0.processed_at,prje1_0.reservation_id,prje1_0.result_status from processed_requests prje1_0 where prje1_0.request_id=?
+Hibernate: insert into reservations (confirmed_at,created_at,expires_at,quantity,released_at,request_id,show_id,status,ticket_type_id,user_id,version,id) values (?,?,?,?,?,?,?,?,?,?,?,?)
+Hibernate: insert into processed_requests (processed_at,reservation_id,result_status,request_id) values (?,?,?,?)
+2026-08-04T14:04:55.149+07:00  INFO 45341 --- [inventory-service] [ool-3-thread-27] c.e.i.a.o.outbox.InMemoryOutboxAdapter   : Publishing domain event to outbox: InventoryReservedEvent[reservationId=d2217267-d815-4927-bbfa-4ed68714e26a, ticketTypeId=c3276598-d11b-459f-a8ca-02f655b94021, showId=9e8bc06d-8dcb-4298-a6b1-440732ad4ae5, userId=5cd931dc-07d7-46ec-b588-56dcae2d0848, quantity=1, expiresAt=2026-08-04T07:19:55.098655532Z, occurredAt=2026-08-04T07:04:55.098655532Z]
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select ije1_0.id,ije1_0.available_quantity,ije1_0.created_at,ije1_0.reserved_quantity,ije1_0.show_id,ije1_0.sold_quantity,ije1_0.ticket_type_id,ije1_0.total_quantity,ije1_0.updated_at,ije1_0.version from inventories ije1_0 where ije1_0.show_id=? and ije1_0.ticket_type_id=? for no key update
+Hibernate: select ije1_0.id,ije1_0.available_quantity,ije1_0.created_at,ije1_0.reserved_quantity,ije1_0.show_id,ije1_0.sold_quantity,ije1_0.ticket_type_id,ije1_0.total_quantity,ije1_0.updated_at,ije1_0.version from inventories ije1_0 where ije1_0.id=?
+Hibernate: update inventories set available_quantity=?,created_at=?,reserved_quantity=?,show_id=?,sold_quantity=?,ticket_type_id=?,total_quantity=?,updated_at=?,version=? where id=? and version=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.id=?
+Hibernate: select prje1_0.request_id from processed_requests prje1_0 where prje1_0.request_id=? fetch first ? rows only
+Hibernate: select prje1_0.request_id,prje1_0.processed_at,prje1_0.reservation_id,prje1_0.result_status from processed_requests prje1_0 where prje1_0.request_id=?
+Hibernate: insert into reservations (confirmed_at,created_at,expires_at,quantity,released_at,request_id,show_id,status,ticket_type_id,user_id,version,id) values (?,?,?,?,?,?,?,?,?,?,?,?)
+Hibernate: insert into processed_requests (processed_at,reservation_id,result_status,request_id) values (?,?,?,?)
+2026-08-04T14:04:55.240+07:00  INFO 45341 --- [inventory-service] [ool-3-thread-42] c.e.i.a.o.outbox.InMemoryOutboxAdapter   : Publishing domain event to outbox: InventoryReservedEvent[reservationId=414d3767-d2a9-4cb3-b50d-2cb8010d5f47, ticketTypeId=c3276598-d11b-459f-a8ca-02f655b94021, showId=9e8bc06d-8dcb-4298-a6b1-440732ad4ae5, userId=bbf5c91e-0a0b-4c96-8412-9b45fec5ba99, quantity=1, expiresAt=2026-08-04T07:19:55.178696395Z, occurredAt=2026-08-04T07:04:55.178696395Z]
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select ije1_0.id,ije1_0.available_quantity,ije1_0.created_at,ije1_0.reserved_quantity,ije1_0.show_id,ije1_0.sold_quantity,ije1_0.ticket_type_id,ije1_0.total_quantity,ije1_0.updated_at,ije1_0.version from inventories ije1_0 where ije1_0.show_id=? and ije1_0.ticket_type_id=? for no key update
+Hibernate: select ije1_0.id,ije1_0.available_quantity,ije1_0.created_at,ije1_0.reserved_quantity,ije1_0.show_id,ije1_0.sold_quantity,ije1_0.ticket_type_id,ije1_0.total_quantity,ije1_0.updated_at,ije1_0.version from inventories ije1_0 where ije1_0.id=?
+Hibernate: update inventories set available_quantity=?,created_at=?,reserved_quantity=?,show_id=?,sold_quantity=?,ticket_type_id=?,total_quantity=?,updated_at=?,version=? where id=? and version=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.id=?
+Hibernate: select prje1_0.request_id from processed_requests prje1_0 where prje1_0.request_id=? fetch first ? rows only
+Hibernate: select prje1_0.request_id,prje1_0.processed_at,prje1_0.reservation_id,prje1_0.result_status from processed_requests prje1_0 where prje1_0.request_id=?
+Hibernate: insert into reservations (confirmed_at,created_at,expires_at,quantity,released_at,request_id,show_id,status,ticket_type_id,user_id,version,id) values (?,?,?,?,?,?,?,?,?,?,?,?)
+Hibernate: insert into processed_requests (processed_at,reservation_id,result_status,request_id) values (?,?,?,?)
+2026-08-04T14:04:55.322+07:00  INFO 45341 --- [inventory-service] [ool-3-thread-46] c.e.i.a.o.outbox.InMemoryOutboxAdapter   : Publishing domain event to outbox: InventoryReservedEvent[reservationId=d25fd346-ced9-4435-ba08-65b25781ea87, ticketTypeId=c3276598-d11b-459f-a8ca-02f655b94021, showId=9e8bc06d-8dcb-4298-a6b1-440732ad4ae5, userId=1defc0c2-07ad-44dc-b5fa-9a01146e5a3e, quantity=1, expiresAt=2026-08-04T07:19:55.285770091Z, occurredAt=2026-08-04T07:04:55.285770091Z]
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select ije1_0.id,ije1_0.available_quantity,ije1_0.created_at,ije1_0.reserved_quantity,ije1_0.show_id,ije1_0.sold_quantity,ije1_0.ticket_type_id,ije1_0.total_quantity,ije1_0.updated_at,ije1_0.version from inventories ije1_0 where ije1_0.show_id=? and ije1_0.ticket_type_id=? for no key update
+Hibernate: select ije1_0.id,ije1_0.available_quantity,ije1_0.created_at,ije1_0.reserved_quantity,ije1_0.show_id,ije1_0.sold_quantity,ije1_0.ticket_type_id,ije1_0.total_quantity,ije1_0.updated_at,ije1_0.version from inventories ije1_0 where ije1_0.id=?
+Hibernate: update inventories set available_quantity=?,created_at=?,reserved_quantity=?,show_id=?,sold_quantity=?,ticket_type_id=?,total_quantity=?,updated_at=?,version=? where id=? and version=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.id=?
+Hibernate: select prje1_0.request_id from processed_requests prje1_0 where prje1_0.request_id=? fetch first ? rows only
+Hibernate: select prje1_0.request_id,prje1_0.processed_at,prje1_0.reservation_id,prje1_0.result_status from processed_requests prje1_0 where prje1_0.request_id=?
+Hibernate: insert into reservations (confirmed_at,created_at,expires_at,quantity,released_at,request_id,show_id,status,ticket_type_id,user_id,version,id) values (?,?,?,?,?,?,?,?,?,?,?,?)
+Hibernate: insert into processed_requests (processed_at,reservation_id,result_status,request_id) values (?,?,?,?)
+2026-08-04T14:04:55.380+07:00  INFO 45341 --- [inventory-service] [ool-3-thread-13] c.e.i.a.o.outbox.InMemoryOutboxAdapter   : Publishing domain event to outbox: InventoryReservedEvent[reservationId=d8871bf6-80a6-4c62-828f-bf32438e1e1c, ticketTypeId=c3276598-d11b-459f-a8ca-02f655b94021, showId=9e8bc06d-8dcb-4298-a6b1-440732ad4ae5, userId=5188341c-fe97-47fc-9c40-f2a1d9573faa, quantity=1, expiresAt=2026-08-04T07:19:55.345159311Z, occurredAt=2026-08-04T07:04:55.345159311Z]
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select ije1_0.id,ije1_0.available_quantity,ije1_0.created_at,ije1_0.reserved_quantity,ije1_0.show_id,ije1_0.sold_quantity,ije1_0.ticket_type_id,ije1_0.total_quantity,ije1_0.updated_at,ije1_0.version from inventories ije1_0 where ije1_0.show_id=? and ije1_0.ticket_type_id=? for no key update
+Hibernate: select ije1_0.id,ije1_0.available_quantity,ije1_0.created_at,ije1_0.reserved_quantity,ije1_0.show_id,ije1_0.sold_quantity,ije1_0.ticket_type_id,ije1_0.total_quantity,ije1_0.updated_at,ije1_0.version from inventories ije1_0 where ije1_0.id=?
+Hibernate: update inventories set available_quantity=?,created_at=?,reserved_quantity=?,show_id=?,sold_quantity=?,ticket_type_id=?,total_quantity=?,updated_at=?,version=? where id=? and version=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.id=?
+Hibernate: select prje1_0.request_id from processed_requests prje1_0 where prje1_0.request_id=? fetch first ? rows only
+Hibernate: select prje1_0.request_id,prje1_0.processed_at,prje1_0.reservation_id,prje1_0.result_status from processed_requests prje1_0 where prje1_0.request_id=?
+Hibernate: insert into reservations (confirmed_at,created_at,expires_at,quantity,released_at,request_id,show_id,status,ticket_type_id,user_id,version,id) values (?,?,?,?,?,?,?,?,?,?,?,?)
+Hibernate: insert into processed_requests (processed_at,reservation_id,result_status,request_id) values (?,?,?,?)
+2026-08-04T14:04:55.455+07:00  INFO 45341 --- [inventory-service] [ool-3-thread-28] c.e.i.a.o.outbox.InMemoryOutboxAdapter   : Publishing domain event to outbox: InventoryReservedEvent[reservationId=9953a40d-cc8c-4421-a314-d70cca93c37b, ticketTypeId=c3276598-d11b-459f-a8ca-02f655b94021, showId=9e8bc06d-8dcb-4298-a6b1-440732ad4ae5, userId=d0160b46-3111-42ed-89c8-9ae2c0e83225, quantity=1, expiresAt=2026-08-04T07:19:55.413545660Z, occurredAt=2026-08-04T07:04:55.413545660Z]
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select ije1_0.id,ije1_0.available_quantity,ije1_0.created_at,ije1_0.reserved_quantity,ije1_0.show_id,ije1_0.sold_quantity,ije1_0.ticket_type_id,ije1_0.total_quantity,ije1_0.updated_at,ije1_0.version from inventories ije1_0 where ije1_0.show_id=? and ije1_0.ticket_type_id=? for no key update
+Hibernate: select ije1_0.id,ije1_0.available_quantity,ije1_0.created_at,ije1_0.reserved_quantity,ije1_0.show_id,ije1_0.sold_quantity,ije1_0.ticket_type_id,ije1_0.total_quantity,ije1_0.updated_at,ije1_0.version from inventories ije1_0 where ije1_0.id=?
+Hibernate: update inventories set available_quantity=?,created_at=?,reserved_quantity=?,show_id=?,sold_quantity=?,ticket_type_id=?,total_quantity=?,updated_at=?,version=? where id=? and version=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.id=?
+Hibernate: select prje1_0.request_id from processed_requests prje1_0 where prje1_0.request_id=? fetch first ? rows only
+Hibernate: select prje1_0.request_id,prje1_0.processed_at,prje1_0.reservation_id,prje1_0.result_status from processed_requests prje1_0 where prje1_0.request_id=?
+Hibernate: insert into reservations (confirmed_at,created_at,expires_at,quantity,released_at,request_id,show_id,status,ticket_type_id,user_id,version,id) values (?,?,?,?,?,?,?,?,?,?,?,?)
+Hibernate: insert into processed_requests (processed_at,reservation_id,result_status,request_id) values (?,?,?,?)
+2026-08-04T14:04:55.535+07:00  INFO 45341 --- [inventory-service] [ool-3-thread-22] c.e.i.a.o.outbox.InMemoryOutboxAdapter   : Publishing domain event to outbox: InventoryReservedEvent[reservationId=48533737-6de5-48a9-868a-82c3089289bf, ticketTypeId=c3276598-d11b-459f-a8ca-02f655b94021, showId=9e8bc06d-8dcb-4298-a6b1-440732ad4ae5, userId=87a02549-294a-4dde-996c-104b6dd9af7c, quantity=1, expiresAt=2026-08-04T07:19:55.486967850Z, occurredAt=2026-08-04T07:04:55.486967850Z]
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select ije1_0.id,ije1_0.available_quantity,ije1_0.created_at,ije1_0.reserved_quantity,ije1_0.show_id,ije1_0.sold_quantity,ije1_0.ticket_type_id,ije1_0.total_quantity,ije1_0.updated_at,ije1_0.version from inventories ije1_0 where ije1_0.show_id=? and ije1_0.ticket_type_id=? for no key update
+Hibernate: select ije1_0.id,ije1_0.available_quantity,ije1_0.created_at,ije1_0.reserved_quantity,ije1_0.show_id,ije1_0.sold_quantity,ije1_0.ticket_type_id,ije1_0.total_quantity,ije1_0.updated_at,ije1_0.version from inventories ije1_0 where ije1_0.id=?
+Hibernate: update inventories set available_quantity=?,created_at=?,reserved_quantity=?,show_id=?,sold_quantity=?,ticket_type_id=?,total_quantity=?,updated_at=?,version=? where id=? and version=?
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.id=?
+Hibernate: select prje1_0.request_id from processed_requests prje1_0 where prje1_0.request_id=? fetch first ? rows only
+Hibernate: select prje1_0.request_id,prje1_0.processed_at,prje1_0.reservation_id,prje1_0.result_status from processed_requests prje1_0 where prje1_0.request_id=?
+Hibernate: insert into reservations (confirmed_at,created_at,expires_at,quantity,released_at,request_id,show_id,status,ticket_type_id,user_id,version,id) values (?,?,?,?,?,?,?,?,?,?,?,?)
+Hibernate: insert into processed_requests (processed_at,reservation_id,result_status,request_id) values (?,?,?,?)
+2026-08-04T14:04:55.642+07:00  INFO 45341 --- [inventory-service] [ool-3-thread-32] c.e.i.a.o.outbox.InMemoryOutboxAdapter   : Publishing domain event to outbox: InventoryReservedEvent[reservationId=d1492cd3-3a87-4e8f-82cc-f9859fa81f3d, ticketTypeId=c3276598-d11b-459f-a8ca-02f655b94021, showId=9e8bc06d-8dcb-4298-a6b1-440732ad4ae5, userId=925eb32f-3049-4311-b3b2-9a3df9d92c27, quantity=1, expiresAt=2026-08-04T07:19:55.583594673Z, occurredAt=2026-08-04T07:04:55.583594673Z]
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select ije1_0.id,ije1_0.available_quantity,ije1_0.created_at,ije1_0.reserved_quantity,ije1_0.show_id,ije1_0.sold_quantity,ije1_0.ticket_type_id,ije1_0.total_quantity,ije1_0.updated_at,ije1_0.version from inventories ije1_0 where ije1_0.show_id=? and ije1_0.ticket_type_id=? for no key update
+2026-08-04T14:04:55.692+07:00  INFO 45341 --- [inventory-service] [ool-3-thread-49] c.e.i.a.o.outbox.InMemoryOutboxAdapter   : Publishing domain event to outbox: InventoryReservationRejectedEvent[ticketTypeId=c3276598-d11b-459f-a8ca-02f655b94021, showId=9e8bc06d-8dcb-4298-a6b1-440732ad4ae5, userId=f2bb3028-2471-446a-88c2-61d3c75565af, requestedQuantity=1, availableQuantity=0, reason=Insufficient available inventory. Requested: 1, Available: 0, occurredAt=2026-08-04T07:04:55.691983194Z]
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select ije1_0.id,ije1_0.available_quantity,ije1_0.created_at,ije1_0.reserved_quantity,ije1_0.show_id,ije1_0.sold_quantity,ije1_0.ticket_type_id,ije1_0.total_quantity,ije1_0.updated_at,ije1_0.version from inventories ije1_0 where ije1_0.show_id=? and ije1_0.ticket_type_id=? for no key update
+2026-08-04T14:04:55.760+07:00  INFO 45341 --- [inventory-service] [ool-3-thread-18] c.e.i.a.o.outbox.InMemoryOutboxAdapter   : Publishing domain event to outbox: InventoryReservationRejectedEvent[ticketTypeId=c3276598-d11b-459f-a8ca-02f655b94021, showId=9e8bc06d-8dcb-4298-a6b1-440732ad4ae5, userId=bdea85e7-765d-4980-bea9-a77252b5cf10, requestedQuantity=1, availableQuantity=0, reason=Insufficient available inventory. Requested: 1, Available: 0, occurredAt=2026-08-04T07:04:55.760719860Z]
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select ije1_0.id,ije1_0.available_quantity,ije1_0.created_at,ije1_0.reserved_quantity,ije1_0.show_id,ije1_0.sold_quantity,ije1_0.ticket_type_id,ije1_0.total_quantity,ije1_0.updated_at,ije1_0.version from inventories ije1_0 where ije1_0.show_id=? and ije1_0.ticket_type_id=? for no key update
+2026-08-04T14:04:55.798+07:00  INFO 45341 --- [inventory-service] [ool-3-thread-17] c.e.i.a.o.outbox.InMemoryOutboxAdapter   : Publishing domain event to outbox: InventoryReservationRejectedEvent[ticketTypeId=c3276598-d11b-459f-a8ca-02f655b94021, showId=9e8bc06d-8dcb-4298-a6b1-440732ad4ae5, userId=818d9e24-ad06-4915-a9fb-3643833317ef, requestedQuantity=1, availableQuantity=0, reason=Insufficient available inventory. Requested: 1, Available: 0, occurredAt=2026-08-04T07:04:55.798562125Z]
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select ije1_0.id,ije1_0.available_quantity,ije1_0.created_at,ije1_0.reserved_quantity,ije1_0.show_id,ije1_0.sold_quantity,ije1_0.ticket_type_id,ije1_0.total_quantity,ije1_0.updated_at,ije1_0.version from inventories ije1_0 where ije1_0.show_id=? and ije1_0.ticket_type_id=? for no key update
+2026-08-04T14:04:55.861+07:00  INFO 45341 --- [inventory-service] [ool-3-thread-23] c.e.i.a.o.outbox.InMemoryOutboxAdapter   : Publishing domain event to outbox: InventoryReservationRejectedEvent[ticketTypeId=c3276598-d11b-459f-a8ca-02f655b94021, showId=9e8bc06d-8dcb-4298-a6b1-440732ad4ae5, userId=cd613335-cdc5-4d82-b4fd-331a5bc4fdef, requestedQuantity=1, availableQuantity=0, reason=Insufficient available inventory. Requested: 1, Available: 0, occurredAt=2026-08-04T07:04:55.861219864Z]
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select ije1_0.id,ije1_0.available_quantity,ije1_0.created_at,ije1_0.reserved_quantity,ije1_0.show_id,ije1_0.sold_quantity,ije1_0.ticket_type_id,ije1_0.total_quantity,ije1_0.updated_at,ije1_0.version from inventories ije1_0 where ije1_0.show_id=? and ije1_0.ticket_type_id=? for no key update
+2026-08-04T14:04:55.902+07:00  INFO 45341 --- [inventory-service] [ool-3-thread-48] c.e.i.a.o.outbox.InMemoryOutboxAdapter   : Publishing domain event to outbox: InventoryReservationRejectedEvent[ticketTypeId=c3276598-d11b-459f-a8ca-02f655b94021, showId=9e8bc06d-8dcb-4298-a6b1-440732ad4ae5, userId=f639c87d-29bb-4ca9-a39c-15aaa377091a, requestedQuantity=1, availableQuantity=0, reason=Insufficient available inventory. Requested: 1, Available: 0, occurredAt=2026-08-04T07:04:55.902504538Z]
+Hibernate: select rje1_0.id,rje1_0.confirmed_at,rje1_0.created_at,rje1_0.expires_at,rje1_0.quantity,rje1_0.released_at,rje1_0.request_id,rje1_0.show_id,rje1_0.status,rje1_0.ticket_type_id,rje1_0.user_id,rje1_0.version from reservations rje1_0 where rje1_0.request_id=?
+Hibernate: select ije1_0.id,ije1_0.available_quantity,ije1_0.created_at,ije1_0.reserved_quantity,ije1_0.show_id,ije1_0.sold_quantity,ije1_0.ticket_type_id,ije1_0.total_quantity,ije1_0.updated_at,ije1_0.version from inventories ije1_0 where ije1_0.show_id=? and ije1_0.ticket_type_id=? for no key update
+2026-08-04T14:04:55.962+07:00  INFO 45341 --- [inventory-service] [ool-3-thread-38] c.e.i.a.o.outbox.InMemoryOutboxAdapter   : Publishing domain event to outbox: InventoryReservationRejectedEvent[ticketTypeId=c3276598-d11b-459f-a8ca-02f655b94021, showId=9e8bc06d-8dcb-4298-a6b1-440732ad4ae5, userId=fde98827-8ccc-4e9a-8544-ebfbab6fe472, requestedQuantity=1, availableQuantity=0, reason=Insufficient available inventory. Requested: 1, Available: 0, occurredAt=2026-08-04T07:04:55.962069031Z]
+Hibernate: select ije1_0.id,ije1_0.available_quantity,ije1_0.created_at,ije1_0.reserved_quantity,ije1_0.show_id,ije1_0.sold_quantity,ije1_0.ticket_type_id,ije1_0.total_quantity,ije1_0.updated_at,ije1_0.version from inventories ije1_0 where ije1_0.show_id=? and ije1_0.ticket_type_id=?
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.12</a> at Aug 4, 2026, 2:05:03 PM</p>
+</div>
+</div>
+</body>
+</html>

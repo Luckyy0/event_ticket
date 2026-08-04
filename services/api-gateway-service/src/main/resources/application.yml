@@ -1,0 +1,120 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: api-gateway-service
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${KEYCLOAK_ISSUER_URI:http://localhost:8443/realms/event-ticketing}
+          jwk-set-uri: ${KEYCLOAK_JWKS_URI:http://localhost:8443/realms/event-ticketing/protocol/openid-connect/certs}
+  cloud:
+    gateway:
+      httpclient:
+        connect-timeout: 3000
+        response-timeout: 10s
+      routes:
+        # 1. Catalog Read Route (Public)
+        - id: catalog-read
+          uri: ${CATALOG_SERVICE_URL:http://localhost:8082}
+          predicates:
+            - Path=/api/v1/events/**
+            - Method=GET
+
+        # 2. Catalog Write Route (Protected)
+        - id: catalog-write
+          uri: ${CATALOG_SERVICE_URL:http://localhost:8082}
+          predicates:
+            - Path=/api/v1/events/**
+            - Method=POST,PUT,DELETE,PATCH
+
+        # 3. Inventory Reservation Route (Protected with Strict Rate Limit & 5s Timeout)
+        - id: inventory-reservation
+          uri: ${INVENTORY_SERVICE_URL:http://localhost:8083}
+          predicates:
+            - Path=/api/v1/inventory/reservations/**
+          metadata:
+            response-timeout: 5000
+
+        # 4. Inventory General Route (Protected)
+        - id: inventory-general
+          uri: ${INVENTORY_SERVICE_URL:http://localhost:8083}
+          predicates:
+            - Path=/api/v1/inventory/**
+
+        # 5. Orders Route (Protected)
+        - id: orders
+          uri: ${ORDER_SERVICE_URL:http://localhost:8084}
+          predicates:
+            - Path=/api/v1/orders/**
+
+        # 6. Payment Webhook Route (Public, verified downstream with HMAC)
+        - id: payment-webhook
+          uri: ${PAYMENT_SERVICE_URL:http://localhost:8085}
+          predicates:
+            - Path=/api/v1/payments/webhook/**
+
+        # 7. Payment General Route (Protected)
+        - id: payments
+          uri: ${PAYMENT_SERVICE_URL:http://localhost:8085}
+          predicates:
+            - Path=/api/v1/payments/**
+
+        # 8. Tickets Route (Protected)
+        - id: tickets
+          uri: ${TICKET_SERVICE_URL:http://localhost:8086}
+          predicates:
+            - Path=/api/v1/tickets/**
+
+        # 9. Check-in Route (Protected)
+        - id: checkin
+          uri: ${CHECKIN_SERVICE_URL:http://localhost:8087}
+          predicates:
+            - Path=/api/v1/checkin/**
+
+        # 10. User Profile Route (Protected)
+        - id: user-profile
+          uri: ${USER_PROFILE_SERVICE_URL:http://localhost:8088}
+          predicates:
+            - Path=/api/v1/users/**
+
+        # 11. Admin Route (Protected)
+        - id: admin
+          uri: ${ADMIN_SERVICE_URL:http://localhost:8089}
+          predicates:
+            - Path=/api/v1/admin/**
+
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        slidingWindowSize: 10
+        failureRateThreshold: 50
+        slowCallRateThreshold: 50
+        slowCallDurationThreshold: 5s
+        waitDurationInOpenState: 30s
+        permittedNumberOfCallsInHalfOpenState: 3
+    instances:
+      serviceCircuitBreaker:
+        baseConfig: default
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, metrics, prometheus, gateway
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    root: INFO
+    org.springframework.cloud.gateway: INFO
+    org.springframework.security: INFO

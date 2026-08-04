@@ -1,0 +1,17 @@
+server:
+  port: 0 # random port for tests
+
+spring:
+  session:
+    store-type: none # use in-memory for testing if redis testcontainer is not set up
+  data:
+    redis:
+      repositories:
+        enabled: false
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            # Overridden by Testcontainers dynamically
+            issuer-uri: http://localhost:8443/realms/event-ticketing

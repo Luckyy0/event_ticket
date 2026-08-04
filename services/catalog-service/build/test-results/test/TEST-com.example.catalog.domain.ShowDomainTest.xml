@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.catalog.domain.ShowDomainTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2026-08-04T07:16:58" hostname="DESKTOP-APGR6KO" time="0.156">
+  <properties/>
+  <testcase name="shouldRejectTicketType_whenPriceIsZeroOrNegative()" classname="com.example.catalog.domain.ShowDomainTest" time="0.01"/>
+  <testcase name="shouldCreateTicketType_whenPriceAndQuantityArePositive()" classname="com.example.catalog.domain.ShowDomainTest" time="0.017"/>
+  <testcase name="shouldRejectTicketType_whenQuantityIsZeroOrNegative()" classname="com.example.catalog.domain.ShowDomainTest" time="0.003"/>
+  <testcase name="shouldTransitionToSoldOut_whenMarkedSoldOut()" classname="com.example.catalog.domain.ShowDomainTest" time="0.008"/>
+  <testcase name="shouldRejectShow_whenStartTimeIsInThePast()" classname="com.example.catalog.domain.ShowDomainTest" time="0.003"/>
+  <testcase name="shouldCreateShow_whenAllFieldsAreValid()" classname="com.example.catalog.domain.ShowDomainTest" time="0.035"/>
+  <testcase name="shouldRejectShow_whenEndTimeIsBeforeStartTime()" classname="com.example.catalog.domain.ShowDomainTest" time="0.003"/>
+  <testcase name="shouldTransitionToOnSale_whenSaleWindowOpens()" classname="com.example.catalog.domain.ShowDomainTest" time="0.011"/>
+  <testcase name="shouldRejectTicketType_whenNameIsEmpty()" classname="com.example.catalog.domain.ShowDomainTest" time="0.003"/>
+  <testcase name="shouldRejectShow_whenSaleWindowClosesAfterShowStarts()" classname="com.example.catalog.domain.ShowDomainTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,336 @@
+{
+  "realm": "event-ticketing",
+  "enabled": true,
+  "registrationAllowed": true,
+  "resetPasswordAllowed": true,
+  "rememberMe": true,
+  "verifyEmail": false,
+  "loginWithEmailAllowed": true,
+  "duplicateEmailsAllowed": false,
+  "accessTokenLifespan": 300,
+  "ssoSessionIdleTimeout": 1800,
+  "ssoSessionMaxLifespan": 36000,
+  "revokeRefreshToken": true,
+  "refreshTokenMaxReuse": 0,
+  "internationalizationEnabled": true,
+  "supportedLocales": [
+    "vi",
+    "en"
+  ],
+  "defaultLocale": "vi",
+  "defaultRoles": [
+    "CUSTOMER"
+  ],
+  "roles": {
+    "realm": [
+      {
+        "name": "CUSTOMER",
+        "description": "Standard self-registered or default customer"
+      },
+      {
+        "name": "EVENT_ORGANIZER",
+        "description": "Event creator and organizer"
+      },
+      {
+        "name": "STAFF",
+        "description": "Check-in staff"
+      },
+      {
+        "name": "ADMIN",
+        "description": "System administrator"
+      },
+      {
+        "name": "SUPPORT",
+        "description": "Support staff"
+      }
+    ]
+  },
+  "clientScopes": [
+    {
+      "name": "event:read",
+      "protocol": "openid-connect"
+    },
+    {
+      "name": "event:write",
+      "protocol": "openid-connect"
+    },
+    {
+      "name": "inventory:read",
+      "protocol": "openid-connect"
+    },
+    {
+      "name": "inventory:manage",
+      "protocol": "openid-connect"
+    },
+    {
+      "name": "order:read",
+      "protocol": "openid-connect"
+    },
+    {
+      "name": "order:create",
+      "protocol": "openid-connect"
+    },
+    {
+      "name": "order:cancel",
+      "protocol": "openid-connect"
+    },
+    {
+      "name": "payment:create",
+      "protocol": "openid-connect"
+    },
+    {
+      "name": "payment:refund",
+      "protocol": "openid-connect"
+    },
+    {
+      "name": "ticket:read",
+      "protocol": "openid-connect"
+    },
+    {
+      "name": "ticket:checkin",
+      "protocol": "openid-connect"
+    }
+  ],
+  "components": {
+    "org.keycloak.storage.UserStorageProvider": [
+      {
+        "id": "ldap-enterprise-provider",
+        "name": "ldap-enterprise",
+        "providerId": "ldap",
+        "subComponents": {
+          "org.keycloak.storage.ldap.mappers.LDAPStorageMapper": [
+            {
+              "id": "username-mapper",
+              "name": "username",
+              "providerId": "user-attribute-ldap-mapper",
+              "config": {
+                "ldap.attribute": ["uid"],
+                "is.mandatory.in.ldap": ["true"],
+                "always.read.value.from.ldap": ["true"],
+                "user.model.attribute": ["username"],
+                "read.only": ["true"]
+              }
+            },
+            {
+              "id": "email-mapper",
+              "name": "email",
+              "providerId": "user-attribute-ldap-mapper",
+              "config": {
+                "ldap.attribute": ["mail"],
+                "is.mandatory.in.ldap": ["false"],
+                "always.read.value.from.ldap": ["true"],
+                "user.model.attribute": ["email"],
+                "read.only": ["true"]
+              }
+            },
+            {
+              "id": "first-name-mapper",
+              "name": "first name",
+              "providerId": "user-attribute-ldap-mapper",
+              "config": {
+                "ldap.attribute": ["givenName"],
+                "is.mandatory.in.ldap": ["false"],
+                "always.read.value.from.ldap": ["true"],
+                "user.model.attribute": ["firstName"],
+                "read.only": ["true"]
+              }
+            },
+            {
+              "id": "last-name-mapper",
+              "name": "last name",
+              "providerId": "user-attribute-ldap-mapper",
+              "config": {
+                "ldap.attribute": ["sn"],
+                "is.mandatory.in.ldap": ["true"],
+                "always.read.value.from.ldap": ["true"],
+                "user.model.attribute": ["lastName"],
+                "read.only": ["true"]
+              }
+            }
+          ]
+        },
+        "config": {
+          "enabled": ["true"],
+          "priority": ["0"],
+          "editMode": ["READ_ONLY"],
+          "syncRegistrations": ["false"],
+          "vendor": ["other"],
+          "usernameLDAPAttribute": ["uid"],
+          "rdnLDAPAttribute": ["uid"],
+          "uuidLDAPAttribute": ["entryUUID"],
+          "userObjectClasses": ["inetOrgPerson, organizationalPerson"],
+          "connectionUrl": ["ldap://openldap:389"],
+          "usersDn": ["ou=users,dc=example,dc=org"],
+          "authType": ["simple"],
+          "bindDn": ["cn=admin,dc=example,dc=org"],
+          "bindCredential": ["adminpassword"],
+          "searchScope": ["1"],
+          "validatePasswordPolicy": ["false"],
+          "trustEmail": ["true"],
+          "useTruststoreSpi": ["always"],
+          "connectionPooling": ["true"],
+          "pagination": ["true"]
+        }
+      }
+    ]
+  },
+  "clients": [
+    {
+      "clientId": "bff-client",
+      "enabled": true,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "secret",
+      "redirectUris": [
+        "http://localhost:8080/api/auth/callback"
+      ],
+      "webOrigins": [
+        "http://localhost:3000"
+      ],
+      "postLogoutRedirectUris": [
+        "http://localhost:8080"
+      ],
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": true,
+      "publicClient": false,
+      "frontchannelLogout": false,
+      "protocol": "openid-connect",
+      "attributes": {
+        "pkce.code.challenge.method": "S256"
+      },
+      "protocolMappers": [
+        {
+          "name": "locale",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-attribute-mapper",
+          "consentRequired": false,
+          "config": {
+            "userinfo.token.claim": "true",
+            "user.attribute": "locale",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "claim.name": "locale",
+            "jsonType.label": "String"
+          }
+        },
+        {
+          "name": "birth_year",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-attribute-mapper",
+          "consentRequired": false,
+          "config": {
+            "userinfo.token.claim": "true",
+            "user.attribute": "birth_year",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "claim.name": "birth_year",
+            "jsonType.label": "String"
+          }
+        }
+      ]
+    },
+    {
+      "clientId": "api-client",
+      "enabled": true,
+      "bearerOnly": true,
+      "standardFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "publicClient": false,
+      "protocol": "openid-connect"
+    }
+  ],
+  "users": [
+    {
+      "username": "customer1",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Customer",
+      "lastName": "One",
+      "email": "customer1@example.com",
+      "attributes": {
+        "locale": ["vi"],
+        "birth_year": ["1995"]
+      },
+      "credentials": [
+        {
+          "type": "password",
+          "value": "test1234",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "CUSTOMER"
+      ]
+    },
+    {
+      "username": "organizer1",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Organizer",
+      "lastName": "One",
+      "email": "organizer1@example.com",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "test1234",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "EVENT_ORGANIZER"
+      ]
+    },
+    {
+      "username": "staff1",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Staff",
+      "lastName": "One",
+      "email": "staff1@example.com",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "test1234",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "STAFF"
+      ]
+    },
+    {
+      "username": "admin1",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Admin",
+      "lastName": "One",
+      "email": "admin1@example.com",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "test1234",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "ADMIN"
+      ]
+    },
+    {
+      "username": "service-account-bff-client",
+      "enabled": true,
+      "serviceAccountClientId": "bff-client",
+      "clientRoles": {
+        "realm-management": [
+          "manage-users",
+          "view-users",
+          "realm-admin"
+        ]
+      },
+      "realmRoles": [
+        "ADMIN"
+      ]
+    }
+  ]
+}

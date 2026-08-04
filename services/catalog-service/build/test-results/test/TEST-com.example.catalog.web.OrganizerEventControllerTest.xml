@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.catalog.web.OrganizerEventControllerTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-08-04T07:18:00" hostname="DESKTOP-APGR6KO" time="0.52">
+  <properties/>
+  <testcase name="shouldCreateEvent_whenUserIsOrganizer()" classname="com.example.catalog.web.OrganizerEventControllerTest" time="0.449"/>
+  <testcase name="shouldReturn401_whenUnauthorizedUserTriesToCreateEvent()" classname="com.example.catalog.web.OrganizerEventControllerTest" time="0.016"/>
+  <testcase name="shouldPublishEvent_whenUserIsOrganizer()" classname="com.example.catalog.web.OrganizerEventControllerTest" time="0.024"/>
+  <testcase name="shouldReturn403_whenCustomerTriesToCreateEvent()" classname="com.example.catalog.web.OrganizerEventControllerTest" time="0.016"/>
+  <system-out><![CDATA[2026-08-04T14:17:57.569+07:00  INFO 55961 --- [catalog-service] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.catalog.web.OrganizerEventControllerTest]: OrganizerEventControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-08-04T14:17:57.636+07:00  INFO 55961 --- [catalog-service] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.catalog.CatalogApplication for test class com.example.catalog.web.OrganizerEventControllerTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.3)
+
+2026-08-04T14:17:57.815+07:00  INFO 55961 --- [catalog-service] [    Test worker] c.e.c.web.OrganizerEventControllerTest   : Starting OrganizerEventControllerTest using Java 21.0.11 with PID 55961 (started by lucky in /home/lucky/Project/event_ticket/services/catalog-service)
+2026-08-04T14:17:57.816+07:00  INFO 55961 --- [catalog-service] [    Test worker] c.e.c.web.OrganizerEventControllerTest   : The following 1 profile is active: "test"
+2026-08-04T14:17:59.617+07:00  INFO 55961 --- [catalog-service] [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@47bcd95a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3fae1ec9, org.springframework.security.web.context.SecurityContextHolderFilter@2d2697a8, org.springframework.security.web.header.HeaderWriterFilter@5a0c0680, org.springframework.web.filter.CorsFilter@331fe6d4, org.springframework.security.web.authentication.logout.LogoutFilter@67629872, org.springframework.security.oauth2.server.resource.web.authentication.BearerTokenAuthenticationFilter@346e76ad, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@17f5b53a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2df79942, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@74832504, org.springframework.security.web.session.SessionManagementFilter@18d963be, org.springframework.security.web.access.ExceptionTranslationFilter@6e1a8e78, org.springframework.security.web.access.intercept.AuthorizationFilter@4c2812aa]
+2026-08-04T14:17:59.946+07:00  INFO 55961 --- [catalog-service] [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-08-04T14:17:59.948+07:00  INFO 55961 --- [catalog-service] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-08-04T14:17:59.951+07:00  INFO 55961 --- [catalog-service] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2026-08-04T14:17:59.987+07:00  INFO 55961 --- [catalog-service] [    Test worker] c.e.c.web.OrganizerEventControllerTest   : Started OrganizerEventControllerTest in 2.329 seconds (process running for 59.58)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

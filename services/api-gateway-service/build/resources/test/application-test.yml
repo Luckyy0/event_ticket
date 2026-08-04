@@ -1,0 +1,11 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8443/realms/event-ticketing
+          jwk-set-uri: http://localhost:8443/realms/event-ticketing/protocol/openid-connect/certs
+  data:
+    redis:
+      host: localhost
+      port: 6379
