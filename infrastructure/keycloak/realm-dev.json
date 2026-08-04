@@ -170,7 +170,8 @@
               "config": {
                 "ldap.attribute": ["uid"],
                 "is.mandatory.in.ldap": ["true"],
-                "always.read.value.from.ldap": ["true"],
+                // Chuẩn Production: false để đọc từ DB/Cache cục bộ siêu tốc, định kỳ 5 phút đồng bộ ngầm
+                "always.read.value.from.ldap": ["false"],
                 "user.model.attribute": ["username"],
                 "read.only": ["true"]
               }
@@ -183,7 +184,7 @@
               "config": {
                 "ldap.attribute": ["mail"],
                 "is.mandatory.in.ldap": ["false"],
-                "always.read.value.from.ldap": ["true"],
+                "always.read.value.from.ldap": ["false"],
                 "user.model.attribute": ["email"],
                 "read.only": ["true"]
               }
@@ -196,7 +197,7 @@
               "config": {
                 "ldap.attribute": ["givenName"],
                 "is.mandatory.in.ldap": ["false"],
-                "always.read.value.from.ldap": ["true"],
+                "always.read.value.from.ldap": ["false"],
                 "user.model.attribute": ["firstName"],
                 "read.only": ["true"]
               }
@@ -209,7 +210,7 @@
               "config": {
                 "ldap.attribute": ["sn"],
                 "is.mandatory.in.ldap": ["true"],
-                "always.read.value.from.ldap": ["true"],
+                "always.read.value.from.ldap": ["false"],
                 "user.model.attribute": ["lastName"],
                 "read.only": ["true"]
               }
@@ -217,26 +218,57 @@
           ]
         },
         "config": {
+          // Trạng thái kích hoạt kết nối đến nguồn người dùng LDAP (true: bật)
           "enabled": ["true"],
+          // Cho phép Keycloak nạp và lưu trữ người dùng vào Database cục bộ để tối ưu tốc độ đọc & tìm kiếm
+          "importEnabled": ["true"],
+          // Độ ưu tiên của nhà cung cấp này khi tìm kiếm người dùng (0 là ưu tiên cao nhất)
           "priority": ["0"],
+          // Chế độ chỉnh sửa: READ_ONLY (chỉ đọc, không cho phép Keycloak ghi đè hoặc thay đổi dữ liệu ngược về LDAP)
           "editMode": ["READ_ONLY"],
+          // Đồng bộ đăng ký mới: false (không tự động đẩy người dùng mới đăng ký trên Keycloak vào LDAP)
           "syncRegistrations": ["false"],
+          // Loại nhà cung cấp LDAP: "other" (chuẩn OpenLDAP; ngoài ra có Active Directory, Red Hat Directory Server, v.v.)
           "vendor": ["other"],
+          // Thuộc tính trên LDAP dùng làm username hiển thị trong Keycloak ("uid")
           "usernameLDAPAttribute": ["uid"],
+          // Thuộc tính Relative Distinguished Name trên LDAP ("uid")
           "rdnLDAPAttribute": ["uid"],
+          // Thuộc tính định danh duy nhất (UUID) của bản ghi trong LDAP ("entryUUID" cho OpenLDAP, "objectGUID" cho Active Directory)
           "uuidLDAPAttribute": ["entryUUID"],
+          // Các lớp đối tượng (objectClass) trong LDAP đại diện cho thực thể người dùng
           "userObjectClasses": ["inetOrgPerson, organizationalPerson"],
+          // Địa chỉ URL và cổng kết nối đến máy chủ LDAP
           "connectionUrl": ["ldap://openldap:389"],
+          // Đường dẫn cây thư mục (Base DN) chứa danh sách người dùng trong LDAP
           "usersDn": ["ou=users,dc=example,dc=org"],
+          // Phương thức xác thực khi Keycloak kết nối đến LDAP ("simple": username/password)
           "authType": ["simple"],
+          // Tài khoản Bind DN có quyền quản trị để đọc danh bạ LDAP
           "bindDn": ["cn=admin,dc=example,dc=org"],
+          // Mật khẩu của tài khoản Bind DN
           "bindCredential": ["adminpassword"],
+          // Phạm vi tìm kiếm trong cây LDAP: "1" = ONE_LEVEL (chỉ tìm trong thư mục hiện tại), "2" = SUBTREE (tìm toàn bộ cây con)
           "searchScope": ["1"],
+          // Xác thực chính sách mật khẩu tại Keycloak: false (để LDAP tự quản lý chính sách mật khẩu)
           "validatePasswordPolicy": ["false"],
+          // Tin cậy email lấy từ LDAP mà không cần gửi email xác thực lại
           "trustEmail": ["true"],
+          // Cấu hình Truststore SPI khi kết nối TLS/SSL ("always")
           "useTruststoreSpi": ["always"],
+          // Bật cơ chế Connection Pooling để tái sử dụng kết nối mạng đến LDAP, tăng hiệu năng
           "connectionPooling": ["true"],
-          "pagination": ["true"]
+          // Bật phân trang khi truy vấn danh sách người dùng lớn từ LDAP để tránh nghẽn bộ nhớ
+          "pagination": ["true"],
+          // =====================================================================
+          // CƠ CHẾ ĐỒNG BỘ CHUẨN PRODUCTION (HYBRID BACKGROUND DELTA + FULL SYNC)
+          // =====================================================================
+          // Số lượng bản ghi đồng bộ trên mỗi đợt quét (batch size: 1000 người dùng mỗi batch)
+          "batchSizeForSync": ["1000"],
+          // Chu kỳ quét các người dùng có thay đổi mới: 300 giây (5 phút / lần) dựa vào modifyTimestamp
+          "changedSyncPeriod": ["300"],
+          // Chu kỳ quét đối soát toàn bộ danh bạ: 86400 giây (24 giờ / lần) để dọn dẹp user đã bị xóa trên LDAP
+          "fullSyncPeriod": ["86400"]
         }
       }
     ]
