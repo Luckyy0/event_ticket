@@ -1,14 +1,36 @@
 {
+  // =========================================================================
+  // 1. CẤU HÌNH REALM TỔNG QUAN (REALM GENERAL SETTINGS)
+  // =========================================================================
+  // Tên định danh của Realm trong hệ thống Keycloak
   "realm": "event-ticketing",
+  // Trạng thái kích hoạt Realm (true: đang hoạt động)
   "enabled": true,
+
+  // =========================================================================
+  // 2. CẤU HÌNH ĐĂNG KÝ VÀ XÁC THỰC EMAIL (USER REGISTRATION & EMAIL VERIFICATION)
+  // =========================================================================
+  // Cho phép người dùng tự đăng ký tài khoản mới trên giao diện Keycloak
   "registrationAllowed": true,
+  // false: Người dùng nhập username và email riêng biệt (không bắt buộc lấy email làm username)
   "registrationEmailAsUsername": false,
+  // Cho phép người dùng tự khôi phục / đặt lại mật khẩu qua email
   "resetPasswordAllowed": true,
+  // Cho phép ghi nhớ trạng thái đăng nhập (Remember Me)
   "rememberMe": true,
+  // Bắt buộc xác thực địa chỉ email khi tạo mới hoặc cập nhật tài khoản
   "verifyEmail": true,
+  // Cho phép người dùng đăng nhập bằng cả username hoặc địa chỉ email
   "loginWithEmailAllowed": true,
+  // Không cho phép trùng lặp email giữa các tài khoản khác nhau trong cùng Realm
   "duplicateEmailsAllowed": false,
+  // Không cho phép người dùng thay đổi username sau khi đã tạo
   "editUsernameAllowed": false,
+
+  // =========================================================================
+  // 3. CẤU HÌNH MÁY CHỦ GỬI EMAIL (SMTP SERVER CONFIGURATION)
+  // Phục vụ việc gửi email xác thực tài khoản, đổi mật khẩu (kết nối Mailpit trong local dev)
+  // =========================================================================
   "smtpServer": {
     "host": "mailpit",
     "port": "1025",
@@ -18,17 +40,38 @@
     "starttls": "false",
     "auth": "false"
   },
+
+  // =========================================================================
+  // 4. CẤU HÌNH THỜI HẠN VÀ PHIÊN LÀM VIỆC (SESSION & TOKEN LIFESPANS)
+  // =========================================================================
+  // Thời gian sống của Access Token (300 giây = 5 phút)
   "accessTokenLifespan": 300,
+  // Thời gian hết hạn của phiên SSO khi người dùng không hoạt động (1800 giây = 30 phút)
   "ssoSessionIdleTimeout": 1800,
+  // Thời gian tối đa của một phiên SSO (36000 giây = 10 giờ)
   "ssoSessionMaxLifespan": 36000,
+  // Thu hồi Refresh Token cũ sau khi cấp Refresh Token mới (chống Replay Attack)
   "revokeRefreshToken": true,
+  // Số lần tối đa Refresh Token có thể được tái sử dụng (0: không cho tái sử dụng)
   "refreshTokenMaxReuse": 0,
+
+  // =========================================================================
+  // 5. ĐA NGÔN NGỮ (INTERNATIONALIZATION)
+  // =========================================================================
+  // Bật tính năng đa ngôn ngữ cho các trang đăng nhập/đăng ký của Keycloak
   "internationalizationEnabled": true,
+  // Danh sách các ngôn ngữ được hỗ trợ (Tiếng Việt & Tiếng Anh)
   "supportedLocales": [
     "vi",
     "en"
   ],
+  // Ngôn ngữ mặc định hiển thị cho người dùng
   "defaultLocale": "vi",
+
+  // =========================================================================
+  // 6. CÁC VAI TRÒ VÀ QUYỀN TRUY CẬP TRONG REALM (REALM ROLES)
+  // =========================================================================
+  // Vai trò mặc định gán cho mọi người dùng mới đăng ký
   "defaultRoles": [
     "CUSTOMER"
   ],
@@ -36,26 +79,30 @@
     "realm": [
       {
         "name": "CUSTOMER",
-        "description": "Standard self-registered or default customer"
+        "description": "Khách hàng mua vé xem sự kiện (mặc định cho tài khoản tự đăng ký)"
       },
       {
         "name": "EVENT_ORGANIZER",
-        "description": "Event creator and organizer"
+        "description": "Nhà tổ chức sự kiện, có quyền tạo và quản lý sự kiện"
       },
       {
         "name": "STAFF",
-        "description": "Check-in staff"
+        "description": "Nhân viên soát vé và check-in tại sự kiện"
       },
       {
         "name": "ADMIN",
-        "description": "System administrator"
+        "description": "Quản trị viên toàn hệ thống"
       },
       {
         "name": "SUPPORT",
-        "description": "Support staff"
+        "description": "Nhân viên hỗ trợ khách hàng"
       }
     ]
   },
+
+  // =========================================================================
+  // 7. CLIENT SCOPES PHÂN QUYỀN CHO MICROSERVICES (OAUTH2 SCOPES)
+  // =========================================================================
   "clientScopes": [
     {
       "name": "event:read",
@@ -102,6 +149,11 @@
       "protocol": "openid-connect"
     }
   ],
+
+  // =========================================================================
+  // 8. TÍCH HỢP NGUỒN NGƯỜI DÙNG DOANH NGHIỆP QUA LDAP (LDAP FEDERATION)
+  // Phục vụ đồng bộ nhân viên nội bộ (Staff, Admin) từ OpenLDAP
+  // =========================================================================
   "components": {
     "org.keycloak.storage.UserStorageProvider": [
       {
@@ -110,6 +162,7 @@
         "providerId": "ldap",
         "subComponents": {
           "org.keycloak.storage.ldap.mappers.LDAPStorageMapper": [
+            // Ánh xạ thuộc tính username giữa Keycloak và LDAP (uid)
             {
               "id": "username-mapper",
               "name": "username",
@@ -122,6 +175,7 @@
                 "read.only": ["true"]
               }
             },
+            // Ánh xạ thuộc tính email giữa Keycloak và LDAP (mail)
             {
               "id": "email-mapper",
               "name": "email",
@@ -134,6 +188,7 @@
                 "read.only": ["true"]
               }
             },
+            // Ánh xạ thuộc tính firstName (givenName)
             {
               "id": "first-name-mapper",
               "name": "first name",
@@ -146,6 +201,7 @@
                 "read.only": ["true"]
               }
             },
+            // Ánh xạ thuộc tính lastName (sn)
             {
               "id": "last-name-mapper",
               "name": "last name",
@@ -185,32 +241,47 @@
       }
     ]
   },
+
+  // =========================================================================
+  // 9. CÁC CLIENT OAUTH2 / OPENID CONNECT (OAUTH2 CLIENTS)
+  // =========================================================================
   "clients": [
+    // -----------------------------------------------------------------------
+    // BFF Client: Ứng dụng Backend-For-Frontend đóng vai trò Confidential Client
+    // -----------------------------------------------------------------------
     {
       "clientId": "bff-client",
       "enabled": true,
       "clientAuthenticatorType": "client-secret",
       "secret": "secret",
+      // URL chuyển hướng sau khi xác thực thành công qua Keycloak
       "redirectUris": [
         "http://localhost:8080/api/auth/callback"
       ],
+      // Nguồn gốc web được phép gửi request CORS
       "webOrigins": [
         "http://localhost:3000"
       ],
+      // URL chuyển hướng sau khi đăng xuất
       "postLogoutRedirectUris": [
         "http://localhost:8080"
       ],
+      // Bật Authorization Code Flow (chuẩn OIDC cho ứng dụng web)
       "standardFlowEnabled": true,
       "implicitFlowEnabled": false,
       "directAccessGrantsEnabled": false,
+      // Bật Service Accounts (Client Credentials Flow) để BFF gọi Admin REST API
       "serviceAccountsEnabled": true,
       "publicClient": false,
       "frontchannelLogout": false,
       "protocol": "openid-connect",
       "attributes": {
+        // Sử dụng PKCE với phương thức S256 để tăng cường bảo mật
         "pkce.code.challenge.method": "S256"
       },
+      // Protocol Mappers: Trích xuất thông tin người dùng vào ID Token và Access Token
       "protocolMappers": [
+        // Ánh xạ trường email vào ID Token và UserInfo
         {
           "name": "email",
           "protocol": "openid-connect",
@@ -225,6 +296,7 @@
             "jsonType.label": "String"
           }
         },
+        // Ánh xạ trạng thái xác thực email (email_verified: true/false)
         {
           "name": "email_verified",
           "protocol": "openid-connect",
@@ -239,6 +311,7 @@
             "jsonType.label": "boolean"
           }
         },
+        // Ánh xạ ngôn ngữ ưa thích (locale) của người dùng vào token
         {
           "name": "locale",
           "protocol": "openid-connect",
@@ -253,6 +326,7 @@
             "jsonType.label": "String"
           }
         },
+        // Ánh xạ năm sinh (birth_year) vào token
         {
           "name": "birth_year",
           "protocol": "openid-connect",
@@ -269,6 +343,9 @@
         }
       ]
     },
+    // -----------------------------------------------------------------------
+    // API Client: Dành cho các Resource Server (Microservices) chỉ nhận Bearer Token
+    // -----------------------------------------------------------------------
     {
       "clientId": "api-client",
       "enabled": true,
@@ -279,7 +356,12 @@
       "protocol": "openid-connect"
     }
   ],
+
+  // =========================================================================
+  // 10. TÀI KHOẢN MẪU DÙNG CHO MÔI TRƯỜNG PHÁT TRIỂN / TEST (SEED USERS)
+  // =========================================================================
   "users": [
+    // Tài khoản khách hàng mẫu
     {
       "username": "customer1",
       "enabled": true,
@@ -302,6 +384,7 @@
         "CUSTOMER"
       ]
     },
+    // Tài khoản nhà tổ chức sự kiện mẫu
     {
       "username": "organizer1",
       "enabled": true,
@@ -320,6 +403,7 @@
         "EVENT_ORGANIZER"
       ]
     },
+    // Tài khoản nhân viên soát vé mẫu
     {
       "username": "staff1",
       "enabled": true,
@@ -338,6 +422,7 @@
         "STAFF"
       ]
     },
+    // Tài khoản quản trị viên mẫu
     {
       "username": "admin1",
       "enabled": true,
@@ -356,6 +441,7 @@
         "ADMIN"
       ]
     },
+    // Service Account dành cho bff-client để gọi Keycloak Admin REST API (quản lý user, logout phiên)
     {
       "username": "service-account-bff-client",
       "enabled": true,
@@ -372,6 +458,11 @@
       ]
     }
   ],
+
+  // =========================================================================
+  // 11. NHÀ CUNG CẤP DANH TÍNH MẠNG XÃ HỘI (GOOGLE IDENTITY PROVIDER)
+  // Xử lý đăng nhập bằng Google và cơ chế tự động phát hiện, hợp nhất tài khoản trùng email
+  // =========================================================================
   "identityProviders": [
     {
       "alias": "google",
@@ -379,11 +470,13 @@
       "providerId": "google",
       "enabled": true,
       "updateProfileFirstLoginMode": "off",
+      // Tin cậy email trả về từ Google (cho phép phát hiện và liên kết với tài khoản sẵn có)
       "trustEmail": true,
       "storeToken": false,
       "addReadTokenRoleOnCreate": false,
       "authenticateByDefault": false,
       "linkOnly": false,
+      // Kích hoạt luồng first broker login để nhắc người dùng liên kết khi đã có tài khoản trùng email
       "firstBrokerLoginFlowAlias": "first broker login",
       "config": {
         "clientId": "${env.GOOGLE_CLIENT_ID:your-google-client-id-hint.apps.googleusercontent.com}",
@@ -394,7 +487,12 @@
       }
     }
   ],
+
+  // =========================================================================
+  // 12. CÁC HÀNH ĐỘNG BẮT BUỘC ĐỐI VỚI NGƯỜI DÙNG (REQUIRED ACTIONS)
+  // =========================================================================
   "requiredActions": [
+    // Bắt buộc xác thực email qua link gửi tới hòm thư
     {
       "alias": "VERIFY_EMAIL",
       "name": "Verify Email",
@@ -404,6 +502,7 @@
       "priority": 50,
       "config": {}
     },
+    // Yêu cầu cập nhật hồ sơ cá nhân
     {
       "alias": "UPDATE_PROFILE",
       "name": "Update Profile",
@@ -413,6 +512,7 @@
       "priority": 20,
       "config": {}
     },
+    // Yêu cầu đổi mật khẩu (khi mật khẩu tạm thời hoặc hết hạn)
     {
       "alias": "UPDATE_PASSWORD",
       "name": "Update Password",
@@ -422,6 +522,7 @@
       "priority": 30,
       "config": {}
     },
+    // Kích hoạt xác thực lại email khi người dùng thay đổi địa chỉ email của mình
     {
       "alias": "UPDATE_EMAIL",
       "name": "Update Email",

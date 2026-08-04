@@ -1,4 +1,5 @@
 {
+  // Cấu hình Realm cho Test môi trường
   "realm": "event-ticketing",
   "enabled": true,
   "registrationAllowed": true,
