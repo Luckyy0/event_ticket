@@ -1,36 +1,14 @@
 {
-  // =========================================================================
-  // 1. CẤU HÌNH REALM TỔNG QUAN (REALM GENERAL SETTINGS)
-  // =========================================================================
-  // Tên định danh của Realm trong hệ thống Keycloak
   "realm": "event-ticketing",
-  // Trạng thái kích hoạt Realm (true: đang hoạt động)
   "enabled": true,
-
-  // =========================================================================
-  // 2. CẤU HÌNH ĐĂNG KÝ VÀ XÁC THỰC EMAIL (USER REGISTRATION & EMAIL VERIFICATION)
-  // =========================================================================
-  // Cho phép người dùng tự đăng ký tài khoản mới trên giao diện Keycloak
   "registrationAllowed": true,
-  // false: Người dùng nhập username và email riêng biệt (không bắt buộc lấy email làm username)
   "registrationEmailAsUsername": false,
-  // Cho phép người dùng tự khôi phục / đặt lại mật khẩu qua email
   "resetPasswordAllowed": true,
-  // Cho phép ghi nhớ trạng thái đăng nhập (Remember Me)
   "rememberMe": true,
-  // Bắt buộc xác thực địa chỉ email khi tạo mới hoặc cập nhật tài khoản
   "verifyEmail": true,
-  // Cho phép người dùng đăng nhập bằng cả username hoặc địa chỉ email
   "loginWithEmailAllowed": true,
-  // Không cho phép trùng lặp email giữa các tài khoản khác nhau trong cùng Realm
   "duplicateEmailsAllowed": false,
-  // Không cho phép người dùng thay đổi username sau khi đã tạo
   "editUsernameAllowed": false,
-
-  // =========================================================================
-  // 3. CẤU HÌNH MÁY CHỦ GỬI EMAIL (SMTP SERVER CONFIGURATION)
-  // Phục vụ việc gửi email xác thực tài khoản, đổi mật khẩu (kết nối Mailpit trong local dev)
-  // =========================================================================
   "smtpServer": {
     "host": "mailpit",
     "port": "1025",
@@ -40,120 +18,235 @@
     "starttls": "false",
     "auth": "false"
   },
-
-  // =========================================================================
-  // 4. CẤU HÌNH THỜI HẠN VÀ PHIÊN LÀM VIỆC (SESSION & TOKEN LIFESPANS)
-  // =========================================================================
-  // Thời gian sống của Access Token (300 giây = 5 phút)
   "accessTokenLifespan": 300,
-  // Thời gian hết hạn của phiên SSO khi người dùng không hoạt động (1800 giây = 30 phút)
   "ssoSessionIdleTimeout": 1800,
-  // Thời gian tối đa của một phiên SSO (36000 giây = 10 giờ)
   "ssoSessionMaxLifespan": 36000,
-  // Thu hồi Refresh Token cũ sau khi cấp Refresh Token mới (chống Replay Attack)
   "revokeRefreshToken": true,
-  // Số lần tối đa Refresh Token có thể được tái sử dụng (0: không cho tái sử dụng)
   "refreshTokenMaxReuse": 0,
-
-  // =========================================================================
-  // 5. ĐA NGÔN NGỮ (INTERNATIONALIZATION)
-  // =========================================================================
-  // Bật tính năng đa ngôn ngữ cho các trang đăng nhập/đăng ký của Keycloak
   "internationalizationEnabled": true,
-  // Danh sách các ngôn ngữ được hỗ trợ (Tiếng Việt & Tiếng Anh)
   "supportedLocales": [
-    "vi",
-    "en"
+    "en",
+    "vi"
   ],
-  // Ngôn ngữ mặc định hiển thị cho người dùng
-  "defaultLocale": "vi",
-
-  // =========================================================================
-  // 6. CÁC VAI TRÒ VÀ QUYỀN TRUY CẬP TRONG REALM (REALM ROLES)
-  // =========================================================================
-  // Vai trò mặc định gán cho mọi người dùng mới đăng ký
-  "defaultRoles": [
-    "CUSTOMER"
+  "defaultLocale": "en",
+  "identityProviders": [
+    {
+      "alias": "google",
+      "displayName": "Google",
+      "providerId": "google",
+      "enabled": true,
+      "updateProfileFirstLoginMode": "on",
+      "trustEmail": true,
+      "storeToken": false,
+      "addReadTokenRoleOnCreate": false,
+      "authenticateByDefault": false,
+      "linkOnly": false,
+      "firstBrokerLoginFlowAlias": "first broker login",
+      "config": {
+        "clientId": "${GOOGLE_CLIENT_ID:your-google-client-id-hint.apps.googleusercontent.com}",
+        "clientSecret": "${GOOGLE_CLIENT_SECRET:your-google-client-secret-hint}",
+        "defaultScope": "openid profile email",
+        "syncMode": "IMPORT",
+        "useJwksUrl": "true"
+      }
+    }
+  ],
+  "identityProviderMappers": [
+    {
+      "name": "google-email-mapper",
+      "identityProviderAlias": "google",
+      "identityProviderMapper": "google-user-attribute-mapper",
+      "config": {
+        "user.attribute": "email",
+        "jsonField": "email",
+        "syncMode": "INHERIT"
+      }
+    },
+    {
+      "name": "google-first-name-mapper",
+      "identityProviderAlias": "google",
+      "identityProviderMapper": "google-user-attribute-mapper",
+      "config": {
+        "user.attribute": "firstName",
+        "jsonField": "given_name",
+        "syncMode": "INHERIT"
+      }
+    },
+    {
+      "name": "google-last-name-mapper",
+      "identityProviderAlias": "google",
+      "identityProviderMapper": "google-user-attribute-mapper",
+      "config": {
+        "user.attribute": "lastName",
+        "jsonField": "family_name",
+        "syncMode": "INHERIT"
+      }
+    },
+    {
+      "name": "google-default-customer-role",
+      "identityProviderAlias": "google",
+      "identityProviderMapper": "oidc-hardcoded-role-idp-mapper",
+      "config": {
+        "role": "CUSTOMER",
+        "syncMode": "INHERIT"
+      }
+    }
+  ],
+  "requiredActions": [
+    {
+      "alias": "VERIFY_EMAIL",
+      "name": "Verify Email",
+      "providerId": "VERIFY_EMAIL",
+      "enabled": true,
+      "defaultAction": true,
+      "priority": 50
+    },
+    {
+      "alias": "UPDATE_EMAIL",
+      "name": "Update Email",
+      "providerId": "UPDATE_EMAIL",
+      "enabled": true,
+      "defaultAction": false,
+      "priority": 60
+    },
+    {
+      "alias": "UPDATE_PROFILE",
+      "name": "Update Profile",
+      "providerId": "UPDATE_PROFILE",
+      "enabled": true,
+      "defaultAction": false,
+      "priority": 20
+    },
+    {
+      "alias": "UPDATE_PASSWORD",
+      "name": "Update Password",
+      "providerId": "UPDATE_PASSWORD",
+      "enabled": true,
+      "defaultAction": false,
+      "priority": 30
+    }
   ],
   "roles": {
     "realm": [
-      {
-        "name": "CUSTOMER",
-        "description": "Khách hàng mua vé xem sự kiện (mặc định cho tài khoản tự đăng ký)"
-      },
-      {
-        "name": "EVENT_ORGANIZER",
-        "description": "Nhà tổ chức sự kiện, có quyền tạo và quản lý sự kiện"
-      },
-      {
-        "name": "STAFF",
-        "description": "Nhân viên soát vé và check-in tại sự kiện"
-      },
       {
         "name": "ADMIN",
         "description": "Quản trị viên toàn hệ thống"
       },
       {
-        "name": "SUPPORT",
-        "description": "Nhân viên hỗ trợ khách hàng"
+        "name": "CUSTOMER",
+        "description": "Khách hàng mua vé thông thường"
+      },
+      {
+        "name": "STAFF",
+        "description": "Nhân viên kiểm soát vé và vận hành sự kiện"
+      },
+      {
+        "name": "ORGANIZER",
+        "description": "Nhà tổ chức sự kiện"
       }
     ]
   },
-
-  // =========================================================================
-  // 7. CLIENT SCOPES PHÂN QUYỀN CHO MICROSERVICES (OAUTH2 SCOPES)
-  // =========================================================================
   "clientScopes": [
     {
       "name": "event:read",
-      "protocol": "openid-connect"
+      "description": "Cho phép xem danh sách và chi tiết sự kiện",
+      "protocol": "openid-connect",
+      "attributes": {
+        "include.in.token.scope": "true",
+        "display.on.consent.screen": "true"
+      }
     },
     {
       "name": "event:write",
-      "protocol": "openid-connect"
+      "description": "Cho phép tạo, cập nhật và hủy sự kiện",
+      "protocol": "openid-connect",
+      "attributes": {
+        "include.in.token.scope": "true",
+        "display.on.consent.screen": "true"
+      }
     },
     {
       "name": "inventory:read",
-      "protocol": "openid-connect"
+      "description": "Cho phép xem số lượng vé tồn kho",
+      "protocol": "openid-connect",
+      "attributes": {
+        "include.in.token.scope": "true",
+        "display.on.consent.screen": "true"
+      }
     },
     {
       "name": "inventory:manage",
-      "protocol": "openid-connect"
+      "description": "Cho phép cấu hình và điều chỉnh số lượng vé kho",
+      "protocol": "openid-connect",
+      "attributes": {
+        "include.in.token.scope": "true",
+        "display.on.consent.screen": "true"
+      }
     },
     {
       "name": "order:read",
-      "protocol": "openid-connect"
+      "description": "Cho phép xem lịch sử đơn hàng",
+      "protocol": "openid-connect",
+      "attributes": {
+        "include.in.token.scope": "true",
+        "display.on.consent.screen": "true"
+      }
     },
     {
       "name": "order:create",
-      "protocol": "openid-connect"
+      "description": "Cho phép đặt mua vé và tạo đơn hàng",
+      "protocol": "openid-connect",
+      "attributes": {
+        "include.in.token.scope": "true",
+        "display.on.consent.screen": "true"
+      }
     },
     {
       "name": "order:cancel",
-      "protocol": "openid-connect"
+      "description": "Cho phép hủy đơn hàng",
+      "protocol": "openid-connect",
+      "attributes": {
+        "include.in.token.scope": "true",
+        "display.on.consent.screen": "true"
+      }
     },
     {
       "name": "payment:create",
-      "protocol": "openid-connect"
+      "description": "Cho phép thực hiện thanh toán vé",
+      "protocol": "openid-connect",
+      "attributes": {
+        "include.in.token.scope": "true",
+        "display.on.consent.screen": "true"
+      }
     },
     {
       "name": "payment:refund",
-      "protocol": "openid-connect"
+      "description": "Cho phép hoàn tiền giao dịch vé",
+      "protocol": "openid-connect",
+      "attributes": {
+        "include.in.token.scope": "true",
+        "display.on.consent.screen": "true"
+      }
     },
     {
       "name": "ticket:read",
-      "protocol": "openid-connect"
+      "description": "Cho phép xem chi tiết vé điện tử và mã QR",
+      "protocol": "openid-connect",
+      "attributes": {
+        "include.in.token.scope": "true",
+        "display.on.consent.screen": "true"
+      }
     },
     {
       "name": "ticket:checkin",
-      "protocol": "openid-connect"
+      "description": "Cho phép quét mã QR và check-in vé tại sự kiện",
+      "protocol": "openid-connect",
+      "attributes": {
+        "include.in.token.scope": "true",
+        "display.on.consent.screen": "true"
+      }
     }
   ],
-
-  // =========================================================================
-  // 8. TÍCH HỢP NGUỒN NGƯỜI DÙNG DOANH NGHIỆP QUA LDAP (LDAP FEDERATION)
-  // Phục vụ đồng bộ nhân viên nội bộ (Staff, Admin) từ OpenLDAP
-  // =========================================================================
   "components": {
     "org.keycloak.storage.UserStorageProvider": [
       {
@@ -162,7 +255,6 @@
         "providerId": "ldap",
         "subComponents": {
           "org.keycloak.storage.ldap.mappers.LDAPStorageMapper": [
-            // Ánh xạ thuộc tính username giữa Keycloak và LDAP (uid)
             {
               "id": "username-mapper",
               "name": "username",
@@ -170,13 +262,11 @@
               "config": {
                 "ldap.attribute": ["uid"],
                 "is.mandatory.in.ldap": ["true"],
-                // Chuẩn Production: false để đọc từ DB/Cache cục bộ siêu tốc, định kỳ 5 phút đồng bộ ngầm
                 "always.read.value.from.ldap": ["false"],
                 "user.model.attribute": ["username"],
                 "read.only": ["true"]
               }
             },
-            // Ánh xạ thuộc tính email giữa Keycloak và LDAP (mail)
             {
               "id": "email-mapper",
               "name": "email",
@@ -189,7 +279,6 @@
                 "read.only": ["true"]
               }
             },
-            // Ánh xạ thuộc tính firstName (givenName)
             {
               "id": "first-name-mapper",
               "name": "first name",
@@ -202,7 +291,6 @@
                 "read.only": ["true"]
               }
             },
-            // Ánh xạ thuộc tính lastName (sn)
             {
               "id": "last-name-mapper",
               "name": "last name",
@@ -214,106 +302,91 @@
                 "user.model.attribute": ["lastName"],
                 "read.only": ["true"]
               }
+            },
+            {
+              "id": "customer-role-mapper",
+              "name": "customer role",
+              "providerId": "hardcoded-ldap-role-mapper",
+              "config": {
+                "role": ["CUSTOMER"]
+              }
             }
           ]
         },
         "config": {
-          // Trạng thái kích hoạt kết nối đến nguồn người dùng LDAP (true: bật)
           "enabled": ["true"],
-          // Cho phép Keycloak nạp và lưu trữ người dùng vào Database cục bộ để tối ưu tốc độ đọc & tìm kiếm
           "importEnabled": ["true"],
-          // Độ ưu tiên của nhà cung cấp này khi tìm kiếm người dùng (0 là ưu tiên cao nhất)
           "priority": ["0"],
-          // Chế độ chỉnh sửa: READ_ONLY (chỉ đọc, không cho phép Keycloak ghi đè hoặc thay đổi dữ liệu ngược về LDAP)
           "editMode": ["READ_ONLY"],
-          // Đồng bộ đăng ký mới: false (không tự động đẩy người dùng mới đăng ký trên Keycloak vào LDAP)
           "syncRegistrations": ["false"],
-          // Loại nhà cung cấp LDAP: "other" (chuẩn OpenLDAP; ngoài ra có Active Directory, Red Hat Directory Server, v.v.)
           "vendor": ["other"],
-          // Thuộc tính trên LDAP dùng làm username hiển thị trong Keycloak ("uid")
           "usernameLDAPAttribute": ["uid"],
-          // Thuộc tính Relative Distinguished Name trên LDAP ("uid")
           "rdnLDAPAttribute": ["uid"],
-          // Thuộc tính định danh duy nhất (UUID) của bản ghi trong LDAP ("entryUUID" cho OpenLDAP, "objectGUID" cho Active Directory)
           "uuidLDAPAttribute": ["entryUUID"],
-          // Các lớp đối tượng (objectClass) trong LDAP đại diện cho thực thể người dùng
-          "userObjectClasses": ["inetOrgPerson, organizationalPerson"],
-          // Địa chỉ URL và cổng kết nối đến máy chủ LDAP
+          "userObjectClasses": ["inetOrgPerson"],
           "connectionUrl": ["ldap://openldap:389"],
-          // Đường dẫn cây thư mục (Base DN) chứa danh sách người dùng trong LDAP
           "usersDn": ["ou=users,dc=example,dc=org"],
-          // Phương thức xác thực khi Keycloak kết nối đến LDAP ("simple": username/password)
           "authType": ["simple"],
-          // Tài khoản Bind DN có quyền quản trị để đọc danh bạ LDAP
           "bindDn": ["cn=admin,dc=example,dc=org"],
-          // Mật khẩu của tài khoản Bind DN
           "bindCredential": ["adminpassword"],
-          // Phạm vi tìm kiếm trong cây LDAP: "1" = ONE_LEVEL (chỉ tìm trong thư mục hiện tại), "2" = SUBTREE (tìm toàn bộ cây con)
           "searchScope": ["1"],
-          // Xác thực chính sách mật khẩu tại Keycloak: false (để LDAP tự quản lý chính sách mật khẩu)
           "validatePasswordPolicy": ["false"],
-          // Tin cậy email lấy từ LDAP mà không cần gửi email xác thực lại
           "trustEmail": ["true"],
-          // Cấu hình Truststore SPI khi kết nối TLS/SSL ("always")
-          "useTruststoreSpi": ["always"],
-          // Bật cơ chế Connection Pooling để tái sử dụng kết nối mạng đến LDAP, tăng hiệu năng
+          "useTruststoreSpi": ["ldapsOnly"],
+          "startTls": ["false"],
           "connectionPooling": ["true"],
-          // Bật phân trang khi truy vấn danh sách người dùng lớn từ LDAP để tránh nghẽn bộ nhớ
           "pagination": ["true"],
-          // =====================================================================
-          // CƠ CHẾ ĐỒNG BỘ CHUẨN PRODUCTION (HYBRID BACKGROUND DELTA + FULL SYNC)
-          // =====================================================================
-          // Số lượng bản ghi đồng bộ trên mỗi đợt quét (batch size: 1000 người dùng mỗi batch)
           "batchSizeForSync": ["1000"],
-          // Chu kỳ quét các người dùng có thay đổi mới: 300 giây (5 phút / lần) dựa vào modifyTimestamp
           "changedSyncPeriod": ["300"],
-          // Chu kỳ quét đối soát toàn bộ danh bạ: 86400 giây (24 giờ / lần) để dọn dẹp user đã bị xóa trên LDAP
           "fullSyncPeriod": ["86400"]
         }
       }
     ]
   },
-
-  // =========================================================================
-  // 9. CÁC CLIENT OAUTH2 / OPENID CONNECT (OAUTH2 CLIENTS)
-  // =========================================================================
   "clients": [
-    // -----------------------------------------------------------------------
-    // BFF Client: Ứng dụng Backend-For-Frontend đóng vai trò Confidential Client
-    // -----------------------------------------------------------------------
     {
       "clientId": "bff-client",
       "enabled": true,
       "clientAuthenticatorType": "client-secret",
       "secret": "secret",
-      // URL chuyển hướng sau khi xác thực thành công qua Keycloak
       "redirectUris": [
         "http://localhost:8080/api/auth/callback"
       ],
-      // Nguồn gốc web được phép gửi request CORS
       "webOrigins": [
         "http://localhost:3000"
       ],
-      // URL chuyển hướng sau khi đăng xuất
-      "postLogoutRedirectUris": [
-        "http://localhost:8080"
-      ],
-      // Bật Authorization Code Flow (chuẩn OIDC cho ứng dụng web)
       "standardFlowEnabled": true,
       "implicitFlowEnabled": false,
       "directAccessGrantsEnabled": false,
-      // Bật Service Accounts (Client Credentials Flow) để BFF gọi Admin REST API
       "serviceAccountsEnabled": true,
       "publicClient": false,
       "frontchannelLogout": false,
       "protocol": "openid-connect",
       "attributes": {
-        // Sử dụng PKCE với phương thức S256 để tăng cường bảo mật
-        "pkce.code.challenge.method": "S256"
+        "pkce.code.challenge.method": "S256",
+        "post.logout.redirect.uris": "http://localhost:8080##http://localhost:3000##+"
       },
-      // Protocol Mappers: Trích xuất thông tin người dùng vào ID Token và Access Token
+      "defaultClientScopes": [
+        "web-origins",
+        "acr",
+        "roles",
+        "profile",
+        "email",
+        "event:read",
+        "inventory:read",
+        "ticket:read"
+      ],
+      "optionalClientScopes": [
+        "event:write",
+        "inventory:manage",
+        "order:read",
+        "order:create",
+        "order:cancel",
+        "payment:create",
+        "payment:refund",
+        "ticket:checkin"
+      ],
       "protocolMappers": [
-        // Ánh xạ trường email vào ID Token và UserInfo
         {
           "name": "email",
           "protocol": "openid-connect",
@@ -328,7 +401,6 @@
             "jsonType.label": "String"
           }
         },
-        // Ánh xạ trạng thái xác thực email (email_verified: true/false)
         {
           "name": "email_verified",
           "protocol": "openid-connect",
@@ -343,7 +415,6 @@
             "jsonType.label": "boolean"
           }
         },
-        // Ánh xạ ngôn ngữ ưa thích (locale) của người dùng vào token
         {
           "name": "locale",
           "protocol": "openid-connect",
@@ -358,7 +429,6 @@
             "jsonType.label": "String"
           }
         },
-        // Ánh xạ năm sinh (birth_year) vào token
         {
           "name": "birth_year",
           "protocol": "openid-connect",
@@ -372,14 +442,24 @@
             "claim.name": "birth_year",
             "jsonType.label": "String"
           }
+        },
+        {
+          "name": "api-client-audience",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-audience-mapper",
+          "consentRequired": false,
+          "config": {
+            "included.client.audience": "api-client",
+            "id.token.claim": "false",
+            "access.token.claim": "true"
+          }
         }
       ]
     },
-    // -----------------------------------------------------------------------
-    // API Client: Dành cho các Resource Server (Microservices) chỉ nhận Bearer Token
-    // -----------------------------------------------------------------------
     {
       "clientId": "api-client",
+      "name": "Backend Microservices Resource Server",
+      "description": "Resource server đại diện cho các API microservices phía sau",
       "enabled": true,
       "bearerOnly": true,
       "standardFlowEnabled": false,
@@ -388,84 +468,44 @@
       "protocol": "openid-connect"
     }
   ],
-
-  // =========================================================================
-  // 10. TÀI KHOẢN MẪU DÙNG CHO MÔI TRƯỜNG PHÁT TRIỂN / TEST (SEED USERS)
-  // =========================================================================
   "users": [
-    // Tài khoản khách hàng mẫu
     {
       "username": "customer1",
       "enabled": true,
-      "emailVerified": true,
-      "firstName": "Customer",
-      "lastName": "One",
       "email": "customer1@example.com",
-      "attributes": {
-        "locale": ["vi"],
-        "birth_year": ["1995"]
-      },
+      "firstName": "John",
+      "lastName": "Customer",
+      "emailVerified": true,
       "credentials": [
         {
           "type": "password",
-          "value": "test1234",
+          "value": "password",
           "temporary": false
         }
       ],
       "realmRoles": [
         "CUSTOMER"
-      ]
-    },
-    // Tài khoản nhà tổ chức sự kiện mẫu
-    {
-      "username": "organizer1",
-      "enabled": true,
-      "emailVerified": true,
-      "firstName": "Organizer",
-      "lastName": "One",
-      "email": "organizer1@example.com",
-      "credentials": [
-        {
-          "type": "password",
-          "value": "test1234",
-          "temporary": false
-        }
       ],
-      "realmRoles": [
-        "EVENT_ORGANIZER"
-      ]
+      "attributes": {
+        "birth_year": [
+          "1990"
+        ],
+        "locale": [
+          "en"
+        ]
+      }
     },
-    // Tài khoản nhân viên soát vé mẫu
-    {
-      "username": "staff1",
-      "enabled": true,
-      "emailVerified": true,
-      "firstName": "Staff",
-      "lastName": "One",
-      "email": "staff1@example.com",
-      "credentials": [
-        {
-          "type": "password",
-          "value": "test1234",
-          "temporary": false
-        }
-      ],
-      "realmRoles": [
-        "STAFF"
-      ]
-    },
-    // Tài khoản quản trị viên mẫu
     {
       "username": "admin1",
       "enabled": true,
-      "emailVerified": true,
-      "firstName": "Admin",
-      "lastName": "One",
       "email": "admin1@example.com",
+      "firstName": "Super",
+      "lastName": "Admin",
+      "emailVerified": true,
       "credentials": [
         {
           "type": "password",
-          "value": "test1234",
+          "value": "password",
           "temporary": false
         }
       ],
@@ -473,96 +513,69 @@
         "ADMIN"
       ]
     },
-    // Service Account dành cho bff-client để gọi Keycloak Admin REST API (quản lý user, logout phiên)
     {
-      "username": "service-account-bff-client",
+      "username": "organizer1",
       "enabled": true,
-      "serviceAccountClientId": "bff-client",
-      "clientRoles": {
-        "realm-management": [
-          "manage-users",
-          "view-users",
-          "realm-admin"
-        ]
-      },
+      "email": "organizer1@example.com",
+      "firstName": "Event",
+      "lastName": "Organizer",
+      "emailVerified": true,
+      "credentials": [
+        {
+          "type": "password",
+          "value": "password",
+          "temporary": false
+        }
+      ],
       "realmRoles": [
-        "ADMIN"
+        "ORGANIZER"
       ]
     }
   ],
-
-  // =========================================================================
-  // 11. NHÀ CUNG CẤP DANH TÍNH MẠNG XÃ HỘI (GOOGLE IDENTITY PROVIDER)
-  // Xử lý đăng nhập bằng Google và cơ chế tự động phát hiện, hợp nhất tài khoản trùng email
-  // =========================================================================
-  "identityProviders": [
+  "scopeMappings": [
     {
-      "alias": "google",
-      "displayName": "Google",
-      "providerId": "google",
-      "enabled": true,
-      "updateProfileFirstLoginMode": "off",
-      // Tin cậy email trả về từ Google (cho phép phát hiện và liên kết với tài khoản sẵn có)
-      "trustEmail": true,
-      "storeToken": false,
-      "addReadTokenRoleOnCreate": false,
-      "authenticateByDefault": false,
-      "linkOnly": false,
-      // Kích hoạt luồng first broker login để nhắc người dùng liên kết khi đã có tài khoản trùng email
-      "firstBrokerLoginFlowAlias": "first broker login",
-      "config": {
-        "clientId": "${env.GOOGLE_CLIENT_ID:your-google-client-id-hint.apps.googleusercontent.com}",
-        "clientSecret": "${env.GOOGLE_CLIENT_SECRET:your-google-client-secret-hint}",
-        "defaultScope": "openid profile email",
-        "syncMode": "IMPORT",
-        "useJwksUrl": "true"
-      }
-    }
-  ],
-
-  // =========================================================================
-  // 12. CÁC HÀNH ĐỘNG BẮT BUỘC ĐỐI VỚI NGƯỜI DÙNG (REQUIRED ACTIONS)
-  // =========================================================================
-  "requiredActions": [
-    // Bắt buộc xác thực email qua link gửi tới hòm thư
-    {
-      "alias": "VERIFY_EMAIL",
-      "name": "Verify Email",
-      "providerId": "VERIFY_EMAIL",
-      "enabled": true,
-      "defaultAction": false,
-      "priority": 50,
-      "config": {}
+      "clientScope": "event:read",
+      "roles": ["CUSTOMER", "ORGANIZER", "STAFF", "ADMIN"]
     },
-    // Yêu cầu cập nhật hồ sơ cá nhân
     {
-      "alias": "UPDATE_PROFILE",
-      "name": "Update Profile",
-      "providerId": "UPDATE_PROFILE",
-      "enabled": true,
-      "defaultAction": false,
-      "priority": 20,
-      "config": {}
+      "clientScope": "event:write",
+      "roles": ["ORGANIZER", "ADMIN"]
     },
-    // Yêu cầu đổi mật khẩu (khi mật khẩu tạm thời hoặc hết hạn)
     {
-      "alias": "UPDATE_PASSWORD",
-      "name": "Update Password",
-      "providerId": "UPDATE_PASSWORD",
-      "enabled": true,
-      "defaultAction": false,
-      "priority": 30,
-      "config": {}
+      "clientScope": "inventory:read",
+      "roles": ["CUSTOMER", "ORGANIZER", "ADMIN"]
     },
-    // Kích hoạt xác thực lại email khi người dùng thay đổi địa chỉ email của mình
     {
-      "alias": "UPDATE_EMAIL",
-      "name": "Update Email",
-      "providerId": "UPDATE_EMAIL",
-      "enabled": true,
-      "defaultAction": false,
-      "priority": 40,
-      "config": {}
+      "clientScope": "inventory:manage",
+      "roles": ["ORGANIZER", "ADMIN"]
+    },
+    {
+      "clientScope": "order:read",
+      "roles": ["CUSTOMER", "ORGANIZER", "ADMIN"]
+    },
+    {
+      "clientScope": "order:create",
+      "roles": ["CUSTOMER", "ADMIN"]
+    },
+    {
+      "clientScope": "order:cancel",
+      "roles": ["CUSTOMER", "ADMIN"]
+    },
+    {
+      "clientScope": "payment:create",
+      "roles": ["CUSTOMER", "ADMIN"]
+    },
+    {
+      "clientScope": "payment:refund",
+      "roles": ["ADMIN"]
+    },
+    {
+      "clientScope": "ticket:read",
+      "roles": ["CUSTOMER", "ORGANIZER", "STAFF", "ADMIN"]
+    },
+    {
+      "clientScope": "ticket:checkin",
+      "roles": ["STAFF", "ADMIN"]
     }
   ]
 }

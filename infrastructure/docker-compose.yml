@@ -1,23 +1,21 @@
-version: '3.8'
-
 services:
   # -----------------------------------------
-  # PostgreSQL (Relational DB for Core Services)
+  # PostgreSQL (Relational DB for Core Services & Keycloak)
   # -----------------------------------------
   postgres:
     image: postgres:15-alpine
     container_name: ticketing_postgres
     environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: ticketing_db
+      POSTGRES_USER: ${POSTGRES_USER:-user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-password}
+      POSTGRES_DB: ${POSTGRES_DB:-ticketing_db}
     ports:
-      - "5432:5432"
+      - "${POSTGRES_PORT:-5432}:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./init-scripts/pg-init.sql:/docker-entrypoint-initdb.d/init.sql
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U user"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-user}"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -25,16 +23,32 @@ services:
       - ticketing_net
 
   # -----------------------------------------
-  # MongoDB (NoSQL DB for Catalog)
+  # pgAdmin (Web-based Management UI for PostgreSQL)
+  # -----------------------------------------
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: ticketing_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-admin@example.com}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-admin}
+    ports:
+      - "${PGADMIN_PORT:-5050}:80"
+    depends_on:
+      - postgres
+    networks:
+      - ticketing_net
+
+  # -----------------------------------------
+  # MongoDB (NoSQL DB for Event Catalog)
   # -----------------------------------------
   mongodb:
     image: mongo:6.0
     container_name: ticketing_mongo
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME:-root}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD:-rootpassword}
     ports:
-      - "27017:27017"
+      - "${MONGO_PORT:-27017}:27017"
     volumes:
       - mongo_data:/data/db
     healthcheck:
@@ -46,13 +60,13 @@ services:
       - ticketing_net
 
   # -----------------------------------------
-  # Redis (In-memory datastore for Inventory & Sessions)
+  # Redis (In-memory datastore for Distributed Locks & Sessions)
   # -----------------------------------------
   redis:
     image: redis:7.0-alpine
     container_name: ticketing_redis
     ports:
-      - "6379:6379"
+      - "${REDIS_PORT:-6379}:6379"
     volumes:
       - redis_data:/data
     healthcheck:
@@ -72,13 +86,13 @@ services:
       - ticketing_net
 
   # -----------------------------------------
-  # Kafka (KRaft Mode)
+  # Kafka (KRaft Mode Message Broker)
   # -----------------------------------------
   kafka:
     image: confluentinc/cp-kafka:7.4.0
     container_name: ticketing_kafka
     ports:
-      - "9092:9092"
+      - "${KAFKA_PORT:-9092}:9092"
     environment:
       KAFKA_NODE_ID: 1
       KAFKA_PROCESS_ROLES: 'broker,controller'
@@ -89,7 +103,7 @@ services:
       KAFKA_CONTROLLER_LISTENER_NAMES: 'CONTROLLER'
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-      CLUSTER_ID: 'MkU3OEVBNTcwNTJENDM2Qk'
+      CLUSTER_ID: ${KAFKA_CLUSTER_ID:-MkU3OEVBNTcwNTJENDM2Qk}
     healthcheck:
       test: ["CMD", "kafka-topics", "--bootstrap-server", "localhost:9092", "--list"]
       interval: 15s
@@ -102,7 +116,7 @@ services:
     image: provectuslabs/kafka-ui:latest
     container_name: ticketing_kafka_ui
     ports:
-      - "8085:8080"
+      - "${KAFKA_UI_PORT:-8085}:8080"
     environment:
       KAFKA_CLUSTERS_0_NAME: local
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:29092
@@ -118,13 +132,19 @@ services:
     image: osixia/openldap:1.5.0
     container_name: ticketing_openldap
     environment:
-      LDAP_ORGANISATION: "Example Org"
-      LDAP_DOMAIN: "example.org"
-      LDAP_ADMIN_PASSWORD: "adminpassword"
+      LDAP_ORGANISATION: ${LDAP_ORGANISATION:-Example Org}
+      LDAP_DOMAIN: ${LDAP_DOMAIN:-example.org}
+      LDAP_ADMIN_PASSWORD: ${LDAP_ADMIN_PASSWORD:-adminpassword}
+      LDAP_REMOVE_CONFIG_AFTER_SETUP: "false"
     volumes:
-      - ./ldap/seed.ldif:/container/service/slapd/assets/config/bootstrap/ldif/custom/50-seed.ldif:ro
+      - ./ldap:/container/service/slapd/assets/config/bootstrap/ldif/custom
     ports:
-      - "389:389"
+      - "${LDAP_PORT:-389}:389"
+    healthcheck:
+      test: ["CMD", "ldapwhoami", "-H", "ldap://localhost:389", "-D", "cn=admin,dc=example,dc=org", "-w", "${LDAP_ADMIN_PASSWORD:-adminpassword}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     networks:
       - ticketing_net
 
@@ -135,13 +155,13 @@ services:
     image: axllent/mailpit:latest
     container_name: ticketing_mailpit
     ports:
-      - "1025:1025" # SMTP
-      - "8025:8025" # Web UI
+      - "${MAILPIT_SMTP_PORT:-1025}:1025" # SMTP
+      - "${MAILPIT_WEB_PORT:-8025}:8025" # Web UI
     networks:
       - ticketing_net
 
   # -----------------------------------------
-  # Keycloak (IAM)
+  # Keycloak (IAM & Centralized Identity Management)
   # -----------------------------------------
   keycloak:
     image: quay.io/keycloak/keycloak:21.1.1
@@ -149,15 +169,15 @@ services:
     environment:
       KC_DB: postgres
       KC_DB_URL: jdbc:postgresql://postgres:5432/keycloak
-      KC_DB_USERNAME: keycloak
-      KC_DB_PASSWORD: password
-      KEYCLOAK_ADMIN: admin
-      KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_DB_USERNAME: ${KEYCLOAK_DB_USER:-keycloak}
+      KC_DB_PASSWORD: ${KEYCLOAK_DB_PASSWORD:-password}
+      KEYCLOAK_ADMIN: ${KEYCLOAK_ADMIN_USER:-admin}
+      KEYCLOAK_ADMIN_PASSWORD: ${KEYCLOAK_ADMIN_PASSWORD:-admin}
       GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-your-google-client-id-hint.apps.googleusercontent.com}
       GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET:-your-google-client-secret-hint}
     command: start-dev --import-realm
     ports:
-      - "8443:8080"
+      - "${KEYCLOAK_PORT:-8443}:8080"
     depends_on:
       - postgres
       - openldap

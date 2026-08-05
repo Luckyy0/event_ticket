@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.bff.service.AdminIdentityServiceTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-08-04T14:55:28" hostname="DESKTOP-APGR6KO" time="2.787">
+<testsuite name="com.example.bff.service.AdminIdentityServiceTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-08-05T14:52:36" hostname="DESKTOP-APGR6KO" time="3.563">
   <properties/>
-  <testcase name="logoutAllSessions_success()" classname="com.example.bff.service.AdminIdentityServiceTest" time="2.395"/>
-  <testcase name="updateUserRoles_success_forSelfRegisteredUser()" classname="com.example.bff.service.AdminIdentityServiceTest" time="0.028"/>
-  <testcase name="resetUserPassword_throwsException_forLdapEnterpriseUser()" classname="com.example.bff.service.AdminIdentityServiceTest" time="0.274"/>
-  <testcase name="updateUserRoles_throwsException_forLdapEnterpriseUser()" classname="com.example.bff.service.AdminIdentityServiceTest" time="0.028"/>
-  <testcase name="resetUserPassword_success_forSelfRegisteredUser()" classname="com.example.bff.service.AdminIdentityServiceTest" time="0.048"/>
-  <system-out><![CDATA[2026-08-04T21:55:31.007+07:00  INFO 127586 --- [    Test worker] c.e.bff.service.AdminIdentityService     : Deleted 1 active Spring Session(s) from Redis for user: customer1
-2026-08-04T21:55:31.007+07:00  INFO 127586 --- [    Test worker] c.e.bff.service.AdminIdentityService     : Successfully terminated all active sessions across Keycloak and BFF for user: customer1
-2026-08-04T21:55:31.042+07:00  INFO 127586 --- [    Test worker] c.e.bff.service.AdminIdentityService     : Successfully updated roles [EVENT_ORGANIZER] for user customer1
-2026-08-04T21:55:31.046+07:00  INFO 127586 --- [    Test worker] c.e.bff.service.AdminIdentityService     : Deleted 2 active Spring Session(s) from Redis for user: customer1
-2026-08-04T21:55:31.047+07:00  INFO 127586 --- [    Test worker] c.e.bff.service.AdminIdentityService     : Terminated all Keycloak and BFF sessions after role update for user: customer1
-2026-08-04T21:55:31.274+07:00  WARN 127586 --- [    Test worker] c.e.bff.service.AdminIdentityService     : Attempted to reset password for enterprise LDAP user: ldap_mary
-2026-08-04T21:55:31.348+07:00  WARN 127586 --- [    Test worker] c.e.bff.service.AdminIdentityService     : Attempted to modify roles for enterprise LDAP user: ldap_john
-2026-08-04T21:55:31.382+07:00  INFO 127586 --- [    Test worker] c.e.bff.service.AdminIdentityService     : Deleted 1 active Spring Session(s) from Redis for user: customer1
-2026-08-04T21:55:31.393+07:00  INFO 127586 --- [    Test worker] c.e.bff.service.AdminIdentityService     : Successfully reset password and terminated all Keycloak + BFF sessions for user customer1
+  <testcase name="logoutAllSessions_success()" classname="com.example.bff.service.AdminIdentityServiceTest" time="3.017"/>
+  <testcase name="updateUserRoles_success_forSelfRegisteredUser()" classname="com.example.bff.service.AdminIdentityServiceTest" time="0.063"/>
+  <testcase name="resetUserPassword_throwsException_forLdapEnterpriseUser()" classname="com.example.bff.service.AdminIdentityServiceTest" time="0.383"/>
+  <testcase name="updateUserRoles_throwsException_forLdapEnterpriseUser()" classname="com.example.bff.service.AdminIdentityServiceTest" time="0.058"/>
+  <testcase name="resetUserPassword_success_forSelfRegisteredUser()" classname="com.example.bff.service.AdminIdentityServiceTest" time="0.021"/>
+  <system-out><![CDATA[2026-08-05T21:52:39.897+07:00  INFO 304122 --- [    Test worker] c.e.bff.service.AdminIdentityService     : Deleted 1 active Spring Session(s) from Redis for user: customer1
+2026-08-05T21:52:39.904+07:00  INFO 304122 --- [    Test worker] c.e.bff.service.AdminIdentityService     : Successfully terminated all active sessions across Keycloak and BFF for user: customer1
+2026-08-05T21:52:39.973+07:00  INFO 304122 --- [    Test worker] c.e.bff.service.AdminIdentityService     : Successfully updated roles [EVENT_ORGANIZER] for user customer1
+2026-08-05T21:52:39.986+07:00  INFO 304122 --- [    Test worker] c.e.bff.service.AdminIdentityService     : Deleted 2 active Spring Session(s) from Redis for user: customer1
+2026-08-05T21:52:39.987+07:00  INFO 304122 --- [    Test worker] c.e.bff.service.AdminIdentityService     : Terminated all Keycloak and BFF sessions after role update for user: customer1
+2026-08-05T21:52:40.275+07:00  WARN 304122 --- [    Test worker] c.e.bff.service.AdminIdentityService     : Attempted to reset password for enterprise LDAP user: ldap_mary
+2026-08-05T21:52:40.444+07:00  WARN 304122 --- [    Test worker] c.e.bff.service.AdminIdentityService     : Attempted to modify roles for enterprise LDAP user: ldap_john
+2026-08-05T21:52:40.467+07:00  INFO 304122 --- [    Test worker] c.e.bff.service.AdminIdentityService     : Deleted 1 active Spring Session(s) from Redis for user: customer1
+2026-08-05T21:52:40.468+07:00  INFO 304122 --- [    Test worker] c.e.bff.service.AdminIdentityService     : Successfully reset password and terminated all Keycloak + BFF sessions for user customer1
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

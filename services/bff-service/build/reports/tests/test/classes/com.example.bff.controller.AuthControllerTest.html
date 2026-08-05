@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.575s</div>
+<div class="counter">0.384s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,37 +79,37 @@
 </thead>
 <tr>
 <td class="success">shouldIncludeKcIdpHintInKeycloakAuthUrl_whenProvided()</td>
-<td class="success">0.083s</td>
+<td class="success">0.040s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">shouldLogout_whenCsrfTokenProvided()</td>
-<td class="success">0.093s</td>
+<td class="success">0.104s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">shouldRedirectToKeycloakWithGoogleIdpHint_whenGoogleLoginRequested()</td>
-<td class="success">0.038s</td>
+<td class="success">0.043s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">shouldRedirectToKeycloak_whenLoginEndpointRequested()</td>
-<td class="success">0.102s</td>
+<td class="success">0.040s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">shouldRedirectToKeycloak_whenLoginRequested()</td>
-<td class="success">0.147s</td>
+<td class="success">0.089s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">shouldRequireCsrfToken_whenLogoutRequested()</td>
-<td class="success">0.061s</td>
+<td class="success">0.027s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">shouldReturn401_whenNoCookieProvided()</td>
-<td class="success">0.051s</td>
+<td class="success">0.041s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -117,8 +117,8 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>2026-08-04T21:54:41.327+07:00  INFO 127586 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.bff.controller.AuthControllerTest]: AuthControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2026-08-04T21:54:41.336+07:00  INFO 127586 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.bff.BffApplication for test class com.example.bff.controller.AuthControllerTest
+<pre>2026-08-05T21:51:08.517+07:00  INFO 304122 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.bff.controller.AuthControllerTest]: AuthControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-08-05T21:51:08.536+07:00  INFO 304122 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.bff.BffApplication for test class com.example.bff.controller.AuthControllerTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -128,18 +128,18 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.3)
 
-2026-08-04T21:54:41.615+07:00  INFO 127586 --- [    Test worker] c.e.bff.controller.AuthControllerTest    : Starting AuthControllerTest using Java 21.0.11 with PID 127586 (started by lucky in /home/lucky/Project/event_ticket/services/bff-service)
-2026-08-04T21:54:41.617+07:00  INFO 127586 --- [    Test worker] c.e.bff.controller.AuthControllerTest    : The following 1 profile is active: &quot;test&quot;
-2026-08-04T21:54:43.674+07:00  INFO 127586 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-08-04T21:54:43.687+07:00  INFO 127586 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2026-08-04T21:54:43.713+07:00  INFO 127586 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24 ms. Found 0 Redis repository interfaces.
-2026-08-04T21:54:44.062+07:00  INFO 127586 --- [    Test worker] o.s.cloud.context.scope.GenericScope     : BeanFactory id=51bc6a19-6fc7-39b4-9d58-99f9a6e84054
-2026-08-04T21:54:45.655+07:00  INFO 127586 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-2026-08-04T21:54:45.800+07:00  INFO 127586 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4528a8bf, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1927c2c6, org.springframework.security.web.context.SecurityContextHolderFilter@62cad0e8, org.springframework.security.web.header.HeaderWriterFilter@1c7159d5, org.springframework.web.filter.CorsFilter@79a15001, org.springframework.security.web.csrf.CsrfFilter@1d7d2345, org.springframework.security.web.authentication.logout.LogoutFilter@31c87223, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@365ad794, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@4471f216, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1659a0ff, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1398e3aa, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@320bfc61, org.springframework.security.web.access.ExceptionTranslationFilter@43a8dd9b, org.springframework.security.web.access.intercept.AuthorizationFilter@3e9c59ed]
-2026-08-04T21:54:46.858+07:00  INFO 127586 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2026-08-04T21:54:46.859+07:00  INFO 127586 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2026-08-04T21:54:46.861+07:00  INFO 127586 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
-2026-08-04T21:54:47.180+07:00  INFO 127586 --- [    Test worker] c.e.bff.controller.AuthControllerTest    : Started AuthControllerTest in 5.831 seconds (process running for 40.88)
+2026-08-05T21:51:08.738+07:00  INFO 304122 --- [    Test worker] c.e.bff.controller.AuthControllerTest    : Starting AuthControllerTest using Java 21.0.11 with PID 304122 (started by lucky in /home/lucky/Project/event_ticket/services/bff-service)
+2026-08-05T21:51:08.739+07:00  INFO 304122 --- [    Test worker] c.e.bff.controller.AuthControllerTest    : The following 1 profile is active: &quot;test&quot;
+2026-08-05T21:51:10.247+07:00  INFO 304122 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-05T21:51:10.248+07:00  INFO 304122 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-08-05T21:51:10.262+07:00  INFO 304122 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 Redis repository interfaces.
+2026-08-05T21:51:10.450+07:00  INFO 304122 --- [    Test worker] o.s.cloud.context.scope.GenericScope     : BeanFactory id=51bc6a19-6fc7-39b4-9d58-99f9a6e84054
+2026-08-05T21:51:11.993+07:00  INFO 304122 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2026-08-05T21:51:12.365+07:00  INFO 304122 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@63b95a30, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@353aadd7, org.springframework.security.web.context.SecurityContextHolderFilter@e7b7395, org.springframework.security.web.header.HeaderWriterFilter@77198cce, org.springframework.web.filter.CorsFilter@39595a8, org.springframework.security.web.csrf.CsrfFilter@76480730, org.springframework.security.web.authentication.logout.LogoutFilter@474a63d9, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@4664fef, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@1026a011, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@383c94ed, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@293ccbdd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@26169be3, org.springframework.security.web.access.ExceptionTranslationFilter@405a296e, org.springframework.security.web.access.intercept.AuthorizationFilter@54a04eae]
+2026-08-05T21:51:13.232+07:00  INFO 304122 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-08-05T21:51:13.233+07:00  INFO 304122 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-08-05T21:51:13.236+07:00  INFO 304122 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2026-08-05T21:51:13.466+07:00  INFO 304122 --- [    Test worker] c.e.bff.controller.AuthControllerTest    : Started AuthControllerTest in 4.912 seconds (process running for 39.339)
 </pre>
 </span>
 </div>
@@ -151,7 +151,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.12</a> at Aug 4, 2026, 9:55:32 PM</p>
+<a href="http://www.gradle.org">Gradle 8.12</a> at Aug 5, 2026, 9:52:41 PM</p>
 </div>
 </div>
 </body>

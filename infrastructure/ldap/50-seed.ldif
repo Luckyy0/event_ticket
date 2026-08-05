@@ -34,3 +34,19 @@ userPassword: enterprisePassword123
 uidNumber: 10002
 gidNumber: 10002
 homeDirectory: /home/ldap_mary
+
+# Enterprise User 3 (Manager)
+dn: uid=ldap_kill,ou=users,dc=example,dc=org
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: ldap_kill
+sn: Kill
+givenName: Linger
+cn: Kill Linger
+displayName: Kill Linger (Enterprise Manager)
+mail: kill.linger@enterprise.example.org
+userPassword: enterprisePassword123
+uidNumber: 10003
+gidNumber: 10003
+homeDirectory: /home/ldap_kill

@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.025s</div>
+<div class="counter">0.034s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,7 +79,7 @@
 </thead>
 <tr>
 <td class="success">shouldRedirectToKeycloak_withRealKeycloak()</td>
-<td class="success">0.025s</td>
+<td class="success">0.034s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -87,31 +87,31 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>2026-08-04T21:54:51.473+07:00  INFO 127586 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.bff.integration.BffAuthIntegrationTest]: BffAuthIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2026-08-04T21:54:51.500+07:00  INFO 127586 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.bff.BffApplication for test class com.example.bff.integration.BffAuthIntegrationTest
-2026-08-04T21:54:51.564+07:00  INFO 127586 --- [    Test worker] org.testcontainers.images.PullPolicy     : Image pull policy will be performed by: DefaultPullPolicy()
-2026-08-04T21:54:51.571+07:00  INFO 127586 --- [    Test worker] o.t.utility.ImageNameSubstitutor         : Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
-2026-08-04T21:54:52.591+07:00  INFO 127586 --- [    Test worker] o.t.d.DockerClientProviderStrategy       : Found Docker environment with Environment variables, system properties and defaults. Resolved dockerHost=unix:///var/run/docker.sock
-2026-08-04T21:54:52.596+07:00  INFO 127586 --- [    Test worker] org.testcontainers.DockerClientFactory   : Docker host IP address is localhost
-2026-08-04T21:54:52.654+07:00  INFO 127586 --- [    Test worker] org.testcontainers.DockerClientFactory   : Connected to docker: 
+<pre>2026-08-05T21:51:19.321+07:00  INFO 304122 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.bff.integration.BffAuthIntegrationTest]: BffAuthIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-08-05T21:51:19.362+07:00  INFO 304122 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.bff.BffApplication for test class com.example.bff.integration.BffAuthIntegrationTest
+2026-08-05T21:51:19.557+07:00  INFO 304122 --- [    Test worker] org.testcontainers.images.PullPolicy     : Image pull policy will be performed by: DefaultPullPolicy()
+2026-08-05T21:51:19.578+07:00  INFO 304122 --- [    Test worker] o.t.utility.ImageNameSubstitutor         : Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+2026-08-05T21:51:23.089+07:00  INFO 304122 --- [    Test worker] o.t.d.DockerClientProviderStrategy       : Found Docker environment with Environment variables, system properties and defaults. Resolved dockerHost=unix:///var/run/docker.sock
+2026-08-05T21:51:23.103+07:00  INFO 304122 --- [    Test worker] org.testcontainers.DockerClientFactory   : Docker host IP address is localhost
+2026-08-05T21:51:23.297+07:00  INFO 304122 --- [    Test worker] org.testcontainers.DockerClientFactory   : Connected to docker: 
   Server Version: 29.3.0
   API Version: 1.54
   Operating System: Ubuntu 24.04.4 LTS
   Total Memory: 7823 MB
-2026-08-04T21:54:52.676+07:00  INFO 127586 --- [    Test worker] org.testcontainers.DockerClientFactory   : Checking the system...
-2026-08-04T21:54:52.678+07:00  INFO 127586 --- [    Test worker] org.testcontainers.DockerClientFactory   : ✔︎ Docker server version should be at least 1.6.0
-2026-08-04T21:54:54.138+07:00  INFO 127586 --- [    Test worker] tc.quay.io/keycloak/keycloak:26.3.0      : Creating container for image: quay.io/keycloak/keycloak:26.3.0
-2026-08-04T21:54:54.150+07:00  INFO 127586 --- [    Test worker] o.t.utility.RegistryAuthLocator          : Failure when attempting to lookup auth config. Please ignore if you don't have images in an authenticated registry. Details: (dockerImageName: quay.io/keycloak/keycloak:26.3.0, configFile: /home/lucky/.docker/config.json, configEnv: DOCKER_AUTH_CONFIG). Falling back to docker-java default behaviour. Exception message: Status 404: No config supplied. Checked in order: /home/lucky/.docker/config.json (file not found), DOCKER_AUTH_CONFIG (not set)
-2026-08-04T21:54:54.176+07:00  INFO 127586 --- [    Test worker] tc.testcontainers/ryuk:0.6.0             : Creating container for image: testcontainers/ryuk:0.6.0
-2026-08-04T21:54:54.178+07:00  INFO 127586 --- [    Test worker] o.t.utility.RegistryAuthLocator          : Failure when attempting to lookup auth config. Please ignore if you don't have images in an authenticated registry. Details: (dockerImageName: testcontainers/ryuk:0.6.0, configFile: /home/lucky/.docker/config.json, configEnv: DOCKER_AUTH_CONFIG). Falling back to docker-java default behaviour. Exception message: Status 404: No config supplied. Checked in order: /home/lucky/.docker/config.json (file not found), DOCKER_AUTH_CONFIG (not set)
-2026-08-04T21:54:54.493+07:00  INFO 127586 --- [    Test worker] tc.testcontainers/ryuk:0.6.0             : Container testcontainers/ryuk:0.6.0 is starting: b1d8f52cd4231f1aa525fcd64774cd4e10dc4ee776a0afe7f43ec4cee741487f
-2026-08-04T21:54:55.164+07:00  INFO 127586 --- [    Test worker] tc.testcontainers/ryuk:0.6.0             : Container testcontainers/ryuk:0.6.0 started in PT0.988289454S
-2026-08-04T21:54:55.323+07:00  INFO 127586 --- [    Test worker] tc.quay.io/keycloak/keycloak:26.3.0      : Container quay.io/keycloak/keycloak:26.3.0 is starting: 2f970f21846cd32150c8e515d57d46a2a136558b0deaf06b23b9a1029fc3069d
-2026-08-04T21:54:55.687+07:00  INFO 127586 --- [tream-969079832] tc.quay.io/keycloak/keycloak:26.3.0      : STDOUT: JAVA_OPTS_KC_HEAP already set in environment; overriding default settings
-2026-08-04T21:54:58.308+07:00  INFO 127586 --- [tream-969079832] tc.quay.io/keycloak/keycloak:26.3.0      : STDOUT: Updating the configuration and installing your custom providers, if any. Please wait.
-2026-08-04T21:55:22.159+07:00  INFO 127586 --- [tream-969079832] tc.quay.io/keycloak/keycloak:26.3.0      : STDOUT: 2026-08-04 14:55:22,156 INFO  [io.quarkus.deployment.QuarkusAugmentor] (main) Quarkus augmentation completed in 22032ms
-2026-08-04T21:55:24.143+07:00  INFO 127586 --- [tream-969079832] tc.quay.io/keycloak/keycloak:26.3.0      : STDOUT: Running the server in development mode. DO NOT use this configuration in production.
-2026-08-04T21:55:24.144+07:00  INFO 127586 --- [    Test worker] tc.quay.io/keycloak/keycloak:26.3.0      : Container quay.io/keycloak/keycloak:26.3.0 started in PT30.006271901S
+2026-08-05T21:51:23.373+07:00  INFO 304122 --- [    Test worker] org.testcontainers.DockerClientFactory   : Checking the system...
+2026-08-05T21:51:23.387+07:00  INFO 304122 --- [    Test worker] org.testcontainers.DockerClientFactory   : ✔︎ Docker server version should be at least 1.6.0
+2026-08-05T21:51:30.238+07:00  INFO 304122 --- [    Test worker] tc.quay.io/keycloak/keycloak:26.3.0      : Creating container for image: quay.io/keycloak/keycloak:26.3.0
+2026-08-05T21:51:30.278+07:00  INFO 304122 --- [    Test worker] o.t.utility.RegistryAuthLocator          : Failure when attempting to lookup auth config. Please ignore if you don't have images in an authenticated registry. Details: (dockerImageName: quay.io/keycloak/keycloak:26.3.0, configFile: /home/lucky/.docker/config.json, configEnv: DOCKER_AUTH_CONFIG). Falling back to docker-java default behaviour. Exception message: Status 404: No config supplied. Checked in order: /home/lucky/.docker/config.json (file not found), DOCKER_AUTH_CONFIG (not set)
+2026-08-05T21:51:30.348+07:00  INFO 304122 --- [    Test worker] tc.testcontainers/ryuk:0.6.0             : Creating container for image: testcontainers/ryuk:0.6.0
+2026-08-05T21:51:30.349+07:00  INFO 304122 --- [    Test worker] o.t.utility.RegistryAuthLocator          : Failure when attempting to lookup auth config. Please ignore if you don't have images in an authenticated registry. Details: (dockerImageName: testcontainers/ryuk:0.6.0, configFile: /home/lucky/.docker/config.json, configEnv: DOCKER_AUTH_CONFIG). Falling back to docker-java default behaviour. Exception message: Status 404: No config supplied. Checked in order: /home/lucky/.docker/config.json (file not found), DOCKER_AUTH_CONFIG (not set)
+2026-08-05T21:51:31.681+07:00  INFO 304122 --- [    Test worker] tc.testcontainers/ryuk:0.6.0             : Container testcontainers/ryuk:0.6.0 is starting: c9081dbe24c350bc1b8fffc5aeda9cb1bdba9adb6d727248a92d49c77ef89e34
+2026-08-05T21:51:35.386+07:00  INFO 304122 --- [    Test worker] tc.testcontainers/ryuk:0.6.0             : Container testcontainers/ryuk:0.6.0 started in PT5.037036966S
+2026-08-05T21:51:35.984+07:00  INFO 304122 --- [    Test worker] tc.quay.io/keycloak/keycloak:26.3.0      : Container quay.io/keycloak/keycloak:26.3.0 is starting: f5f5cc63c0e4d29bee24719b2acde276496d0b90a8256e70d7c00af7ce09a1f2
+2026-08-05T21:51:37.349+07:00  INFO 304122 --- [tream-629381328] tc.quay.io/keycloak/keycloak:26.3.0      : STDOUT: JAVA_OPTS_KC_HEAP already set in environment; overriding default settings
+2026-08-05T21:51:42.274+07:00  INFO 304122 --- [tream-629381328] tc.quay.io/keycloak/keycloak:26.3.0      : STDOUT: Updating the configuration and installing your custom providers, if any. Please wait.
+2026-08-05T21:52:27.761+07:00  INFO 304122 --- [tream-629381328] tc.quay.io/keycloak/keycloak:26.3.0      : STDOUT: 2026-08-05 14:52:27,757 INFO  [io.quarkus.deployment.QuarkusAugmentor] (main) Quarkus augmentation completed in 36244ms
+2026-08-05T21:52:31.145+07:00  INFO 304122 --- [tream-629381328] tc.quay.io/keycloak/keycloak:26.3.0      : STDOUT: Running the server in development mode. DO NOT use this configuration in production.
+2026-08-05T21:52:31.149+07:00  INFO 304122 --- [    Test worker] tc.quay.io/keycloak/keycloak:26.3.0      : Container quay.io/keycloak/keycloak:26.3.0 started in PT1M0.911039443S
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -121,24 +121,24 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.3)
 
-2026-08-04T21:55:24.319+07:00  INFO 127586 --- [    Test worker] c.e.b.i.BffAuthIntegrationTest           : Starting BffAuthIntegrationTest using Java 21.0.11 with PID 127586 (started by lucky in /home/lucky/Project/event_ticket/services/bff-service)
-2026-08-04T21:55:24.320+07:00  INFO 127586 --- [    Test worker] c.e.b.i.BffAuthIntegrationTest           : The following 1 profile is active: &quot;test&quot;
-2026-08-04T21:55:25.540+07:00  INFO 127586 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-08-04T21:55:25.547+07:00  INFO 127586 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2026-08-04T21:55:25.579+07:00  INFO 127586 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 29 ms. Found 0 Redis repository interfaces.
-2026-08-04T21:55:25.836+07:00  INFO 127586 --- [    Test worker] o.s.cloud.context.scope.GenericScope     : BeanFactory id=8f975a19-e0d7-3f5f-b3d7-00797e48035f
-2026-08-04T21:55:26.551+07:00  INFO 127586 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
-2026-08-04T21:55:26.607+07:00  INFO 127586 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-08-04T21:55:26.608+07:00  INFO 127586 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
-2026-08-04T21:55:26.824+07:00  INFO 127586 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2026-08-04T21:55:26.828+07:00  INFO 127586 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2496 ms
-2026-08-04T21:55:27.722+07:00  INFO 127586 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-2026-08-04T21:55:27.839+07:00  INFO 127586 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2f4daa0c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4bd52ca4, org.springframework.security.web.context.SecurityContextHolderFilter@717646f1, org.springframework.security.web.header.HeaderWriterFilter@139ca07f, org.springframework.web.filter.CorsFilter@5d9e5f2f, org.springframework.security.web.csrf.CsrfFilter@7a2b0101, org.springframework.security.web.authentication.logout.LogoutFilter@5aede1ef, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@ae397d6, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@3f34edfc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@537762d7, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6f06b73a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@455d026d, org.springframework.security.web.access.ExceptionTranslationFilter@549d1a11, org.springframework.security.web.access.intercept.AuthorizationFilter@68819fae]
-2026-08-04T21:55:28.231+07:00  INFO 127586 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring TestDispatcherServlet ''
-2026-08-04T21:55:28.232+07:00  INFO 127586 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2026-08-04T21:55:28.234+07:00  INFO 127586 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
-2026-08-04T21:55:28.460+07:00  INFO 127586 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 35933 (http) with context path ''
-2026-08-04T21:55:28.562+07:00  INFO 127586 --- [    Test worker] c.e.b.i.BffAuthIntegrationTest           : Started BffAuthIntegrationTest in 4.394 seconds (process running for 82.262)
+2026-08-05T21:52:31.403+07:00  INFO 304122 --- [    Test worker] c.e.b.i.BffAuthIntegrationTest           : Starting BffAuthIntegrationTest using Java 21.0.11 with PID 304122 (started by lucky in /home/lucky/Project/event_ticket/services/bff-service)
+2026-08-05T21:52:31.404+07:00  INFO 304122 --- [    Test worker] c.e.b.i.BffAuthIntegrationTest           : The following 1 profile is active: &quot;test&quot;
+2026-08-05T21:52:33.140+07:00  INFO 304122 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-05T21:52:33.145+07:00  INFO 304122 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-08-05T21:52:33.180+07:00  INFO 304122 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 33 ms. Found 0 Redis repository interfaces.
+2026-08-05T21:52:33.506+07:00  INFO 304122 --- [    Test worker] o.s.cloud.context.scope.GenericScope     : BeanFactory id=8f975a19-e0d7-3f5f-b3d7-00797e48035f
+2026-08-05T21:52:34.252+07:00  INFO 304122 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2026-08-05T21:52:34.295+07:00  INFO 304122 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-08-05T21:52:34.300+07:00  INFO 304122 --- [    Test worker] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.19]
+2026-08-05T21:52:34.510+07:00  INFO 304122 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-08-05T21:52:34.511+07:00  INFO 304122 --- [    Test worker] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3095 ms
+2026-08-05T21:52:35.477+07:00  INFO 304122 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2026-08-05T21:52:35.555+07:00  INFO 304122 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@17aadd1c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2c0e0ab9, org.springframework.security.web.context.SecurityContextHolderFilter@485fe2cd, org.springframework.security.web.header.HeaderWriterFilter@61902ae5, org.springframework.web.filter.CorsFilter@41274a53, org.springframework.security.web.csrf.CsrfFilter@721e04f1, org.springframework.security.web.authentication.logout.LogoutFilter@1b28684, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@37cb41fa, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@22587721, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4a645ebb, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@56eb8c30, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@20a7dc29, org.springframework.security.web.access.ExceptionTranslationFilter@2517308f, org.springframework.security.web.access.intercept.AuthorizationFilter@63cb1a9a]
+2026-08-05T21:52:36.013+07:00  INFO 304122 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring TestDispatcherServlet ''
+2026-08-05T21:52:36.013+07:00  INFO 304122 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-08-05T21:52:36.028+07:00  INFO 304122 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 14 ms
+2026-08-05T21:52:36.666+07:00  INFO 304122 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 33035 (http) with context path ''
+2026-08-05T21:52:36.812+07:00  INFO 304122 --- [    Test worker] c.e.b.i.BffAuthIntegrationTest           : Started BffAuthIntegrationTest in 5.648 seconds (process running for 122.685)
 </pre>
 </span>
 </div>
@@ -150,7 +150,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.12</a> at Aug 4, 2026, 9:55:32 PM</p>
+<a href="http://www.gradle.org">Gradle 8.12</a> at Aug 5, 2026, 9:52:41 PM</p>
 </div>
 </div>
 </body>

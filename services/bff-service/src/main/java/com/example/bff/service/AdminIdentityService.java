@@ -2,6 +2,7 @@ package com.example.bff.service;
 
 import org.keycloak.admin.client.Keycloak;
 import org.keycloak.admin.client.resource.UserResource;
+import org.keycloak.representations.idm.FederatedIdentityRepresentation;
 import org.keycloak.representations.idm.CredentialRepresentation;
 import org.keycloak.representations.idm.RoleRepresentation;
 import org.keycloak.representations.idm.UserRepresentation;
@@ -64,10 +65,28 @@ public class AdminIdentityService {
         UserResource userResource = keycloak.realm(realm).users().get(userId);
         UserRepresentation user = userResource.toRepresentation();
 
-        // Validate Enterprise/LDAP User constraint
+        // 1. Kiểm tra tài khoản Enterprise LDAP
         if (user.getFederationLink() != null && !user.getFederationLink().isEmpty()) {
             log.warn("Attempted to reset password for enterprise LDAP user: {}", user.getUsername());
             throw new IllegalArgumentException("Cannot reset password for Enterprise LDAP federated user. Password management is handled in the corporate directory.");
+        }
+
+        // 2. Kiểm tra tài khoản Đăng nhập mạng xã hội (Google, GitHub, Facebook)
+        List<FederatedIdentityRepresentation> federatedIdentities = userResource.getFederatedIdentity();
+        boolean isFederated = federatedIdentities != null && !federatedIdentities.isEmpty();
+
+        // Kiểm tra xem tài khoản này có mật khẩu nội bộ hay không (trường hợp tài khoản tự tạo rồi sau đó mới liên kết Google)
+        List<CredentialRepresentation> credentials = userResource.credentials();
+        boolean hasLocalPassword = credentials != null && credentials.stream()
+                .anyMatch(cred -> CredentialRepresentation.PASSWORD.equals(cred.getType()));
+
+        // Nếu là tài khoản Google thuần túy (chưa từng có mật khẩu nội bộ) -> Chặn không cho set password
+        if (isFederated && !hasLocalPassword) {
+            String idpList = federatedIdentities.stream()
+                    .map(FederatedIdentityRepresentation::getIdentityProvider)
+                    .collect(Collectors.joining(", "));
+            log.warn("Attempted to reset password for pure external IdP user: {} (Provider: {})", user.getUsername(), idpList);
+            throw new IllegalArgumentException("Cannot reset password for pure external Identity Provider account (" + idpList + "). This account authenticates exclusively through " + idpList + ".");
         }
 
         CredentialRepresentation credential = new CredentialRepresentation();

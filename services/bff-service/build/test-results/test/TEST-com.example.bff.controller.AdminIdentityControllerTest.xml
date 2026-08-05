@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.bff.controller.AdminIdentityControllerTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-08-04T14:54:38" hostname="DESKTOP-APGR6KO" time="2.442">
+<testsuite name="com.example.bff.controller.AdminIdentityControllerTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-08-05T14:51:06" hostname="DESKTOP-APGR6KO" time="1.502">
   <properties/>
-  <testcase name="logoutAll_whenAdmin_returns200Ok()" classname="com.example.bff.controller.AdminIdentityControllerTest" time="1.63"/>
-  <testcase name="resetPassword_whenAdmin_returns200Ok()" classname="com.example.bff.controller.AdminIdentityControllerTest" time="0.321"/>
-  <testcase name="updateRoles_whenNonAdmin_returns403Forbidden()" classname="com.example.bff.controller.AdminIdentityControllerTest" time="0.149"/>
+  <testcase name="logoutAll_whenAdmin_returns200Ok()" classname="com.example.bff.controller.AdminIdentityControllerTest" time="0.791"/>
+  <testcase name="resetPassword_whenAdmin_returns200Ok()" classname="com.example.bff.controller.AdminIdentityControllerTest" time="0.249"/>
+  <testcase name="updateRoles_whenNonAdmin_returns403Forbidden()" classname="com.example.bff.controller.AdminIdentityControllerTest" time="0.168"/>
   <testcase name="updateRoles_whenAdmin_returns200Ok()" classname="com.example.bff.controller.AdminIdentityControllerTest" time="0.097"/>
-  <testcase name="resetPassword_whenStaff_returns403Forbidden()" classname="com.example.bff.controller.AdminIdentityControllerTest" time="0.085"/>
-  <testcase name="updateRoles_whenLdapUser_returns400BadRequest()" classname="com.example.bff.controller.AdminIdentityControllerTest" time="0.109"/>
-  <system-out><![CDATA[21:54:10.988 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.bff.controller.AdminIdentityControllerTest]: AdminIdentityControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-21:54:11.344 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.bff.BffApplication for test class com.example.bff.controller.AdminIdentityControllerTest
+  <testcase name="resetPassword_whenStaff_returns403Forbidden()" classname="com.example.bff.controller.AdminIdentityControllerTest" time="0.08"/>
+  <testcase name="updateRoles_whenLdapUser_returns400BadRequest()" classname="com.example.bff.controller.AdminIdentityControllerTest" time="0.057"/>
+  <system-out><![CDATA[21:50:37.212 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.bff.controller.AdminIdentityControllerTest]: AdminIdentityControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+21:50:37.685 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.bff.BffApplication for test class com.example.bff.controller.AdminIdentityControllerTest
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -18,18 +18,18 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.3)
 
-2026-08-04T21:54:13.117+07:00  INFO 127586 --- [    Test worker] c.e.b.c.AdminIdentityControllerTest      : Starting AdminIdentityControllerTest using Java 21.0.11 with PID 127586 (started by lucky in /home/lucky/Project/event_ticket/services/bff-service)
-2026-08-04T21:54:13.126+07:00  INFO 127586 --- [    Test worker] c.e.b.c.AdminIdentityControllerTest      : The following 1 profile is active: "test"
-2026-08-04T21:54:17.356+07:00  INFO 127586 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2026-08-04T21:54:17.367+07:00  INFO 127586 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
-2026-08-04T21:54:17.490+07:00  INFO 127586 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 66 ms. Found 0 Redis repository interfaces.
-2026-08-04T21:54:18.491+07:00  INFO 127586 --- [    Test worker] o.s.cloud.context.scope.GenericScope     : BeanFactory id=2fda02f7-c218-33b6-910c-a73c98cabed2
-2026-08-04T21:54:32.459+07:00  INFO 127586 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-2026-08-04T21:54:33.002+07:00  INFO 127586 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@df5f657, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@68908be7, org.springframework.security.web.context.SecurityContextHolderFilter@2c7ac998, org.springframework.security.web.header.HeaderWriterFilter@4a532271, org.springframework.web.filter.CorsFilter@1aba8978, org.springframework.security.web.csrf.CsrfFilter@6c38f4de, org.springframework.security.web.authentication.logout.LogoutFilter@15d68a50, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@1c149539, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@5ee76cf2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@56bf6f1e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4ac26092, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2662e3ff, org.springframework.security.web.access.ExceptionTranslationFilter@18d63996, org.springframework.security.web.access.intercept.AuthorizationFilter@7f65639e]
-2026-08-04T21:54:37.740+07:00  INFO 127586 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2026-08-04T21:54:37.741+07:00  INFO 127586 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2026-08-04T21:54:37.759+07:00  INFO 127586 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 16 ms
-2026-08-04T21:54:38.380+07:00  INFO 127586 --- [    Test worker] c.e.b.c.AdminIdentityControllerTest      : Started AdminIdentityControllerTest in 26.573 seconds (process running for 32.079)
+2026-08-05T21:50:39.905+07:00  INFO 304122 --- [    Test worker] c.e.b.c.AdminIdentityControllerTest      : Starting AdminIdentityControllerTest using Java 21.0.11 with PID 304122 (started by lucky in /home/lucky/Project/event_ticket/services/bff-service)
+2026-08-05T21:50:39.910+07:00  INFO 304122 --- [    Test worker] c.e.b.c.AdminIdentityControllerTest      : The following 1 profile is active: "test"
+2026-08-05T21:50:46.680+07:00  INFO 304122 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-08-05T21:50:46.707+07:00  INFO 304122 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-08-05T21:50:46.861+07:00  INFO 304122 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 56 ms. Found 0 Redis repository interfaces.
+2026-08-05T21:50:47.823+07:00  INFO 304122 --- [    Test worker] o.s.cloud.context.scope.GenericScope     : BeanFactory id=2fda02f7-c218-33b6-910c-a73c98cabed2
+2026-08-05T21:50:58.293+07:00  INFO 304122 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2026-08-05T21:50:58.825+07:00  INFO 304122 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@261b27db, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@175745fc, org.springframework.security.web.context.SecurityContextHolderFilter@2b0d818d, org.springframework.security.web.header.HeaderWriterFilter@4ac26092, org.springframework.web.filter.CorsFilter@2c1a0f82, org.springframework.security.web.csrf.CsrfFilter@1eda12b3, org.springframework.security.web.authentication.logout.LogoutFilter@4598961d, org.springframework.security.oauth2.client.web.OAuth2AuthorizationRequestRedirectFilter@df5f657, org.springframework.security.oauth2.client.web.OAuth2LoginAuthenticationFilter@2662e3ff, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@306c8e09, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@87df88d, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@60e5db1d, org.springframework.security.web.access.ExceptionTranslationFilter@7f6936cc, org.springframework.security.web.access.intercept.AuthorizationFilter@27c49f54]
+2026-08-05T21:51:06.062+07:00  INFO 304122 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-08-05T21:51:06.066+07:00  INFO 304122 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-08-05T21:51:06.072+07:00  INFO 304122 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 5 ms
+2026-08-05T21:51:06.556+07:00  INFO 304122 --- [    Test worker] c.e.b.c.AdminIdentityControllerTest      : Started AdminIdentityControllerTest in 28.246 seconds (process running for 32.428)
 ]]></system-out>
   <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (/home/lucky/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.14.12/be4984cb6fd1ef1d11f218a648889dfda44b8a15/byte-buddy-agent-1.14.12.jar)
 WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
